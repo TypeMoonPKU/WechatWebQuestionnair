@@ -13,7 +13,7 @@ define("DATABASE_ACCESS_PORT",3306);
 define("DATABASE_NAME","typemoon01");
 
 function create_and_open_database_connection(){
-    $conn = new mysqli(DATABASE_SERVER_NAME,DATABASE_USER_NAME,DATABASE_PASSWORD,DATABASE_ACCESS_PORT);
+    $conn = new mysqli(DATABASE_SERVER_NAME,DATABASE_USER_NAME,DATABASE_PASSWORD);
     if($conn->connect_error){
         die("Connection failed: " . $conn->connect_error);
     }
