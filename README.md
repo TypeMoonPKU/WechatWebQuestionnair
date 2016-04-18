@@ -21,6 +21,10 @@
 * ./onlyForLocalHost 存放系统初次使用时的配置文件。
 * ./wxq 关键文件夹，用户访问应用时的主要文件夹。
 * ./util 功能函数所在的文件夹。
+
+## 常用链接
+* https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=121.201.14.58%2fwxq%2fwxapi.php&response_type=code&scope=snsapi_base#wechat_redirect
+    获取有关的用户信息。
 ##问题定义
 ##可行性分析
 ##需求分析

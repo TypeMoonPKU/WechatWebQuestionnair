@@ -19,6 +19,10 @@ function getAccessToken(){
     return $result;
 }
 
-function getOpenId(){
 
+function getOpenId($code){
+    $token = getAccessToken();
+    $url = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=". $token . "&code=" . $code;
+    $result = file_get_contents($url);
+    return $result;
 }
