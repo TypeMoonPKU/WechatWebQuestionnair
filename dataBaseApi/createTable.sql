@@ -3,7 +3,7 @@ CREATE TABLE teacherTable
 (
   teacherName VARCHAR(20) NOT NULL ,
   teacherOpenID VARCHAR(20),
-  teacherID INT AUTO_INCREMENT,
+  teacherID INT NOT NULL AUTO_INCREMENT,
   teacherPassword VARCHAR(20),
   teacherNickName VARCHAR(20),
   PRIMARY KEY (teacherID)
@@ -32,8 +32,8 @@ CREATE TABLE studentTable
 
 CREATE TABLE parentStudentTable
 (
-  parentID INT,
-  studentID VARCHAR(20),
+  parentID INT NOT NULL ,
+  studentID VARCHAR(20) NOT NULL ,
   relationship VARCHAR(10),
   PRIMARY KEY (parentID,studentID),
   FOREIGN KEY (parentID)
@@ -44,12 +44,13 @@ CREATE TABLE parentStudentTable
 
 CREATE TABLE questionnaireTable
 (
-  questionnaireID INT AUTO_INCREMENT,
+  questionnaireID INT NOT NULL AUTO_INCREMENT,
   title VARCHAR(50),
   questionnaireDescription VARCHAR(500),
   questionnaireType CHAR(1), #q for questionnaire, n for notification
   createTime TIMESTAMP,
   ownerTeacherID INT,
+  groupID INT,
   PRIMARY KEY (questionnaireID),
   FOREIGN KEY (ownerTeacherID)
     REFERENCES teacherTable(teacherID),
@@ -83,7 +84,7 @@ CREATE TABLE optionTable
 
 CREATE TABLE answerTable
 (
-  quesionnaireID INT,
+  questionnaireID INT,
   questionID INT,
   optionID INT,
   parentID INT,

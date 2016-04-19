@@ -1,0 +1,15 @@
+1.在question表和option表中，如果其ID采用auto increment方式生成，那么在数据库中每个问题、选项的ID都是唯一的。
+    实际上每个问卷中的questionID可以从1开始，不同问卷中可以相同。
+    如果达到一定数据量，questionID和optionID可能超出int值？
+
+2.check的作用需要测试
+
+3.（有时间）加入预处理语句
+
+4. 考勤时不考虑是否select，只看answerTable中是否有某位家长的数据
+
+5. 多数据测试
+
+6. 把通知作为只有1个题目、1个选项（确认）的问卷
+
+7.student表，questionnaire表存在冗余（ownerTeacherID）
