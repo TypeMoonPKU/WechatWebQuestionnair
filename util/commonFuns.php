@@ -47,3 +47,14 @@ function getOpenIdOrUserID($code){
     $result = file_get_contents($url);
     return $result;
 }
+
+
+/**
+ * 永远只返回openID
+ * @param $code
+ */
+function getOpenId($code){
+    $result = getOpenIdOrUserID($code);
+    
+    if()
+}
