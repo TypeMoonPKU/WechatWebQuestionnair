@@ -1,0 +1,4 @@
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=http://121.201.14.58/wxq/wxapi.php&response_type=code&scope=snsapi_base#wechat_redirect
+
+
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=121.201.14.58%2fwxq%2getOpenId.php&response_type=code&scope=snsapi_base#wechat_redirect

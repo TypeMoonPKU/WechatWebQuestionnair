@@ -21,6 +21,7 @@
 * ./onlyForLocalHost 存放系统初次使用时的配置文件。
 * ./wxq 关键文件夹，用户访问应用时的主要文件夹。
 * ./util 功能函数所在的文件夹。
+* ./pages 显示给用户的网页
 
 ## 数据库配置
 * 数据库只允许来自localhost的访问
@@ -30,6 +31,10 @@
 ## 常用链接
 * https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=121.201.14.58%2fwxq%2fwxapi.php&response_type=code&scope=snsapi_base#wechat_redirect
     获取有关的用户信息。
+
+## 接口
+### 家长注册
+    使用get方法，提供parentName, studentID两个字段。
 ##问题定义
 ##可行性分析
 ##需求分析
