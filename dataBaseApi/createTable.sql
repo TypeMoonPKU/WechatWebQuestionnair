@@ -2,7 +2,7 @@ use typemoon01;
 CREATE TABLE teacherTable
 (
   teacherName VARCHAR(20) NOT NULL ,
-  teacherOpenID VARCHAR(20),
+  teacherOpenID VARCHAR(20) NOT NULL ,
   teacherID INT NOT NULL AUTO_INCREMENT,
   teacherPassword VARCHAR(20),
   teacherNickName VARCHAR(20),
@@ -12,7 +12,7 @@ CREATE TABLE teacherTable
 CREATE TABLE parentTable
 (
   parentName VARCHAR(20) NOT NULL ,
-  parentOpenID VARCHAR(20),
+  parentOpenID VARCHAR(20) NOT NULL ,
   parentID INT NOT NULL AUTO_INCREMENT,
   parentPassword VARCHAR(20),
   parentNickName VARCHAR(20),

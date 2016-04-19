@@ -6,7 +6,7 @@
  * Time: 20:01
  */
 
-//创建表单
+/*//创建表单
 function createTable()
 {
     $servername = "localhost";
@@ -50,9 +50,11 @@ function insertTeacher($name, $openID, $tpassword, $nickname)
     VALUES ('$name', '$openID', 0, '$tpassword', '$nickname')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New teacher record created successfully";
+        //echo "New teacher record created successfully";
+        return true;
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        //echo "Error: " . $sql . "<br>" . $conn->error;
+        return false;
     }
     $conn->close();
 }
@@ -69,9 +71,11 @@ function insertStudent($name, $ID, $group, $teacherID)
     VALUES ('$name', '$ID', '$group', '$teacherID')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New student record created successfully";
+        // "New student record created successfully";
+        return true;
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        //echo "Error: " . $sql . "<br>" . $conn->error;
+        return false;
     }
     $conn->close();
 }
@@ -292,4 +296,4 @@ function checkTeacher($TeacherID)
 //insertOption(1,1,'This is the first option of our first question.');
 //insertAnswer(1,1,1,1,1);
 //getPeopleSelected(1);
-getPeopleNotSelected(1);
+getPeopleNotSelected(1);*/
