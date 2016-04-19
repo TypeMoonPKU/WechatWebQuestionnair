@@ -13,3 +13,5 @@
 6. 把通知作为只有1个题目、1个选项（确认）的问卷
 
 7.student表，questionnaire表存在冗余（ownerTeacherID）
+
+8.每个学生只能属于一个group，只有一个老师

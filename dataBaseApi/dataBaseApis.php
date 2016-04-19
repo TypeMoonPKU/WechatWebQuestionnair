@@ -278,7 +278,7 @@ function checkTeacher($teacherOpenID)
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
     $sql = "SELECT teacherOpenID FROM teacherTable
-        WHERE teacherOpenID=$teacherOpenID";
+        WHERE teacherOpenID='$teacherOpenID'";
 
     $result=$conn->query($sql);
     if ($result->num_rows > 0) {
@@ -298,15 +298,15 @@ function checkParent($parentOpenID)
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
     $sql = "SELECT parentOpenID FROM parentTable
-        WHERE parentOpenID=$parentOpenID";
+        WHERE parentOpenID='$parentOpenID'";
 
     $result=$conn->query($sql);
     if ($result->num_rows > 0) {
-        echo "true";
+        //echo "true";
         return true;
     }
     else {
-        echo "false";
+        //echo "false";
         return false;
     }
 }
@@ -323,6 +323,6 @@ function checkParent($parentOpenID)
 //insertAnswer(1,1,1,1,1);
 //getPeopleSelected(1);
 //getPeopleNotSelected(1);
-checkTeacher(1);
-checkParent('p1OpenID');
-checkParent('p1openID');
+//checkTeacher('t2openID');
+//checkParent('p1OpenID');
+//checkParent('p1openID');
