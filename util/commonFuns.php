@@ -30,16 +30,10 @@ function getAccessToken(){
         return $GLOBALS["last_access_token"];
     }
 
-
-//    echo $URL;
-//    echo $result;
-    return $result;
 }
-
-
 /**
  * @param $code
- * @return  json string 可能返回userid（对于企业成员），也可能返回openid（对于其他用户）
+ * @return  string 可能返回userid（对于企业成员），也可能返回openid（对于其他用户）
  */
 function getOpenIdOrUserID($code){
     $token = getAccessToken();
@@ -55,6 +49,22 @@ function getOpenIdOrUserID($code){
  */
 function getOpenId($code){
     $result = getOpenIdOrUserID($code);
-    
-    if()
+    $obj = json_decode($result);
+    if(property_exists($obj,"UserId")){ // 返回了企业号中的成员
+        //调用api转换userid
+
+    }elseif(property_exists($obj,"OpenId")){ //这里的openid大小写不要更改
+        $openID = $obj->{'OpenId'};
+    }else{
+        $error = "getOpenId error";
+        throw new Exception($error);
+    }
+
+    return $openID;
+}
+
+function getOpenIdFromUserId($userId){
+    $access_token = getAccessToken();
+    $URL = "https://qyapi.weixin.qq.com/cgi-bin/user/convert_to_openid?access_token=" . $access_token;
+    // TODO 还未完成
 }
