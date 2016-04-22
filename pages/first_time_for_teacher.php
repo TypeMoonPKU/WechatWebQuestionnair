@@ -65,12 +65,19 @@
 <h3>
     <strong>老师初始化</strong>
 </h3>
-<form class="form-horizontal" role="form" action="../testPost.php?testPost=ppp" method="get">
+<form class="form-horizontal" role="form" action="../reg/teacherReg.php" method="get">
     <div class="form-group">
         <label for="teacherName" class="col-sm-2 control-label">用户名</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="teacherName" name="teacherName"
                    placeholder="请输入用户名">
+        </div>
+    </div>
+    <div class="form-group" >
+        <label for="teacherOpenID" class="col-sm-2 control-label">OpenID</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="teacherOpenID" name="teacherOpenID"
+                   placeholder="请输入用户名" value=<?php echo $_REQUEST["OpenID"]?>>
         </div>
     </div>
     <div class="form-group">

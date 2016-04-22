@@ -18,19 +18,19 @@ require_once "../dataBaseApi/dataBaseApis.php";
     echo "   value: " . $value;
 }*/
 var_dump($_REQUEST);
-var_dump($_POST);
+//var_dump($_POST);
 $teacherName = $_REQUEST["teacherName"];
-var_dump($_COOKIE);
-$teacherOpenID = $_COOKIE["OpenID"];
+//var_dump($_COOKIE);
+//$teacherOpenID = $_COOKIE["OpenID"];
 
-echo $teacherOpenID;
-// $teacherOpenID = $_REQUEST["teacherOpenID"];  // 改为使用cookie获取openid
+//echo $teacherOpenID;
+ $teacherOpenID = $_REQUEST["teacherOpenID"];  // 改为使用cookie获取openid
 
 if ($teacherName==""){
-    echo "TeacherName can't be empty!<br>";
+    echo "teacherName can't be empty!<br>";
 }
 elseif ($teacherOpenID==""){
-    echo "TeacherOpenID can't be empty!<br>";
+    echo "teacherOpenID can't be empty!<br>";
 }
 else {
     if (checkTeacher($teacherOpenID)==true)

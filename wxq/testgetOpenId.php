@@ -29,7 +29,9 @@ setcookie("OpenIDCookie", $result, time()+60*60*24*30 );
 
 ============测试信息结束  <br>
 
-<h3><a href="../pages/first_time_for_teacher.html?">老师注册</a></h3>
+<h3><a href=<?php $url = "../pages/first_time_for_teacher.php?OpenID=" . $result;
+    echo $url;
+    ?>>老师注册</a></h3>
 <br>
 <h3><a href="../pages/first_time_for_students.html">家长注册</a></h3>
 <br>
