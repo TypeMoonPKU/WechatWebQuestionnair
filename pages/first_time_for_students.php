@@ -1,8 +1,11 @@
+<!-- 调用的时候必须以get方法提供teacherOpenID和parentOpenID-->
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>注册页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="text/html;charset=utf-8">
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
     <script src="./reference/bootstrap.min.js"></script>
@@ -65,19 +68,40 @@
 <h3>
     <strong>老师初始化</strong>
 </h3>
-<form class="form-horizontal" role="form" action="../reg/teacherReg.php" method="get">
+<form class="form-horizontal" role="form" method="get" action="../reg/parentRegWithStudent.php">
     <div class="form-group">
-        <label for="teacherName" class="col-sm-2 control-label">用户名</label>
+        <label for="parentName" class="col-sm-2 control-label">用户名</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="teacherName" name="teacherName"
+            <input type="text" class="form-control" id="parentName" name="parentName"
                    placeholder="请输入用户名">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="studentName" class="col-sm-2 control-label">学生名</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="studentName" name="studentName"
+                   placeholder="请输入您孩子的姓名">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="studentID" class="col-sm-2 control-label">学号</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="studentID" name="studentID"
+                   placeholder="请输入孩子学号">
         </div>
     </div>
     <div class="form-group" style="display: none" >
         <label for="teacherOpenID" class="col-sm-2 control-label">OpenID</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="teacherOpenID" name="teacherOpenID"
-                    value=<?php echo $_REQUEST["teacherOpenID"]?>>
+                   value=<?php echo $_REQUEST["teacherOpenID"]?>>
+        </div>
+    </div>
+    <div class="form-group" style="display: none" >
+        <label for="parentOpenID" class="col-sm-2 control-label">OpenID</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="parentOpenID" name="parentOpenID"
+                   value=<?php echo $_REQUEST["parentOpenID"]?>>
         </div>
     </div>
     <div class="form-group">

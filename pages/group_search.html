@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>注册页</title>
+    <title>群管理</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
     <script src="./reference/bootstrap.min.js"></script>
     <script src="./reference/bootstrap-theme.min.css"></script>
+
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -52,7 +53,6 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li><a href="./group_create.html">创建群</a></li>
-                    <li><a href="./group_manage.html">管理群</a></li>
                     <li><a href="./group_join.html">加入群</a></li>
                     <li class="divider"></li>
                     <li><a href="./group_search.html">查找群</a></li>
@@ -62,54 +62,32 @@
     </div>
 </nav>
 
-<h3>
-    <strong>老师初始化</strong>
-</h3>
-<form class="form-horizontal" role="form" action="../reg/teacherReg.php" method="get">
-    <div class="form-group">
-        <label for="teacherName" class="col-sm-2 control-label">用户名</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="teacherName" name="teacherName"
-                   placeholder="请输入用户名">
-        </div>
-    </div>
-    <div class="form-group" style="display: none" >
-        <label for="teacherOpenID" class="col-sm-2 control-label">OpenID</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="teacherOpenID" name="teacherOpenID"
-                    value=<?php echo $_REQUEST["teacherOpenID"]?>>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="email_adress" class="col-sm-2 control-label">邮件地址</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="email_adress"
-                   placeholder="请输入邮件地址">
-        </div>
-    </div>
+<br><br><br>
+<ul class="list-group">
+    <li class="list-group-item">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="请输入待查找的群">
+            <span class="input-group-btn">
+         <button class="btn btn-default" type="button" onclick="window.location='./group_search.html'">查找</button>
+      </span>
+        </div><!-- /input-group -->
+    </li>
+</ul>
 
-    <div class="form-group">
-        <label for="password" class="col-sm-2 control-label">设置密码</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="password"
-            placeholder="请设置密码">
-            <span class="help-block">请包括至少字母和数字</span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="password_again" class="col-sm-2 control-label">确认密码</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="password_again"
-            placeholder="请再输入密码">
-        </div>
-    </div>
+<ul class="list-group">
+    <li class="list-group-item"><strong>搜到的群</strong></li>
+    <li class="list-group-item"><a href="./group_show.html">群1</a>&nbsp<a href="./notice_show.html">描述</a></li>
+    <li class="list-group-item"><a href="./group_show.html">群2</a>&nbsp<a href="./notice_show.html">描述</a></li>
+    <li class="list-group-item">我是第三新的通知</li>
+</ul>
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-large btn-block">注册</button>
-        </div>
-    </div>
-</form>
+<ul class="list-group">
+    <li class="list-group-item"><strong>可能感兴趣的群</strong></li>
+    <li class="list-group-item"><a href="./group_show.html">群1</a>&nbsp描述</li>
+    <li class="list-group-item"><a href="./group_show.html">群2</a>&nbsp描述</li>
+    <li class="list-group-item">群3&nbsp<a href="./group_question.html">相关问卷</a></li>
+</ul>
+
 
 </body>
 </html>

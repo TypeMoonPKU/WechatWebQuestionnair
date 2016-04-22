@@ -29,10 +29,12 @@ setcookie("OpenIDCookie", $result, time()+60*60*24*30 );
 
 ============测试信息结束  <br>
 
-<h3><a href=<?php $url = "../pages/first_time_for_teacher.php?OpenID=" . $result;
+<h3><a href=<?php $url = "../pages/first_time_for_teacher.php?teacherOpenID=" . $result;
     echo $url;
     ?>>老师注册</a></h3>
 <br>
-<h3><a href="../pages/first_time_for_students.html">家长注册</a></h3>
+<h3><a href=<?php $url = "../pages/first_time_for_students.php?teacherOpenID=" . $result . "&parentOpenID=" ;
+    echo $url;
+    ?>>家长注册。必须先有老师注册之后才能用，这里的链接是无法使用的。</a></h3>
 <br>
 <h3><a href="../pages/showCookie.html">显示cookie</a></h3>

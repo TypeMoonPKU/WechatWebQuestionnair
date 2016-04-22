@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>注册页</title>
+    <title>创建通知群</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
@@ -62,54 +62,46 @@
     </div>
 </nav>
 
-<h3>
-    <strong>老师初始化</strong>
-</h3>
-<form class="form-horizontal" role="form" action="../reg/teacherReg.php" method="get">
-    <div class="form-group">
-        <label for="teacherName" class="col-sm-2 control-label">用户名</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="teacherName" name="teacherName"
-                   placeholder="请输入用户名">
-        </div>
-    </div>
-    <div class="form-group" style="display: none" >
-        <label for="teacherOpenID" class="col-sm-2 control-label">OpenID</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="teacherOpenID" name="teacherOpenID"
-                    value=<?php echo $_REQUEST["teacherOpenID"]?>>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="email_adress" class="col-sm-2 control-label">邮件地址</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="email_adress"
-                   placeholder="请输入邮件地址">
-        </div>
+<script script type="text/javascript">
+    function creategroup()
+    {
+        var reader = new FileReader();
+        reader.onload = function()
+        {
+            alert(this.result)
+        }
+        var f = document.getElementById("filePicker").files[0];
+        reader.readAsText(f);
+    }
+</script>
+</br></br></br>
+
+<form>
+
+    <div>
+        <h1>群名</h1>
+        <h3>简要介绍</h3>
     </div>
 
-    <div class="form-group">
-        <label for="password" class="col-sm-2 control-label">设置密码</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="password"
-            placeholder="请设置密码">
-            <span class="help-block">请包括至少字母和数字</span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="password_again" class="col-sm-2 control-label">确认密码</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="password_again"
-            placeholder="请再输入密码">
-        </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-large btn-block">注册</button>
-        </div>
-    </div>
 </form>
-
+<ul class="list-group">
+    <li class="list-group-item"> <strong>未答问卷列表</strong> </li>
+    <li class="list-group-item"><a href="./question_show.html">我是最新的问卷</a></li>
+    <li class="list-group-item"><a href="./question_show.html">我是第二新的问卷</a></li>
+    <li class="list-group-item">我是第三新的通知</li>
+</ul>
+<ul class="list-group">
+    <li class="list-group-item"> <strong>通知列表</strong> </li>
+    <li class="list-group-item"><a href="./notice_show.html">我是最新的通知</a></li>
+    <li class="list-group-item"><a href="./notice_show.html">我是第二新的通知</a></li>
+    <li class="list-group-item">我是第三新的通知</li>
+</ul>
+<ul class="list-group">
+    <li class="list-group-item"> <strong>群成员列表</strong> </li>
+    <li class="list-group-item">成员名1</li>
+    <li class="list-group-item">成员名2</li>
+    <li class="list-group-item">成员名3</li>
+</ul>
 </body>
 </html>

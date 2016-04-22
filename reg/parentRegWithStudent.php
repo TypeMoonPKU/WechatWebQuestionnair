@@ -22,6 +22,8 @@ $parentOpenID = $_REQUEST["parentOpenID"];
 $studentID = $_REQUEST["studentID"];
 $teacherOpenID = $_REQUEST["teacherOpenID"];
 
+//$teacherID = $_REQUEST["teacherOpenID"];
+
 $teacherID = getTeacherID($teacherOpenID);
 if($teacherID==false) {
     echo "No such teacher!";
@@ -52,7 +54,7 @@ else {
             if ($rtnVal == true) {
                 echo "注册成功<br>";
             } else {
-                echo "注册失败2<br>";
+                echo "注册失败<br>";
             }
         }
     }
