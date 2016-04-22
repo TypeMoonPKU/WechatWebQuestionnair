@@ -20,38 +20,40 @@ $parentName = $_REQUEST["parentName"];
 $studentName = $_REQUEST["studentName"];
 $parentOpenID = $_REQUEST["parentOpenID"];
 $studentID = $_REQUEST["studentID"];
-$teacherID = $_REQUEST["teacherID"];
+$teacherOpenID = $_REQUEST["teacherOpenID"];
 
-if ($parentName==""){
-    echo "ParentName can't be empty!<br>";
-}
-elseif ($parentOpenID==""){
-    echo "ParentOpenID can't be empty!<br>";
-}
-elseif($studentName=="") {
-    echo "StudentName can't be empty!<br>";
-}
-elseif ($studentID=="") {
-    echo "StudentID can't be empty!<br>";
+$teacherID = getTeacherID($teacherOpenID);
+if($teacherID==false) {
+    echo "No such teacher!";
 }
 else {
-    if (checkStudent($studentID)==false) {
-        $rtnVal = insertStudent($studentName, $studentID, "null", $teacherID); //group暂时设置为null
-        if ($rtnVal == true) {
-            echo "学生信息添加成功<br>";
-        } else {
-            echo "学生信息添加失败<br>";
+    if ($parentName == "") {
+        echo "ParentName can't be empty!<br>";
+    } elseif ($parentOpenID == "") {
+        echo "ParentOpenID can't be empty!<br>";
+    } elseif ($studentName == "") {
+        echo "StudentName can't be empty!<br>";
+    } elseif ($studentID == "") {
+        echo "StudentID can't be empty!<br>";
+    } else {
+        if (checkStudent($studentID) == false) {
+            $rtnVal = insertStudent($studentName, $studentID, "null", $teacherID); //group暂时设置为null
+            if ($rtnVal == true) {
+                echo "学生信息添加成功<br>";
+            } else {
+                echo "学生信息添加失败<br>";
+            }
         }
-    }
-    if (checkParent($parentOpenID)==true)
-        echo "注册失败，用户已注册<br>";
-    else {
-        $rtnVal = insertParent($parentName, $parentOpenID, $studentID, "null", "null");
-        //$rtnVal = insertParent('p','p1openID','123456','pppppp','000001');
-        if ($rtnVal == true) {
-            echo "注册成功<br>";
-        } else {
-            echo "注册失败2<br>";
+        if (checkParent($parentOpenID) == true)
+            echo "注册失败，用户已注册<br>";
+        else {
+            $rtnVal = insertParent($parentName, $parentOpenID, $studentID, "null", "null");
+            //$rtnVal = insertParent('p','p1openID','123456','pppppp','000001');
+            if ($rtnVal == true) {
+                echo "注册成功<br>";
+            } else {
+                echo "注册失败2<br>";
+            }
         }
     }
 }

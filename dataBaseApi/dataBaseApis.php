@@ -52,12 +52,13 @@ function insertTeacher($name, $openID, $tpassword, $nickname)
 
     if ($conn->query($sql) === TRUE) {
         //echo "New teacher record created successfully";
+        $conn->close();
         return true;
     } else {
         //echo "Error: " . $sql . "<br>" . $conn->error;
+        $conn->close();
         return false;
     }
-    $conn->close();
 }
 
 //加入新学生数据
@@ -73,12 +74,13 @@ function insertStudent($name, $ID, $group, $teacherID)
 
     if ($conn->query($sql) === TRUE) {
         // "New student record created successfully";
+        $conn->close();
         return true;
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        //echo "Error: " . $sql . "<br>" . $conn->error;
+        $conn->close();
         return false;
     }
-    $conn->close();
 }
 
 //加入新家长数据，同时建立家长-学生关系
@@ -89,29 +91,28 @@ function insertParent($name, $openID, $studentID, $tpassword, $nickname)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
-    $sql = "INSERT INTO parentTable (parentName, parentOpenID, parentID, parentPassword, parentNickName)
+    $sql1 = "INSERT INTO parentTable (parentName, parentOpenID, parentID, parentPassword, parentNickName)
     VALUES ('$name', '$openID', 0, '$tpassword', '$nickname')";
 
-    if ($conn->query($sql) === TRUE) {
+    if ($conn->query($sql1) === TRUE) {
         //echo "New parent record created successfully";
-        return true;
+        $sql2 = "INSERT INTO parentStudentTable(parentID, studentID) 
+       SELECT parentID, '$studentID' FROM parentTable
+       WHERE parentOpenID='$openID'";
+        if ($conn->query($sql2) === TRUE) {
+            //echo "New parent-student record created successfully";
+            $conn->close();
+            return true;
+        } else {
+            //echo "Error: " . $sql . "<br>" . $conn->error;
+            $conn->close();
+            return false;
+        }
     } else {
         //echo "Error: " . $sql . "<br>" . $conn->error;
+        $conn->close();
         return false;
     }
-
-    $sql = "INSERT INTO parentStudentTable(parentID, studentID) 
-      SELECT parentID, '$studentID' FROM parentTable
-      WHERE parentOpenID='$openID'";
-    if ($conn->query($sql) === TRUE) {
-        //echo "New parent-student record created successfully";
-        return true;
-    } else {
-        //echo "Error: " . $sql . "<br>" . $conn->error;
-        return false;
-    }
-
-    $conn->close();
 }
 
 //加入新问卷数据
@@ -131,13 +132,13 @@ function insertQuestionnaire($title, $description, $type, $teacherID)
         $sql = "SELECT LAST_INSERT_ID()";
         $lastID = $conn->query($sql);
         $result = $lastID->fetch_assoc()["LAST_INSERT_ID()"];
+        $conn->close();
         return $result;
     } else {
         //echo "Error: " . $sql . "<br>" . $conn->error;
+        $conn->close();
         return false;
     }
-
-    $conn->close();
 }
 
 //加入新问题数据
@@ -156,14 +157,14 @@ function insertQuestion($questionnaireID, $type, $description)
         $sql = "SELECT LAST_INSERT_ID()";
         $lastID = $conn->query($sql);
         $result = $lastID->fetch_assoc()["LAST_INSERT_ID()"];
+        $conn->close();
         return $result;
         //return true;
     } else {
         //echo "Error: " . $sql . "<br>" . $conn->error;
+        $conn->close();
         return false;
     }
-
-    $conn->close();
 }
 
 //加入问题新选项数据
@@ -179,13 +180,13 @@ function insertOption($questionID, $questionnaireID, $description)
 
     if ($conn->query($sql) === TRUE) {
         //echo "New option record created successfully";
+        $conn->close();
         return true;
     } else {
         //echo "Error: " . $sql . "<br>" . $conn->error;
+        $conn->close();
         return false;
     }
-
-    $conn->close();
 }
 
 //加入新回答数据
@@ -201,13 +202,15 @@ function insertAnswer($optionID, $questionID, $questionnaireID, $parentID, $sele
 
     if ($conn->query($sql) === TRUE) {
         //echo "New answer record created successfully";
+        $conn->close();
         return true;
     } else {
         //echo "Error: " . $sql . "<br>" . $conn->error;
+        $conn->close();
         return false;
     }
 
-    $conn->close();
+
 }
 
 function updateAccess($token, $time)
@@ -221,13 +224,13 @@ function updateAccess($token, $time)
 
     if ($conn->query($sql) === TRUE) {
         //echo "Update Success.";
+        $conn->close();
         return true;
     } else {
         //echo "Error: " . $sql . "<br>" . $conn->error;
+        $conn->close();
         return false;
     }
-
-    $conn->close();
 }
 
 
@@ -245,9 +248,9 @@ function getNumber($optionID, $questionID, $questionnaireID)
 
     $number=$conn->query($sql);
     $result = $number->fetch_assoc()["COUNT(*)"];
-    echo "$result";
-    return $result;
+    //echo "$result";
     $conn->close();
+    return $result;
 }
 
 //获得回答过某个问郑的学生ID
@@ -271,8 +274,8 @@ function getPeopleSelected($questionnaireID)
     //else{
     //    echo "0 people did this questionnaire.";
     //}
-    return $result;
     $conn->close();
+    return $result;
 }
 
 //获得没有回答某个问卷的人ID
@@ -304,9 +307,8 @@ function getPeopleNotSelected($questionnaireID)
     //else {
     //    echo "0 people didn't do this questionnaire.";
     //}
-    
-    return $result;
     $conn->close();
+    return $result;
 }
 
 function checkTeacher($teacherOpenID)
@@ -322,9 +324,11 @@ function checkTeacher($teacherOpenID)
     $result=$conn->query($sql);
     if ($result->num_rows > 0) {
         //echo "true";
+        $conn->close();
         return true;
     }
     else {
+        $conn->close();
         return false;
     }
 }
@@ -342,10 +346,12 @@ function checkParent($parentOpenID)
     $result=$conn->query($sql);
     if ($result->num_rows > 0) {
         //echo "true";
+        $conn->close();
         return true;
     }
     else {
         //echo "false";
+        $conn->close();
         return false;
     }
 }
@@ -363,10 +369,36 @@ function checkStudent($studentID)
     $result=$conn->query($sql);
     if ($result->num_rows > 0) {
         //echo "true";
+        $conn->close();
         return true;
     }
     else {
         //echo "false";
+        $conn->close();
+        return false;
+    }
+}
+
+function getTeacherID($teacherOpenID)
+{
+    $dbname = "typemoon01";
+    $servername = "localhost";
+    $username = "typemoon";
+    $password = "typemoonsql";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $sql = "SELECT teacherID FROM teacherTable
+        WHERE teacherOpenID='$teacherOpenID'";
+
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        //echo "true";
+        $ID = $result->fetch_assoc()["teacherID"];
+        $conn->close();
+        return $ID;
+    }
+    else {
+        //echo "false";
+        $conn->close();
         return false;
     }
 }
