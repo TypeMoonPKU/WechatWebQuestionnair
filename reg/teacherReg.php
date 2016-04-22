@@ -1,5 +1,6 @@
 <?php
 /**
+ * 测试链接
  * 用于完成老师注册的逻辑
  *
  * 在注册界面上，老师点击注册后，将会跳转到这个界面
@@ -24,7 +25,7 @@ $teacherName = $_REQUEST["teacherName"];
 //$teacherOpenID = $_COOKIE["OpenID"];
 
 //echo $teacherOpenID;
- $teacherOpenID = $_REQUEST["teacherOpenID"];  // 改为使用cookie获取openid
+$teacherOpenID = $_REQUEST["teacherOpenID"];
 
 if ($teacherName==""){
     echo "teacherName can't be empty!<br>";
@@ -44,4 +45,8 @@ else {
         }
     }
 }
+echo "<br>";
+$userRegUrl = "121.201.14.58/pages/redirectParentFromOAuth.php?teacherOpenID=" . $teacherOpenID;
+$userRegUrlOAuth = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=" . urlencode($userRegUrl) . "&response_type=code&scope=snsapi_base#wechat_redirect";
+echo "<br> 家长注册链接： ". $userRegUrlOAuth;
 
