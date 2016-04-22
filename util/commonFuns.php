@@ -51,6 +51,9 @@ function getOpenIdOrUserID($code){
  * @param $code
  */
 function getOpenId($code){
+    if(empty($code)){
+        throw new Exception("No content in variable code");
+    }
     $result = getOpenIdOrUserID($code);
     $obj = json_decode($result);
     if(property_exists($obj,"UserId")){ // 返回了企业号中的成员

@@ -1,3 +1,10 @@
+<?php
+// 测试链接 https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=121.201.14.58%2fpages%2ffirst_time_for_teacher.html&response_type=code&scope=snsapi_base#wechat_redirect
+
+require_once "../util/commonFuns.php";
+$teacherOpenID=getOpenId($_REQUEST['code']);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,7 +84,7 @@
         <label for="teacherOpenID" class="col-sm-2 control-label">OpenID</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="teacherOpenID" name="teacherOpenID"
-                    value=<?php echo $_REQUEST["teacherOpenID"]?>>
+                    value=<?php echo $teacherOpenID?>>
         </div>
     </div>
     <div class="form-group">
