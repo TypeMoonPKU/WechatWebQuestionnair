@@ -263,14 +263,14 @@ function getPeopleSelected($questionnaireID)
         (SELECT DISTINCT parentID FROM answerTable
         WHERE questionnaireID=$questionnaireID)";
     $result=$conn->query($sql);
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo "<br> studentID: " . $row["studentID"];
-        }
-    }
-    else{
-        echo "0 people did this questionnaire.";
-    }
+    //if ($result->num_rows > 0) {
+    //    while ($row = $result->fetch_assoc()) {
+    //        echo "<br> studentID: " . $row["studentID"];
+    //    }
+    //}
+    //else{
+    //    echo "0 people did this questionnaire.";
+    //}
     return $result;
     $conn->close();
 }
@@ -296,14 +296,14 @@ function getPeopleNotSelected($questionnaireID)
         )";
 
     $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo "<br> studentID: " . $row["studentID"];
-        }
-    }
-    else {
-        echo "0 people didn't do this questionnaire.";
-    }
+    //if ($result->num_rows > 0) {
+    //    while ($row = $result->fetch_assoc()) {
+    //        echo "<br> studentID: " . $row["studentID"];
+    //    }
+    //}
+    //else {
+    //    echo "0 people didn't do this questionnaire.";
+    //}
     
     return $result;
     $conn->close();
