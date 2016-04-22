@@ -90,8 +90,8 @@ CREATE TABLE answerTable
   parentID INT,
   selected BOOLEAN,
   updateTime TIMESTAMP,
-  PRIMARY KEY (quesionnaireID, questionID, optionID, parentID),
-  FOREIGN KEY (quesionnaireID)
+  PRIMARY KEY (questionnaireID, questionID, optionID, parentID),
+  FOREIGN KEY (questionnaireID)
     REFERENCES questionnaireTable(questionnaireID),
   FOREIGN KEY (questionID)
     REFERENCES itemTable(questionID),

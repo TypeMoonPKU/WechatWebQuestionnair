@@ -15,3 +15,5 @@
 7.student表，questionnaire表存在冗余（ownerTeacherID）
 
 8.每个学生只能属于一个group，只有一个老师
+
+9.通知的标题为questionnaireTitle（“通知”），questionnaireDescription为空。只有一个问题，其标题为通知标题，description为通知具体内容，只有一个选项确认。

@@ -127,7 +127,11 @@ function insertQuestionnaire($title, $description, $type, $teacherID)
 
     if ($conn->query($sql) === TRUE) {
         //echo "New questionnaire record created successfully";
-        return true;
+        //return true;
+        $sql = "SELECT LAST_INSERT_ID()";
+        $lastID = $conn->query($sql);
+        $result = $lastID->fetch_assoc()["LAST_INSERT_ID()"];
+        return $result;
     } else {
         //echo "Error: " . $sql . "<br>" . $conn->error;
         return false;
@@ -149,7 +153,11 @@ function insertQuestion($questionnaireID, $type, $description)
 
     if ($conn->query($sql) === TRUE) {
         //echo "New question record created successfully";
-        return true;
+        $sql = "SELECT LAST_INSERT_ID()";
+        $lastID = $conn->query($sql);
+        $result = $lastID->fetch_assoc()["LAST_INSERT_ID()"];
+        return $result;
+        //return true;
     } else {
         //echo "Error: " . $sql . "<br>" . $conn->error;
         return false;
