@@ -20,7 +20,7 @@ $parentName = $_REQUEST["parentName"];
 $studentName = $_REQUEST["studentName"];
 $parentOpenID = $_REQUEST["parentOpenID"];
 $studentID = $_REQUEST["studentID"];
-$teacherID = $_REQUEST["teacherID"];
+$teacherID = $_REQUEST["teacherOpenID"];
 
 if ($parentName==""){
     echo "ParentName can't be empty!<br>";

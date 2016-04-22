@@ -68,11 +68,11 @@
 <h3>
     <strong>老师初始化</strong>
 </h3>
-<form class="form-horizontal" role="form" method="get" action="../reg/parentReg.php">
+<form class="form-horizontal" role="form" method="get" action="../reg/parentRegWithStudent.php">
     <div class="form-group">
-        <label for="teacherName" class="col-sm-2 control-label">用户名</label>
+        <label for="parentName" class="col-sm-2 control-label">用户名</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="teacherName" name="teacherName"
+            <input type="text" class="form-control" id="parentName" name="parentName"
                    placeholder="请输入用户名">
         </div>
     </div>
