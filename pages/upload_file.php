@@ -1,5 +1,8 @@
 <?php
-if (($_FILES["file"]["size"] < 20000))
+echo $_POST["teacher_name"]. "<br />";
+echo "emailadress".$_POST["email_adress"]. "<br />";
+echo "password".$_POST["password"]. "<br />";
+if ( ($_FILES["file"]["size"] < 2000000))
 {
     if ($_FILES["file"]["error"] > 0)
     {
@@ -19,8 +22,8 @@ if (($_FILES["file"]["size"] < 20000))
         else
         {
             move_uploaded_file($_FILES["file"]["tmp_name"],
-                "upload/" . $_FILES["file"]["name"]);
-            echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
+                "./upload/" . $_FILES["file"]["name"]);
+            echo "Stored in: " . "./upload/" . $_FILES["file"]["name"];
         }
     }
 }
@@ -28,3 +31,4 @@ else
 {
     echo "Invalid file";
 }
+

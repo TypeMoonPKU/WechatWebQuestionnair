@@ -25,9 +25,11 @@
 
 ## 数据库配置
 * 数据库只允许来自localhost的访问
-* 用户名为typemoon
+* 用户名为typemoon，仅允许本机访问
 * 密码为typemoonsql
 * 所操作的数据库为typemoon01
+* 数据库超级账户：root
+* 数据库超级账户密码：TypeMoon01
 ## 常用链接
 * https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=121.201.14.58%2fwxq%2fwxapi.php&response_type=code&scope=snsapi_base#wechat_redirect
     获取有关的用户信息。
