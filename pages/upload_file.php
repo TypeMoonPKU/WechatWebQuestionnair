@@ -1,7 +1,6 @@
 <?php
-echo $_POST["teacher_name"]. "<br />";
-echo "emailadress".$_POST["email_adress"]. "<br />";
-echo "password".$_POST["password"]. "<br />";
+echo $_POST["group_name"]. "<br />";
+echo "description".$_POST["group_desc"]. "<br />";
 if ( ($_FILES["file"]["size"] < 2000000))
 {
     if ($_FILES["file"]["error"] > 0)
