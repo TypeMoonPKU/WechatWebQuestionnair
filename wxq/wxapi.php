@@ -14,8 +14,10 @@ foreach ($_REQUEST as $key => $value ){
 }
 
 
-
+$url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=121.201.14.58%2fpages%2ffirst_time_for_teacher.html&response_type=code&scope=snsapi_base#wechat_redirect";
 echo $_REQUEST;
+
+echo "<br> 请点击链接 <a href='$url' >" . $url . "</a>";
 
 ?>
 

@@ -1,5 +1,5 @@
 <?php
-// 测试链接 https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=121.201.14.58%2fpages%2ffirst_time_for_teacher.html&response_type=code&scope=snsapi_base#wechat_redirect
+// 测试链接 https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=121.201.14.58%2fpages%2ffirst_time_for_teacher.php&response_type=code&scope=snsapi_base#wechat_redirect
 
 require_once "../util/commonFuns.php";
 $teacherOpenID=getOpenId($_REQUEST['code']);
@@ -68,7 +68,8 @@ $teacherOpenID=getOpenId($_REQUEST['code']);
         </ul>
     </div>
 </nav>
-
+<br>
+<br>
 <h3>
     <strong>老师初始化</strong>
 </h3>

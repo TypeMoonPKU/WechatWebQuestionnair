@@ -45,8 +45,13 @@ else {
         }
     }
 }
-echo "<br>";
-$userRegUrl = "121.201.14.58/pages/redirectParentFromOAuth.php?teacherOpenID=" . $teacherOpenID;
-$userRegUrlOAuth = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=" . urlencode($userRegUrl) . "&response_type=code&scope=snsapi_base#wechat_redirect";
-echo "<br> 家长注册链接： ". $userRegUrlOAuth;
+//echo "<br>";
+//$userRegUrl = "121.201.14.58/pages/redirectParentFromOAuth.php?teacherOpenID=" . $teacherOpenID;
+//$userRegUrlOAuth = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=" . urlencode($userRegUrl) . "&response_type=code&scope=snsapi_base#wechat_redirect";
+//echo "<br> 家长注册链接： <a href='$userRegUrlOAuth' >" . $userRegUrlOAuth . "</a>";
 
+
+echo "<br>";
+$userRegNewUrl="121.201.14.58/pages/first_time_for_students.php?teacherOpenID=" . $teacherOpenID;
+$userRegNewUrlOAuth = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=" . urlencode($userRegNewUrl) . "&response_type=code&scope=snsapi_base#wechat_redirect";
+echo "<br> 家长注册链接2： <a href='$userRegNewUrlOAuth' >" . $userRegNewUrlOAuth . "</a>";

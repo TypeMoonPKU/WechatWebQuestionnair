@@ -1,5 +1,10 @@
+<!-- 调用的时候必须提供家长的code和teacherOpenID update：2016年4月23日01:30:32-->
 <!-- 调用的时候必须以get方法提供teacherOpenID和parentOpenID-->
-
+<?php
+require_once "../util/commonFuns.php";
+$parentOpenID=getOpenId($_REQUEST['code']);
+$teacherOpenID=$_REQUEST['teacherOpenID'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,8 +70,10 @@
     </div>
 </nav>
 
+<br>
+<br>
 <h3>
-    <strong>老师初始化</strong>
+    <strong>欢迎家长注册！</strong>
 </h3>
 <form class="form-horizontal" role="form" method="get" action="../reg/parentRegWithStudent.php">
     <div class="form-group">
@@ -94,14 +101,14 @@
         <label for="teacherOpenID" class="col-sm-2 control-label">OpenID</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="teacherOpenID" name="teacherOpenID"
-                   value=<?php echo $_REQUEST["teacherOpenID"]?>>
+                   value=<?php echo $teacherOpenID?>>
         </div>
     </div>
     <div class="form-group" style="display: none" >
         <label for="parentOpenID" class="col-sm-2 control-label">OpenID</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="parentOpenID" name="parentOpenID"
-                   value=<?php echo $_REQUEST["parentOpenID"]?>>
+                   value=<?php echo $parentOpenID?>>
         </div>
     </div>
     <div class="form-group">
