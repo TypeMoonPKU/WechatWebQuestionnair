@@ -104,9 +104,11 @@ function insertParent($name, $openID, $studentID, $tpassword, $nickname)
       SELECT parentID, '$studentID' FROM parentTable
       WHERE parentOpenID='$openID'";
     if ($conn->query($sql) === TRUE) {
-        echo "New parent-student record created successfully";
+        //echo "New parent-student record created successfully";
+        return true;
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        //echo "Error: " . $sql . "<br>" . $conn->error;
+        return false;
     }
 
     $conn->close();
@@ -124,9 +126,11 @@ function insertQuestionnaire($title, $description, $type, $teacherID)
     VALUES (0, '$title','$description','$type','$teacherID')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New questionnaire record created successfully";
+        //echo "New questionnaire record created successfully";
+        return true;
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        //echo "Error: " . $sql . "<br>" . $conn->error;
+        return false;
     }
 
     $conn->close();
@@ -144,9 +148,11 @@ function insertQuestion($questionnaireID, $type, $description)
     VALUES (0,'$questionnaireID','$type','$description')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New question record created successfully";
+        //echo "New question record created successfully";
+        return true;
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        //echo "Error: " . $sql . "<br>" . $conn->error;
+        return false;
     }
 
     $conn->close();
@@ -164,9 +170,11 @@ function insertOption($questionID, $questionnaireID, $description)
     VALUES (0,'$questionID','$questionnaireID','$description')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New option record created successfully";
+        //echo "New option record created successfully";
+        return true;
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        //echo "Error: " . $sql . "<br>" . $conn->error;
+        return false;
     }
 
     $conn->close();
@@ -184,13 +192,36 @@ function insertAnswer($optionID, $questionID, $questionnaireID, $parentID, $sele
     VALUES ('$optionID','$questionID','$questionnaireID','$parentID','$select')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New answer record created successfully";
+        //echo "New answer record created successfully";
+        return true;
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        //echo "Error: " . $sql . "<br>" . $conn->error;
+        return false;
     }
 
     $conn->close();
 }
+
+function updateAccess($token, $time)
+{
+    $dbname = "typemoon01";
+    $servername = "localhost";
+    $username = "typemoon";
+    $password = "typemoonsql";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $sql = "UPDATE accessTable SET accessToken=$token, time=$time";
+
+    if ($conn->query($sql) === TRUE) {
+        //echo "Update Success.";
+        return true;
+    } else {
+        //echo "Error: " . $sql . "<br>" . $conn->error;
+        return false;
+    }
+
+    $conn->close();
+}
+
 
 //获得选择某个选项的人数
 function getNumber($optionID, $questionID, $questionnaireID)
@@ -299,6 +330,27 @@ function checkParent($parentOpenID)
     $conn = new mysqli($servername, $username, $password, $dbname);
     $sql = "SELECT parentOpenID FROM parentTable
         WHERE parentOpenID='$parentOpenID'";
+
+    $result=$conn->query($sql);
+    if ($result->num_rows > 0) {
+        //echo "true";
+        return true;
+    }
+    else {
+        //echo "false";
+        return false;
+    }
+}
+
+function checkStudent($studentID)
+{
+    $dbname = "typemoon01";
+    $servername = "localhost";
+    $username = "typemoon";
+    $password = "typemoonsql";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $sql = "SELECT studentID FROM studentTable
+        WHERE studentID='$studentID'";
 
     $result=$conn->query($sql);
     if ($result->num_rows > 0) {

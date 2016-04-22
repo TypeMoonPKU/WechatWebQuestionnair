@@ -22,20 +22,20 @@ $teacherName = $_REQUEST["teacherName"];
 $teacherOpenID = $_REQUEST["teacherOpenID"];
 
 if ($teacherName==""){
-    echo "TeacherName can't be empty!";
+    echo "TeacherName can't be empty!<br>";
 }
 elseif ($teacherOpenID==""){
-    echo "TeacherOpenID can't be empty!";
+    echo "TeacherOpenID can't be empty!<br>";
 }
 else {
     if (checkTeacher($teacherOpenID)==true)
-        echo "注册失败，用户已注册";
+        echo "注册失败，用户已注册<br>";
     else {
         $rtnVal = insertTeacher($teacherName, $teacherOpenID, "null", "null");
         if ($rtnVal == true) {
-            echo "注册成功";
+            echo "注册成功<br>";
         } else {
-            echo "注册失败";
+            echo "注册失败<br>";
         }
     }
 }

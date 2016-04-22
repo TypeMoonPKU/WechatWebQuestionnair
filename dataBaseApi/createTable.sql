@@ -24,7 +24,7 @@ CREATE TABLE studentTable
   studentName VARCHAR(20) NOT NULL ,
   studentID VARCHAR(20) NOT NULL,
   groupID VARCHAR(10),
-  ownerteacherID INT,
+  ownerteacherID INT NOT NULL ,
   PRIMARY KEY (studentID),
   FOREIGN KEY (ownerteacherID)
     REFERENCES teacherTable(teacherID)
@@ -99,4 +99,11 @@ CREATE TABLE answerTable
     REFERENCES optionTable(optionID),
   FOREIGN KEY (parentID)
     REFERENCES parentTable(parentID)
+);
+
+CREATE TABLE accessTable
+(
+  accessToken VARCHAR(50),
+  time TIMESTAMP,
+  PRIMARY KEY (accessToken)
 );

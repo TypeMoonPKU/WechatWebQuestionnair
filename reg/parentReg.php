@@ -21,21 +21,21 @@ $parentOpenID = $_REQUEST["parentOpenID"];
 $studentID = $_REQUEST["studentID"];
 
 if ($parentName==""){
-    echo "ParentName can't be empty!";
+    echo "ParentName can't be empty!<br>";
 }
 elseif ($parentOpenID==""){
-    echo "ParentOpenID can't be empty!";
+    echo "ParentOpenID can't be empty!<br>";
 }
 else {
     if (checkParent($parentOpenID)==true)
-        echo "注册失败，用户已注册";
+        echo "注册失败，用户已注册<br>";
     else {
         $rtnVal = insertParent($parentName, $parentOpenID, $studentID, "null", "null");
         //$rtnVal = insertParent('p','p1openID','123456','pppppp','000001');
         if ($rtnVal == true) {
-            echo "注册成功";
+            echo "注册成功<br>";
         } else {
-            echo "注册失败";
+            echo "注册失败<br>";
         }
     }
 }
