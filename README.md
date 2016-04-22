@@ -34,7 +34,22 @@
 
 ## 接口
 ### 家长注册
-    使用get方法，提供parentName, studentID两个字段。
+使用get方法，提供parentName, studentID两个字段。
+
+### 学生信息提交
+使用csv文件进行提交。
+
+文件中只有两列，没有列名（从第一行开始就是学生的数据）
+
+第一列是studentID，第二列是studentName。
+
+### token
+
+需要支持update和read
+
+
+
+
 ##问题定义
 ##可行性分析
 ##需求分析

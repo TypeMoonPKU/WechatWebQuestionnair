@@ -6,6 +6,9 @@
  * Date: 4/18/2016
  * Time: 14:09
  */
+
+require_once "do_post_request.php";
+
 define("CORPID_GOLBAL","wx75de8782f8e4f99c");
 define("CORP_SECERT","87t2MTe-rPYpxi5yzR1wb0M-FNp2dYljRirXZmMgyZJrHRr8ZmKR28bJD0IW50K0");
 //$URL = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=" . CORPID_GOLBAL . "&corpsecret=" . CORP_SECERT;
@@ -14,7 +17,7 @@ $last_get_access_token_time = 0;
 $last_access_token = null;
 
 function getAccessToken(){
-    // TODO 需要缓存access_token以防止访问次数过多,但是如何实现呢？
+    // TODO 需要缓存access_token以防止访问次数过多,但是如何实现呢？ 目前考虑先不缓存了，反正也不会超过访问次数限制
     $nowtime = time();
     if(($nowtime - $GLOBALS["last_get_access_token_time"] >= 7100) || ($GLOBALS["last_access_token"] == null) ){
         $URL = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=" . CORPID_GOLBAL . "&corpsecret=" . CORP_SECERT;
@@ -51,7 +54,7 @@ function getOpenId($code){
     $result = getOpenIdOrUserID($code);
     $obj = json_decode($result);
     if(property_exists($obj,"UserId")){ // 返回了企业号中的成员
-        //调用api转换userid
+        $openID = getOpenIdFromUserId($obj->{'UserId'});
 
     }elseif(property_exists($obj,"OpenId")){ //这里的openid大小写不要更改
         $openID = $obj->{'OpenId'};
@@ -66,5 +69,13 @@ function getOpenId($code){
 function getOpenIdFromUserId($userId){
     $access_token = getAccessToken();
     $URL = "https://qyapi.weixin.qq.com/cgi-bin/user/convert_to_openid?access_token=" . $access_token;
-    // TODO 还未完成
+    $arraydata = array(
+        "userid"=>$userId
+    );
+    $jsondata  = json_encode( $arraydata);
+//    echo $jsondata;
+    $result = do_post_request($URL, $jsondata);
+    $obj = json_decode($result);
+    $openID = $obj->{"openid"};
+    return $openID;
 }
