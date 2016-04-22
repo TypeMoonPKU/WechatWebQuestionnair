@@ -75,7 +75,7 @@ function insertStudent($name, $ID, $group, $teacherID)
         // "New student record created successfully";
         return true;
     } else {
-        //echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $sql . "<br>" . $conn->error;
         return false;
     }
     $conn->close();

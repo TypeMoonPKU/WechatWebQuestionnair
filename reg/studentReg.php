@@ -47,7 +47,8 @@ while ($data = fgetcsv($file)) { //每次读取CSV里面的一行内容
         if (checkStudent($studentID)==true)
             $alreadyExists++;
         else {
-            $rtnVal = insertStudent($studentName, $studentID, "null", "teacherID"); //group暂时设置为null
+            //$rtnVal = insertStudent($studentName, $studentID, "null", "teacherID"); //group暂时设置为null
+            $rtnVal = insertStudent($studentName, $studentID, "null", $teacherID); //group暂时设置为null
             if ($rtnVal == true) {
                 $newStudent++;
             } else {
@@ -55,7 +56,6 @@ while ($data = fgetcsv($file)) { //每次读取CSV里面的一行内容
             }
         }
     }
-    
 }
 //fclose($file);
 
