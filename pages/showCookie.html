@@ -1,0 +1,17 @@
+nowShowCookie <br>
+<script>function setCookie(cookieName,cookieValue,cookieExpires,cookiePath)
+{
+    cookieValue = escape(cookieValue);//编码latin-1
+    if(cookieExpires=="")
+    {
+        var nowDate = new Date();
+        nowDate.setMonth(nowDate.getMonth()+6);
+        cookieExpires = nowDate.toGMTString();
+    }
+    if(cookiePath!="")
+    {
+        cookiePath = ";Path="+cookiePath;
+    }
+    document.cookie= cookieName+"="+cookieValue+";expires="+cookieExpires+cookiePath;
+}  </script>
+<script>document.write(document.cookie)</script>

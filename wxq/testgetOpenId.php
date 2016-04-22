@@ -21,10 +21,16 @@ $result = getOpenId($code);
 echo "<br> Openid:";
 echo $result;
 
+//最后，把这些信息存储成cookie
+// TODO 如果 设置为cookie，需要考虑过期时间，以及如果用户没有cookie的话引导用户设置cookie
+setcookie("OpenIDCookie", $result, time()+60*60*24*30 );
+
 ?>
 
 ============测试信息结束  <br>
 
-<a href="../pages/first_time_for_teacher.html">老师注册</a>
+<h3><a href="../pages/first_time_for_teacher.html?">老师注册</a></h3>
 <br>
-<a href="../pages/first_time_for_students.html">家长注册</a>
+<h3><a href="../pages/first_time_for_students.html">家长注册</a></h3>
+<br>
+<h3><a href="../pages/showCookie.html">显示cookie</a></h3>

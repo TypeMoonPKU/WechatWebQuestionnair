@@ -17,9 +17,14 @@ require_once "../dataBaseApi/dataBaseApis.php";
     echo "key: " . $key;
     echo "   value: " . $value;
 }*/
-
+var_dump($_REQUEST);
+var_dump($_POST);
 $teacherName = $_REQUEST["teacherName"];
-$teacherOpenID = $_REQUEST["teacherOpenID"];
+var_dump($_COOKIE);
+$teacherOpenID = $_COOKIE["OpenID"];
+
+echo $teacherOpenID;
+// $teacherOpenID = $_REQUEST["teacherOpenID"];  // 改为使用cookie获取openid
 
 if ($teacherName==""){
     echo "TeacherName can't be empty!<br>";
