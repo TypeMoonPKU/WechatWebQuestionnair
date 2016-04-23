@@ -3,6 +3,7 @@
 <head>
     <title>创建通知群</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./reference/json.js"></script>
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
     <script src="./reference/bootstrap.min.js"></script>
