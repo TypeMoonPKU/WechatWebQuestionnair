@@ -62,14 +62,14 @@
     </div>
 </nav>
 
-<script script type="text/javascript">
+<script type="text/javascript">
     function creategroup()
     {
         var reader = new FileReader();
         reader.onload = function()
         {
             alert(this.result)
-        }
+        };
         var f = document.getElementById("filePicker").files[0];
         reader.readAsText(f);
     }
@@ -82,20 +82,20 @@
     <div class="form-group">
         <label for="question_group_name" class="col-sm-2 control-label">群&nbsp&nbsp&nbsp名</label>
         <div class="col-sm-10">
-            <p class="form-control-static"id="question_group_name"name="question_group_name">这是来自您孩子所在班级的家长群</p>
+            <p class="form-control-static" id="question_group_name" name="question_group_name">这是来自您孩子所在班级的家长群</p>
         </div>
     </div>
 
     <div class="form-group">
         <label for="question_question_name" class="col-sm-2 control-label">通知名</label>
         <div class="col-sm-10">
-            <p class="form-control-static"id ="question_question_name" name="question_question_name">本学期第二次家长会时间通知</p>
+            <p class="form-control-static" id ="question_question_name" name="question_question_name">本学期第二次家长会时间通知</p>
         </div>
     </div>
     <div class="form-group">
         <label for="question_desc" class="col-sm-2 control-label">内&nbsp&nbsp&nbsp容</label>
         <div class="col-sm-10">
-            <p class="form-control-static"id="question_desc" name="question_desc">我们周六晚来开家长会，请携带小本本来</p>
+            <p class="form-control-static" id="question_desc" name="question_desc">我们周六晚来开家长会，请携带小本本来</p>
         </div>
     </div>
     <div>

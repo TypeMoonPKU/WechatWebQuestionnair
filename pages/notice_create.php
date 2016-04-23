@@ -1,7 +1,7 @@
 <!--必须提供teacherOpenID
 <?php
 //测试链接：
-$teacherOpenID=getOpenId($_REQUEST['teacherOpenID']);
+$teacherOpenID=$_REQUEST['teacherOpenID'];
 ?>
 -->
 
