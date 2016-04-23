@@ -33,4 +33,3 @@ else {
     //echo "<br>$optionID<br>";
     insertAnswer($optionID, $questionID, $questionnaireID, $parentID, true);
 }
-

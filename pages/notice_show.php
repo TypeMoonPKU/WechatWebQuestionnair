@@ -106,7 +106,7 @@ $parentOpenID=getOpenIDFromREQUEST($_REQUEST);
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" style="display:none;">
         <label for="question_group_name" class="col-sm-2 control-label">群&nbsp&nbsp&nbsp名</label>
         <div class="col-sm-10">
             <p class="form-control-static" id="question_group_name" name="question_group_name">这是来自您孩子所在班级的家长群</p>
@@ -134,13 +134,15 @@ $parentOpenID=getOpenIDFromREQUEST($_REQUEST);
 </body>
 <script >
 
-    var jsondata=$.parseJSON(<?PHP
+    var $jsondata=$.parseJSON('<?PHP
         require_once "../reg/showNotice.php";
         $noticeJson=showNotice($questionnaireID);
         echo $noticeJson;
-    ?>);
-    document.getElementById("question_desc").innerHTML=jsondata;
-    alert(jsondata);
+    ?>');
+    document.getElementById("question_desc").innerHTML=$jsondata.question[0].questionDescription;
+    document.getElementById("question_question_name").innerHTML=$jsondata.title;
+    //alert($jsondata.questionnaireDescription);
+    //alert($jsondata.title);
 
 
 

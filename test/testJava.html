@@ -12,13 +12,19 @@
 
 
 <script>
-    var jsondata=$.parseJSON({"title":"hello","questionnaireDescription":"","type":"N","question":[{"questionDescription":"nihaoa","option":[{"optionID":"6","description":"\u786e\u8ba4"}]}]});
-document.getElementById("question_desc").innerHTML=jsondata;
-alert(jsondata);
-</script>
+   // alert("start");
+
+
+   var $jsondata=$.parseJSON('{"title":"hello","questionnaireDescription":"","type":"N","question":[{"questionDescription":"nihaoa","option":[{"optionID":"6","description":"\u786e\u8ba4"}]}]}');
+   document.getElementById("question_desc").innerHTML=$jsondata.question[0].questionDescription;
+   document.getElementById("question_question_name").innerHTML=$jsondata.questionnaireDescription;
+   alert($jsondata.questionnaireDescription);
+   //alert($jsondata.title);
 
 
 
 
 
-</html>
+
+
+   </html>
