@@ -4,14 +4,14 @@
 
 require_once "../util/commonFuns.php";
 $questionnaireID=$_REQUEST['questionnaireID'];
-$parentOpenID=getOpenId($_REQUEST['code']);
+$parentOpenID=getOpenIDFromREQUEST($_REQUEST);
 ?>
 -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>创建通知群</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0; charset=UTF-8">
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
     <script src="./reference/bootstrap.min.js"></script>
@@ -133,12 +133,17 @@ $parentOpenID=getOpenId($_REQUEST['code']);
 
 </body>
 <script >
-    
-    <?PHP
+
+    var jsondata=$.parseJSON(<?PHP
         require_once "../reg/showNotice.php";
-        $noticeJson=showNotice();
+        $noticeJson=showNotice($questionnaireID);
         echo $noticeJson;
-    ?>
+    ?>);
+    document.getElementById("question_desc").innerHTML=jsondata;
+    alert(jsondata);
+
+
+
 
 </script>
 </html>

@@ -14,20 +14,18 @@
         <div class="span12">
             <div class="page-header">
                 <h1 align = "center">
-                    欢迎使用Typemoon<br><small>微信信息收集系统</small>
+                    无访问权限
                 </h1>
             </div>
         </div>
     </div>
     <div class="row-fluid">
         <div class="span12">
-            <h2 contenteditable="true"><span style="font-size: 14px; line-height: 20px;">我是用户须知，但现在还没有<br><br><br><br><br><br><br><br></span></h2>
+            <h2 contenteditable="true"><span style="font-size: 14px; line-height: 20px;">更多功能尚在开发中，您可以资助开发者加速开发进程<br><br></span></h2>
         </div>
-    </div>
-    <div class="row-fluid">
-        <div class="span12">
-            <button class="btn btn-large btn-block" type="button">同意</button>
-        </div>
+        <img src="./pic/sun.jpg" width="33%" height=auto  />
+        <img src="./pic/chen.jpg" width="30%" height=auto  />
+        <img src="./pic/wen.jpg" width="33%" height=auto  />
     </div>
 </div>
 

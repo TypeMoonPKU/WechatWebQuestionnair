@@ -34,7 +34,7 @@ if($isRegedTeacher){
     echo $regedParentRedirectStr;
     exit();
 }else{
-    echo $$regPageRedirectForNewUser;
+    echo $regPageRedirectForNewUser;
     exit();
 }
 
