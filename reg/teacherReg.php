@@ -78,7 +78,7 @@ $userRegNewUrlOAuth = "https://open.weixin.qq.com/connect/oauth2/authorize?appid
     <div class="form-group">
         <div class="col-sm-12" align="center">
             <br><pre><h1>注册成功</h1></pre>
-            <br><br><h3>劳烦手动复制链接<br>将目标问卷分享到目标微信群</h3>
+            <br><br><h3>劳烦手动复制链接<br>将其分享到目标微信群邀请好友加入</h3>
 
         </div>
     </div>
