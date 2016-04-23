@@ -41,7 +41,8 @@ function showNotice()
                     } else {
                         $optionArr = array();
                         while ($optionRow = $option->fetch_assoc()) {
-                            array_push($optionArr, array($optionRow["optionDescription"]));
+                            array_push($optionArr, array('optionID'=>$optionRow["optionID"],
+                                'description'=>$optionRow["optionDescription"]));
                         }
                         $questionArr["option"] = $optionArr;
                     }
