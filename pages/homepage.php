@@ -103,6 +103,7 @@ $teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
     var $jsondata=$.parseJSON('<?PHP
         require_once "../reg/showAllQuestionnaire.php";
         $questionnaireJSON=showAllQuestionnaire($teacherOpenID);
+        echo $questionnaireJSON;
         ?>');
 
     // 生成通知列表
@@ -117,7 +118,7 @@ $teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
         for (x in notices) {
             //var htmlstr='<li class="list-group-item"><a href="notice_show.php">' + x + '</a></li>';
             var newNode = document.createElement("li");
-            newNode.innerHTML = notices[x];
+            newNode.innerHTML = '<a href="notice_show_teacher.php?questionnaireID=' + notices[x].questionnaireID + '">' + notices[x].title + '</a>' + '&nbsp&nbsp' + '<a href="notice_read_status.php?questionnaireID=' + notices[x].questionnaireID + '">' + '统计信息' + '</a>';
             newNode.setAttribute("class", "list-group-item");
             noticeDOM.appendChild(newNode);
         }

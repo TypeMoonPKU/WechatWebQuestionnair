@@ -8,7 +8,7 @@
  * Time: 21:13
  */
 
-function questionnairStats()
+function questionnairStats($questionnaireID)
 {
     require_once "../dataBaseApi/dataBaseApis.php";
 
@@ -17,7 +17,7 @@ function questionnairStats()
         echo "   value: " . $value;
     }*/
 
-    $questionnaireID = $_REQUEST["questionnaireID"];
+    //$questionnaireID = $_REQUEST["questionnaireID"];
 
     $selected = getPeopleSelected($questionnaireID);
     $selectedNum = 0;

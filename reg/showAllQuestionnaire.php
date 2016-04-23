@@ -40,7 +40,7 @@ function showAllQuestionnaire($teacherOpenID)
     $arr["Questionnaire"]=$arrQ;
     $arr["Notice"]=$arrN;
     $jsonencode = json_encode($arr);
-    echo "$jsonencode";
+    //echo "$jsonencode";
     return $jsonencode;
 }
 
