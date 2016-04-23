@@ -132,4 +132,13 @@ $parentOpenID=getOpenId($_REQUEST['code']);
 </form>
 
 </body>
+<script >
+    
+    <?PHP
+        require_once "../reg/showNotice.php";
+        $noticeJson=showNotice();
+        echo $noticeJson;
+    ?>
+
+</script>
 </html>

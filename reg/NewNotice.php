@@ -14,6 +14,7 @@ require_once "../dataBaseApi/dataBaseApis.php";
     echo "key: " . $key;
     echo "   value: " . $value;
 }*/
+var_dump($_REQUEST);
 
 $title = $_REQUEST["title"];
 $description = $_REQUEST["description"];

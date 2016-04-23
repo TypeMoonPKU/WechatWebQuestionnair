@@ -1,7 +1,17 @@
+<!--必须提供code或teacherOpenID
+<?php
+// 但如果提供了parentOpenID也能通过 TODO 这是一个bug
+var_dump($_REQUEST);
+require_once "../util/commonFuns.php";
+$teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
+?>
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>首页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
@@ -41,7 +51,7 @@
                     通知 <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="notice_create.php">创建通知</a></li>
+                    <li><a href=<?PHP echo "http://" . REMOTE_SERVER_IP . "/pages/notice_create.php?teacherOpenID=" . $teacherOpenID ?>>创建通知</a></li>
                     <li><a href="./notice_history.html">历史通知</a></li>
                     <li class="divider"></li>
                     <li><a href="./notice_draft.html">通知草稿</a></li>
@@ -69,13 +79,14 @@
 </h3>
 
 <ul class="list-group">
-    <li class="list-group-item"><strong>我的通知</a></strong><small>&nbsp&nbsp<a href="./notice_create.php">新建通知</a></small></li>
+    <li class="list-group-item"><strong>我的通知</a></strong><small>&nbsp&nbsp<a href="./notice_create.php?teacherOpenID=<?PHP  echo $teacherOpenID?>">新建通知</a></small></li>
     <li class="list-group-item"><a href="notice_show.php">我是最新的通知</a></li>
     <li class="list-group-item"><a href="notice_show.php">我是第二新的通知</a></li>
     <li class="list-group-item">我是第三新的通知</li>
 </ul>
 
-<ul class="list-group">
+<!-- 群管理功能正在开发中-->
+<ul class="list-group" style="display: none">
     <li class="list-group-item"><strong>我的群</a></strong><small>&nbsp&nbsp<a href="./group_create.html">新建群</a></small></li>
     <li class="list-group-item"><a href="./group_show_results.html">我是最新的活动群</a></li>
     <li class="list-group-item"><a href="./question_show_results.html">我是第二新的活动群</a></li>
