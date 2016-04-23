@@ -28,7 +28,7 @@ $parentOpenID=getOpenId($_REQUEST['code']);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="./homepage.html">首页</a>
+        <a class="navbar-brand" href="homepage.php">首页</a>
     </div>
 
     <div class="collapse navbar-collapse" id="example-navbar-collapse">
@@ -87,7 +87,7 @@ $parentOpenID=getOpenId($_REQUEST['code']);
     <strong>通知展示</strong>
 </h3>
 
-<form class="form-horizontal" role="form" action="./upload_question_answers.php" method="get" enctype="multipart/form-data">
+<form class="form-horizontal" role="form" action="../reg/confirmNotice.php" method="get" enctype="multipart/form-data">
     <!-- 用于在页面中保存questionnaireID-->
     <div class="form-group" style="display: none" >
         <label for="questionnaireID" class="col-sm-2 control-label">OpenID</label>

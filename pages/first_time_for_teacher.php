@@ -9,7 +9,7 @@ $teacherOpenID=getOpenId($_REQUEST['code']);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>注册页</title>
+    <title>老师注册页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
@@ -27,7 +27,7 @@ $teacherOpenID=getOpenId($_REQUEST['code']);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="./homepage.html">首页</a>
+        <a class="navbar-brand" href="homepage.php">首页</a>
     </div>
 
     <div class="collapse navbar-collapse" id="example-navbar-collapse">
@@ -72,7 +72,7 @@ $teacherOpenID=getOpenId($_REQUEST['code']);
 <br>
 <br>
 <h3>
-    <strong>老师初始化</strong>
+    <strong>请老师完成注册</strong>
 </h3>
 <form class="form-horizontal" role="form" action="../reg/teacherReg.php" method="get">
     <div class="form-group">

@@ -11,6 +11,9 @@ require_once "do_post_request.php";
 
 define("CORPID_GOLBAL","wx75de8782f8e4f99c");
 define("CORP_SECERT","87t2MTe-rPYpxi5yzR1wb0M-FNp2dYljRirXZmMgyZJrHRr8ZmKR28bJD0IW50K0");
+define("REMOTE_SERVER_IP","121.201.14.58");
+
+
 //$URL = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=" . CORPID_GOLBAL . "&corpsecret=" . CORP_SECERT;
 //echo $URL;
 $last_get_access_token_time = 0;
@@ -81,4 +84,14 @@ function getOpenIdFromUserId($userId){
     $obj = json_decode($result);
     $openID = $obj->{"openid"};
     return $openID;
+}
+
+
+/**
+ * 产生微信OAuth认证所需url，该url会以get形式提供一个参数 code。通过code可以获取微信OpenID
+ * @param $url  不带http的主机地址
+ */
+function genOAuthURL($url){
+    $oauthurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" . CORPID_GOLBAL . "&redirect_uri=" . urlencode($url) . "&response_type=code&scope=snsapi_base#wechat_redirect";
+    return $oauthurl;
 }

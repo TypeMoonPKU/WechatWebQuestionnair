@@ -14,10 +14,14 @@ foreach ($_REQUEST as $key => $value ){
 }
 
 
-$url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=121.201.14.58%2fpages%2ffirst_time_for_teacher.html&response_type=code&scope=snsapi_base#wechat_redirect";
+$url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=121.201.14.58%2fpages%2ffirst_time_for_teacher.php&response_type=code&scope=snsapi_base#wechat_redirect";
 echo $_REQUEST;
 
-echo "<br> 请点击链接 <a href='$url' >" . $url . "</a>";
+echo "<br> 第一次使用？请点击链接注册 <a href='$url' >" . $url . "</a>";
+
+
+//$regUrl=REMOTE_SERVER_IP . "/pages/notice_create.php?teacherOpenID=" . $;
+echo "<br> 点击下列链接以进入管理页  <a href=''"
 
 ?>
 
