@@ -32,7 +32,7 @@ function getAccessToken(){
         $GLOBALS["last_access_token"] =$access_token;
         return $access_token;
     }else{
-        echo "cached  ";
+        //echo "cached  ";
         return $GLOBALS["last_access_token"];
     }
 

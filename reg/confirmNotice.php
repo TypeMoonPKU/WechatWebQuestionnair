@@ -17,4 +17,4 @@ $questionnaireID = $_REQUEST["questionnaireID"];
 $parentID = $_REQUEST["parentID"];
 $optionID = $_REQUEST["optionID"];
 $questionID = $_REQUEST["questionID"];
-insertAnswer($optionID, $questionID, $questionnaireID, $parentID, true);
+echo insertAnswer($optionID, $questionID, $questionnaireID, $parentID, true);

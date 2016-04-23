@@ -4,7 +4,7 @@
 
 require_once "../util/commonFuns.php";
 $questionnaireID=$_REQUEST['questionnaireID'];
-$parentOpenID=getOpenId($_REQUEST['code']);
+$parentOpenID=getOpenIDFromREQUEST($_REQUEST);
 ?>
 -->
 <!DOCTYPE html>
@@ -133,12 +133,17 @@ $parentOpenID=getOpenId($_REQUEST['code']);
 
 </body>
 <script >
-    
-    <?PHP
+
+    var jsondata=$.parseJSON(<?PHP
         require_once "../reg/showNotice.php";
         $noticeJson=showNotice();
         echo $noticeJson;
-    ?>
+    ?>);
+    document.getElementById("question_desc").innerHTML=jsondata;
+    alert(jsondata);
+
+
+
 
 </script>
 </html>
