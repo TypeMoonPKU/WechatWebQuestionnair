@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php require_once "../dataBaseApi/dataBaseApis.php";?>
 <html>
 <head>
     <title>创建通知群</title>
@@ -84,19 +83,24 @@
 
 </form>
 <?php
-$questionnaireID = $_REQUEST["jsonencode"];
-echo $questionnaireID;
-$json_string='{"id":1,"name":"jb51","email":"admin@jb51.net","interest":["wordpress","php"]} ';
-$obj=json_decode($json_string);
-echo $obj->name; //prints foo
-echo $obj->interest[1]; //prints php
+require_once "../reg/noticeStats.php";
+$Unnoticed_json = questionnairStats();
+//$Unnoticed_json = '{"s":["wordpress","php"],"ns":["wordpress","php","php1","php2","php3","php4"]} ';
+//echo $Unnoticed_json;
+$student_list =json_decode($Unnoticed_json);
+$unnoticed_students = $student_list->ns;
+echo $unnoticed_students[1]."<br>";
+
+echo "<ul class=\"list-group\">";
+echo "<li class=\"list-group-item\"> <strong>未阅读成员列表</strong> </li>";
+$number_of_unnoticed=count($unnoticed_students);
+for ($x=0; $x<$number_of_unnoticed; $x++) {
+    echo "    <li class=\"list-group-item\">".$unnoticed_students[$x]."</li>";
+}
+echo "</ul>";
+
 ?>
 
-<ul class="list-group">
-    <li class="list-group-item"> <strong>未阅读成员列表</strong> </li>
-    <li class="list-group-item">成员名1</li>
-    <li class="list-group-item">成员名2</li>
-    <li class="list-group-item">成员名3</li>
-</ul>
+
 </body>
 </html>
