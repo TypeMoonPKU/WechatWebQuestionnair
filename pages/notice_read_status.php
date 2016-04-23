@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php require_once "../dataBaseApi/dataBaseApis.php";?>
 <html>
 <head>
     <title>创建通知群</title>
@@ -62,21 +63,8 @@
         </ul>
     </div>
 </nav>
-
-<script script type="text/javascript">
-    function creategroup()
-    {
-        var reader = new FileReader();
-        reader.onload = function()
-        {
-            alert(this.result)
-        }
-        var f = document.getElementById("filePicker").files[0];
-        reader.readAsText(f);
-    }
-</script>
 <h3>
-    <strong>通知展示</strong>
+    <strong>学生状态展示</strong>
 </h3>
 
 <form class="form-horizontal" role="form" action="./upload_question_answers.php" method="get" enctype="multipart/form-data">
@@ -95,12 +83,14 @@
     </div>
 
 </form>
-
+<?php
+$questionnaireID = $_REQUEST["jsonencode"];
+echo $questionnaireID;
 $json_string='{"id":1,"name":"jb51","email":"admin@jb51.net","interest":["wordpress","php"]} ';
 $obj=json_decode($json_string);
 echo $obj->name; //prints foo
 echo $obj->interest[1]; //prints php
-
+?>
 
 <ul class="list-group">
     <li class="list-group-item"> <strong>未阅读成员列表</strong> </li>
