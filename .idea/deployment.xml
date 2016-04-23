@@ -5,11 +5,8 @@
       <paths name="typemoonWebsit">
         <serverdata>
           <mappings>
-            <mapping deploy="/html" local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
-          <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$/文档" />
-          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>
