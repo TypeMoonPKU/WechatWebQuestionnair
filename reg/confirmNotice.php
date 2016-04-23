@@ -15,9 +15,22 @@ require_once "../dataBaseApi/dataBaseApis.php";
 
 $questionnaireID = $_REQUEST["questionnaireID"];
 $parentID = $_REQUEST["parentID"];
-
-
-$questionID = getQuestion($questionnaireID)->fetch_assoc()["questionID"];
-$optionID = getOption($questionnaireID,$questionID)->fetch_assoc()["optionID"];
-insertAnswer($optionID, $questionID, $questionnaireID, $parentID, true);
+//$optionID = $_REQUEST["optionID"];
+//$questionID = $_REQUEST["questionID"];
+$qList = getQuestion($questionnaireID);
+//$qList = getQuestion(3);
+if ($qList==false) {
+    echo "Wrong questionnaireID!";
+}
+else {
+    $question = $qList->fetch_assoc();
+    //echo "<br>$question<br>";
+    $questionID = $question["questionID"];
+    //echo "<br>$questionID<br>";
+    $option = getOption($questionnaireID, $questionID);
+    //$option = getOption(3, 4);
+    $optionID = $option->fetch_assoc()["optionID"];
+    //echo "<br>$optionID<br>";
+    insertAnswer($optionID, $questionID, $questionnaireID, $parentID, true);
+}
 
