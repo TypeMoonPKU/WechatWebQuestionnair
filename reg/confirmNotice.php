@@ -32,29 +32,34 @@
                     }*/
 
                     $questionnaireID = $_REQUEST["questionnaireID"];
-                    $parentID = $_REQUEST["parentID"];
-                    //$optionID = $_REQUEST["optionID"];
-                    //$questionID = $_REQUEST["questionID"];
-                    $qList = getQuestion($questionnaireID);
-                    //$qList = getQuestion(3);
-                    if ($qList==false) {
-                        echo "确认失败<br>请重新确认";
+                    $parentOpenID = $_REQUEST["parentOpenID"];
+                    $parentId = getParentID($parentOpenID);
+                    if ($parentID == false)
+                    {
+                        echo "Wrong Parent OpenID<br>";
                     }
                     else {
-                        $question = $qList->fetch_assoc();
-                        //echo "<br>$question<br>";
-                        $questionID = $question["questionID"];
-                        //echo "<br>$questionID<br>";
-                        $option = getOption($questionnaireID, $questionID);
-                        //$option = getOption(3, 4);
-                        $optionID = $option->fetch_assoc()["optionID"];
-                        //echo "<br>$optionID<br>";
-                        $judge=insertAnswer($optionID, $questionID, $questionnaireID, $parentID, true);
-                        if ($judge==false) {
+                        //$optionID = $_REQUEST["optionID"];
+                        //$questionID = $_REQUEST["questionID"];
+                        $qList = getQuestion($questionnaireID);
+                        //$qList = getQuestion(3);
+                        if ($qList == false) {
                             echo "确认失败<br>请重新确认";
-                        }
-                        else {
-                            echo "确认成功";
+                        } else {
+                            $question = $qList->fetch_assoc();
+                            //echo "<br>$question<br>";
+                            $questionID = $question["questionID"];
+                            //echo "<br>$questionID<br>";
+                            $option = getOption($questionnaireID, $questionID);
+                            //$option = getOption(3, 4);
+                            $optionID = $option->fetch_assoc()["optionID"];
+                            //echo "<br>$optionID<br>";
+                            $judge = insertAnswer($optionID, $questionID, $questionnaireID, $parentID, true);
+                            if ($judge == false) {
+                                echo "确认失败<br>请重新确认";
+                            } else {
+                                echo "确认成功";
+                            }
                         }
                     }
                     ?>

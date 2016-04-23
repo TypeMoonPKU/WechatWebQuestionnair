@@ -421,6 +421,30 @@ function getTeacherID($teacherOpenID)
     }
 }
 
+function getParentID($parentOpenID)
+{
+    $dbname = "typemoon01";
+    $servername = "localhost";
+    $username = "typemoon";
+    $password = "typemoonsql";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $sql = "SELECT parentID FROM parentTable
+        WHERE parentOpenID='$parentOpenID'";
+
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        //echo "true";
+        $ID = $result->fetch_assoc()["teacherID"];
+        $conn->close();
+        return $ID;
+    }
+    else {
+        //echo "false";
+        $conn->close();
+        return false;
+    }
+}
+
 function getQuestionnaire($questionnaireID)
 {
     $dbname = "typemoon01";
@@ -497,7 +521,7 @@ function getQuestionnaireByTeacher($teacherID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
-    $sql = "SELECT title,questionnaireType FROM questionnaireTable
+    $sql = "SELECT title,questionnaireType,questionnaireID FROM questionnaireTable
         WHERE ownerTeacherID=$teacherID";
 
     $result = $conn->query($sql);

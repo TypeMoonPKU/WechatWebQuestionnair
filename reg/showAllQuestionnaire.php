@@ -24,10 +24,16 @@ function showAllQuestionnaire($teacherOpenID)
     else {
         if ($questionnaireList->num_rows > 0) {
             while ($row = $questionnaireList->fetch_assoc()) {
-                if($row["questionnaireType"]=="Q")
-                    array_push($arrQ,$row["title"]);
-                elseif($row["questionnaireType"]=="N")
-                    array_push($arrN,$row["title"]);
+                if($row["questionnaireType"]=="Q") {
+                    $tmp = array('title' => $row["title"],
+                        'questionnaireID' => $row["questionnaireID"]);
+                    array_push($arrQ, $tmp);
+                }
+                elseif($row["questionnaireType"]=="N") {
+                    $tmp = array('title' => $row["title"],
+                        'questionnaireID' => $row["questionnaireID"]);
+                    array_push($arrN, $tmp);
+                }
             }
         }
     }

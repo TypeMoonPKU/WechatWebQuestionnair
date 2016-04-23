@@ -14,7 +14,11 @@ require_once "../dataBaseApi/dataBaseApis.php";
 }*/
 
 $questionnaireID = $_REQUEST["questionnaireID"];
-$parentID = $_REQUEST["parentID"];
+$parentOpenID = $_REQUEST["parentOpenID"];
 $optionID = $_REQUEST["optionID"];
 $questionID = $_REQUEST["questionID"];
-insertAnswer($optionID, $questionID, $questionnaireID, $parentID, true);
+$parentID = getParentID($parentOpenID);
+if ($parentID == false)
+    echo "Wrong Parent OpenID<br>";
+else
+    insertAnswer($optionID, $questionID, $questionnaireID, $parentID, true);
