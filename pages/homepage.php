@@ -1,6 +1,7 @@
 <!--必须提供code或teacherOpenID
 <?php
 // 但如果提供了parentOpenID也能通过 TODO 这是一个bug
+// 测试链接：http://121.201.14.58/pages/homepage.php?teacherOpenID=oG_07xPR4JEibyjiSzTjfphx6EWM&nsukey=XJh5yt7ka2L9rlCka2RJa0LxCHtacT4ZHsub%2Ftf31md%2FCUX1lNoTH6VIoiobhmEY2XbPEj%2BMUG5AxiJkvoGSlg%3D%3D
 var_dump($_REQUEST);
 require_once "../util/commonFuns.php";
 $teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
@@ -78,11 +79,10 @@ $teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
     <strong>历史通知</strong>
 </h3>
 
-<ul class="list-group">
+<ul class="list-group" id="listNotice">
+    <!--<li class="list-group-item" style="display: none" id="listNoticeBase">  </li> -->
     <li class="list-group-item"><strong>我的通知</a></strong><small>&nbsp&nbsp<a href="./notice_create.php?teacherOpenID=<?PHP  echo $teacherOpenID?>">新建通知</a></small></li>
-    <li class="list-group-item"><a href="notice_show.php">我是最新的通知</a></li>
-    <li class="list-group-item"><a href="notice_show.php">我是第二新的通知</a></li>
-    <li class="list-group-item">我是第三新的通知</li>
+
 </ul>
 
 <!-- 群管理功能正在开发中-->
@@ -93,13 +93,54 @@ $teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
     <li class="list-group-item">我是第三新的活动群</li>
 </ul>
 
-<ul class="list-group">
-    <li class="list-group-item"><strong>我的新问卷</a></strong><small>&nbsp&nbsp<a href="./question_create.html">新建问卷</a></small></li>
-    <li class="list-group-item"><a href="./question_show_results.html">我是最新的问卷的答案</a></li>
-    <li class="list-group-item"><a href="./question_show_results.html">我是第二新的问卷的答案</a></li>
-    <li class="list-group-item">我是第三新的问卷的答案</li>
+<ul class="list-group" id="listGroup">
+    <li class="list-group-item"><strong>我的问卷</a></strong><small>&nbsp&nbsp<a href="./question_create.html">新建问卷</a></small></li>
+
 </ul>
 
-
 </body>
+<script>
+    var $jsondata=$.parseJSON('<?PHP
+        require_once "../reg/showAllQuestionnaire.php";
+        $questionnaireJSON=showAllQuestionnaire($teacherOpenID);
+        ?>');
+
+    // 生成通知列表
+    var notices=$jsondata.Notice;
+    var noticeDOM=document.getElementById("listNotice"); // TODO　问题:innertext 有没有append？
+    if(notices.length == 0){
+        var newNode = document.createElement("li");
+        newNode.innerHTML = "您还没有已创建的通知";
+        newNode.setAttribute("class", "list-group-item");
+        noticeDOM.appendChild(newNode);
+    }else {
+        for (x in notices) {
+            //var htmlstr='<li class="list-group-item"><a href="notice_show.php">' + x + '</a></li>';
+            var newNode = document.createElement("li");
+            newNode.innerHTML = notices[x];
+            newNode.setAttribute("class", "list-group-item");
+            noticeDOM.appendChild(newNode);
+        }
+    }
+
+    // 生成问卷列表
+    var questionnaires=$jsondata.Questionnaire;
+    var questionnairesDOM=document.getElementById("listGroup"); // TODO　问题:innertext 有没有append？
+    if(questionnaires.length == 0){
+        var newNode = document.createElement("li");
+        newNode.innerHTML = "您还没有已创建的问卷";
+        newNode.setAttribute("class", "list-group-item");
+        questionnairesDOM.appendChild(newNode);
+
+    }else {
+        for (x in questionnaires) {
+            //var htmlstr='<li class="list-group-item"><a href="notice_show.php">' + x + '</a></li>';
+            var newNode = document.createElement("li");
+            newNode.innerHTML = questionnaires[x];
+            newNode.setAttribute("class", "list-group-item");
+            questionnairesDOM.appendChild(newNode);
+        }
+    }
+
+</script>
 </html>

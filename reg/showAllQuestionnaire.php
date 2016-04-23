@@ -5,7 +5,7 @@
  * Date: 2016/4/23
  * Time: 15:43
  */
-function showAllQuestionnaire()
+function showAllQuestionnaire($teacherOpenID)
 {
     require_once "../dataBaseApi/dataBaseApis.php";
 
@@ -13,7 +13,8 @@ function showAllQuestionnaire()
         echo "key: " . $key;
         echo "   value: " . $value;
     }*/
-    $teacherID = $_REQUEST["teacherID"];
+    //$teacherID = $_REQUEST["teacherID"];
+    $teacherID=getTeacherID($teacherOpenID);
     $questionnaireList = getQuestionnaireByTeacher($teacherID);
     $arrQ = array();
     $arrN = array();
