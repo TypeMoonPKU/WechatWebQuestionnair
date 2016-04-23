@@ -57,7 +57,7 @@ echo "<br> 请将此链接： <a href='$userRegNewUrlOAuth' >" . $userRegNewUrlO
 <html >
 <head>
     <title>问卷成功</title>
-    <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1.0; charset=utf-8">
+    <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1.0, charset=utf-8">
     <link href="../pages/reference/bootstrap.min.css" rel="stylesheet">
     <script src="../pages/reference/jquery.min.js"></script>
     <script src="../pages/reference/bootstrap.min.js"></script>
