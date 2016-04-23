@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>创建通知群</title>
+    <title>展示问卷</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
@@ -62,18 +62,41 @@
     </div>
 </nav>
 
+<br><br><br>
+<form class="form-horizontal" role="form" action="./upload_question_answers.php" method="get" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="question_group_name" class="col-sm-2 control-label">群&nbsp名</label>
+        <div class="col-sm-10">
+            <p class="form-control-static"id="question_group_name"name="question_group_name">这是来自您孩子所在班级的家长群</p>
+        </div>
+    </div>
 
-<h3>
-    <strong>历史通知</strong>
-</h3>
+    <div class="form-group">
+        <label for="question_question_name" class="col-sm-2 control-label">问卷名</label>
+        <div class="col-sm-10">
+            <p class="form-control-static"id ="question_question_name" name="question_question_name">本学期第二次家长会时间协调调查表</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="question_desc" class="col-sm-2 control-label">描&nbsp述</label>
+        <div class="col-sm-10">
+            <p class="form-control-static"id="question_desc" name="question_desc">我们这次活动的描述：家长会</p>
+        </div>
+    </div>
 
+    <div class="form-group">
+        <label for="question_desc" class="col-sm-2 control-label">第一题</label>
+    <div class="col-sm-10">
+        <p class="form-control-static">您可以来参加家长会的时间</p>
+        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxA"value="optionA">A.周一下午<br>
+        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxB"value="optionB">B.周二下午<br>
+        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxC"value="optionC">C.周三下午<br>
+        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxD"value="optionD">D.周四下午<br>
+    </div>
+            <button type="submit" class="btn btn-large btn-block">确认提交</button>
 
-
-<ul class="list-group">
-    <li class="list-group-item"><a href="./notice_show.html">我是最新的通知</a>&nbsp<a href="./notice_read_status.html">阅读情况</a></li>
-    <li class="list-group-item"><a href="./notice_show.html">我是第二新的通知</a>&nbsp<a href="./notice_read_status.html">阅读情况</a></li>
-    <li class="list-group-item">我是第三新的通知&nbsp阅读情况</li>
-</ul>
+</div>
+</form>
 
 </body>
 </html>
