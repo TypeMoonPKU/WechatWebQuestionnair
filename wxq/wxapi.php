@@ -20,8 +20,9 @@ echo $_REQUEST;
 echo "<br> 第一次使用？请点击链接注册 <a href='$url' >" . $url . "</a>";
 
 
-//$regUrl=REMOTE_SERVER_IP . "/pages/notice_create.php?teacherOpenID=" . $;
-echo "<br> 点击下列链接以进入管理页  <a href=''"
+$ManageUrl=REMOTE_SERVER_IP . "/pages/homepage.php";
+$oauthMUrl=genOAuthURL($ManageUrl);
+echo "<br> 点击下列链接以进入管理页  <a href='$oauthMUrl'>" . $oauthMUrl . "</a>";
 
 ?>
 
