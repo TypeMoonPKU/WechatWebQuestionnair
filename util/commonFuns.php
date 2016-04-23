@@ -96,3 +96,16 @@ function genOAuthURL($url){
     $oauthurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" . CORPID_GOLBAL . "&redirect_uri=" . urlencode($url) . "&response_type=code&scope=snsapi_base#wechat_redirect";
     return $oauthurl;
 }
+
+
+function getOpenIDFromREQUEST($request){
+    if(!empty($request['parentOpenID'])){
+        return $request['parentOpenID'];
+    }elseif(!empty($request['teacherOpenID'])){
+        return $request['teacherOpenID'];
+    }elseif(!empty($request['code'])){
+        return getOpenId($request['code']);
+    }else{
+        throw new Exception("No code or openid in request");
+    }
+}

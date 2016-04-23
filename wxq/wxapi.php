@@ -7,6 +7,17 @@
  */
 
 require_once "../util/commonFuns.php";
+$goalURL=REMOTE_SERVER_IP . "/wxq/getCodeToRedirect.php";
+$redirectURL=genOAuthURL($goalURL);
+?>
+
+
+<head>
+    <meta http-equiv="refresh" content="3;url=<?PHP echo $redirectURL?>">
+</head>
+
+<?php
+
 
 foreach ($_REQUEST as $key => $value ){
     echo "key: " . $key;

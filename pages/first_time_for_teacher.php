@@ -3,7 +3,7 @@
 // 测试链接 https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=121.201.14.58%2fpages%2ffirst_time_for_teacher.php&response_type=code&scope=snsapi_base#wechat_redirect
 
 require_once "../util/commonFuns.php";
-$teacherOpenID=getOpenId($_REQUEST['code']);
+$teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
 ?>
 -->
 <!DOCTYPE html>
@@ -74,6 +74,7 @@ $teacherOpenID=getOpenId($_REQUEST['code']);
 <h3>
     <strong>请老师完成注册</strong>
 </h3>
+<p>注意：此页面仅供老师使用，家长只能使用老师的邀请链接注册。</p>
 <form class="form-horizontal" role="form" action="../reg/teacherReg.php" method="get">
     <div class="form-group">
         <label for="teacherName" class="col-sm-2 control-label">用户名</label>
