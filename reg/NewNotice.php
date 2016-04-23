@@ -17,27 +17,25 @@ require_once "../dataBaseApi/dataBaseApis.php";
 
 $title = $_REQUEST["title"];
 $description = $_REQUEST["description"];
-$teacherID = $_REQUEST["teacherID"];
+$teacherOpenID = $_REQUEST["teacherOpenID"];
+$teacherID = getTeacherID($teacherOpenID);
 
-$questionnaireID = insertQuestionnaire($title,"","N","$teacherID");
-if ($questionnaireID==false) {
-    echo "Unknown Errror!";
-}
+
+if($description == "")
+    echo "Error: 通知没有内容！<br> ";
 else {
-    if ($description == "") {
-        echo "Warning: 通知没有内容！<br> ";
-    } 
-    else {
+    $questionnaireID = insertQuestionnaire($title, "", "N", "$teacherID");
+    if ($questionnaireID == false) {
+        echo "Unknown Error!";
+    } else {
         $questionID = insertQuestion($questionnaireID, "S", $description);
         if ($questionID == false) {
             echo "通知发布失败<br>";
-        }
-        else{
-            $rtnVal=insertOption($questionID,$questionnaireID,"确认");
-            if($rtnVal==true) {
+        } else {
+            $rtnVal = insertOption($questionID, $questionnaireID, "确认");
+            if ($rtnVal == true) {
                 echo "通知发布成功<br>";
-            }
-            else {
+            } else {
                 echo "通知发布失败<br>";
             }
         }

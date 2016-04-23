@@ -261,10 +261,16 @@ function getPeopleSelected($questionnaireID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
-    $sql = "SELECT DISTINCT studentID FROM parentStudentTable
+    $sql = "SELECT studentName FROM studentTable WHERE studentID IN
+      (SELECT DISTINCT studentID FROM parentStudentTable
         WHERE parentID IN 
         (SELECT DISTINCT parentID FROM answerTable
-        WHERE questionnaireID=$questionnaireID)";
+        WHERE questionnaireID=$questionnaireID))";
+    
+    /*$sql = "SELECT DISTINCT studentID FROM parentStudentTable
+        WHERE parentID IN 
+        (SELECT DISTINCT parentID FROM answerTable
+        WHERE questionnaireID=$questionnaireID)";*/
     $result=$conn->query($sql);
     //if ($result->num_rows > 0) {
     //    while ($row = $result->fetch_assoc()) {
@@ -286,7 +292,19 @@ function getPeopleNotSelected($questionnaireID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
-    $sql = "SELECT DISTINCT PS.studentID FROM parentStudentTable PS, studentTable S
+    $sql = "SELECT studentName FROM studentTable WHERE studentID IN
+      (SELECT DISTINCT PS.studentID FROM parentStudentTable PS, studentTable S
+       WHERE PS.studentID = S.studentID AND S.ownerTeacherID =
+      (SELECT ownerTeacherID FROM questionnaireTable WHERE questionnaireID = $questionnaireID)
+      AND PS.studentID NOT IN (
+          SELECT DISTINCT PS.studentID
+          FROM parentStudentTable PS
+          WHERE parentID IN
+                (SELECT DISTINCT parentID
+                 FROM answerTable
+                 WHERE questionnaireID = $questionnaireID)))";
+    
+    /*$sql = "SELECT DISTINCT PS.studentID FROM parentStudentTable PS, studentTable S
        WHERE PS.studentID = S.studentID AND S.ownerTeacherID =
       (SELECT ownerTeacherID FROM questionnaireTable WHERE questionnaireID = $questionnaireID)
       AND PS.studentID NOT IN (
@@ -296,7 +314,7 @@ function getPeopleNotSelected($questionnaireID)
                 (SELECT DISTINCT parentID
                  FROM answerTable
                  WHERE questionnaireID = $questionnaireID)
-        )";
+        )";*/
 
     $result = $conn->query($sql);
     //if ($result->num_rows > 0) {

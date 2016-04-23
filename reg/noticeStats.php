@@ -23,7 +23,7 @@ $notSelected = getPeopleNotSelected($questionnaireID);
 $notSelectedNum = 0;
 if ($selected->num_rows > 0) {
     while ($row = $selected->fetch_assoc()) {
-        echo "studentID: {$row["studentID"]}<br>";
+        echo "studentName: {$row["studentName"]}<br>";
         $selectedNum++;
     }
     echo "{$selectedNum} students have read this notice.<br>";
@@ -34,7 +34,7 @@ else {
 
 if ($notSelected->num_rows > 0) {
     while ($row = $notSelected->fetch_assoc()) {
-        echo "studentID: {$row["studentID"]}<br>" ;
+        echo "studentName: {$row["studentName"]}<br>" ;
         $notSelectedNum++;
     }
     echo "{$notSelectedNum} students haven't read this notice.<br>";
