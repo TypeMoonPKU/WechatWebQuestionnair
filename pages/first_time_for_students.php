@@ -106,6 +106,7 @@ $teacherOpenID=$_REQUEST['teacherOpenID'];
                    value=<?php echo $teacherOpenID?>>
         </div>
     </div>
+    <!-- 用于在页面中保存parentOpenID-->
     <div class="form-group" style="display: none" >
         <label for="parentOpenID" class="col-sm-2 control-label">OpenID</label>
         <div class="col-sm-10">

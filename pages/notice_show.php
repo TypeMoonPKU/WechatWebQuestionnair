@@ -1,3 +1,12 @@
+<!--需要由Oauth跳转过来，会自动带上code
+// TODO  需要添加拉取信息的代码
+<?php
+
+require_once "../util/commonFuns.php";
+$questionnaireID=$_REQUEST['questionnaireID'];
+$parentOpenID=getOpenId($_REQUEST['code']);
+?>
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,6 +88,24 @@
 </h3>
 
 <form class="form-horizontal" role="form" action="./upload_question_answers.php" method="get" enctype="multipart/form-data">
+    <!-- 用于在页面中保存questionnaireID-->
+    <div class="form-group" style="display: none" >
+        <label for="questionnaireID" class="col-sm-2 control-label">OpenID</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="questionnaireID" name="questionnaireID"
+                   value=<?php echo $questionnaireID?>>
+        </div>
+    </div>
+
+    <!-- 用于在页面中保存parentOpenID-->
+    <div class="form-group" style="display: none" >
+        <label for="parentOpenID" class="col-sm-2 control-label">OpenID</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="parentOpenID" name="parentOpenID"
+                   value=<?php echo $parentOpenID?>>
+        </div>
+    </div>
+
     <div class="form-group">
         <label for="question_group_name" class="col-sm-2 control-label">群&nbsp&nbsp&nbsp名</label>
         <div class="col-sm-10">

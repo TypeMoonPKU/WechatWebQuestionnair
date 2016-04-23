@@ -54,6 +54,7 @@
     * json.js  parseJSON
 * 服务器以json形式返回阅读情况数据。
     * json_encode
+* 确定通知已阅。confirmNotice.php
 
 ##问题定义
 ##可行性分析
