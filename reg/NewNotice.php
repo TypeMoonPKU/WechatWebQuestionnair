@@ -20,12 +20,14 @@ $title = $_REQUEST["title"];
 $description = $_REQUEST["description"];
 $teacherOpenID = $_REQUEST["teacherOpenID"];
 $teacherID = getTeacherID($teacherOpenID);
-
-
+if($teacherID==false)
+{
+    throw new Exception("Teacher OpenID Error!");
+}
 if($description == "")
     echo "Error: 通知没有内容！<br> ";
 else {
-    $questionnaireID = insertQuestionnaire($title, "", "N", "$teacherID");
+    $questionnaireID = insertQuestionnaire($title, "", "N", $teacherID);
     if ($questionnaireID == false) {
         echo "Unknown Error!";
     } else {
