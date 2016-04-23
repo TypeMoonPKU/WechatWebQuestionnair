@@ -8,7 +8,7 @@
  * Time: 21:13
  */
 
-function stat()
+function questionnairStats()
 {
     require_once "../dataBaseApi/dataBaseApis.php";
 
