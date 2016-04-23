@@ -136,7 +136,7 @@ $parentOpenID=getOpenIDFromREQUEST($_REQUEST);
 
     var jsondata=$.parseJSON(<?PHP
         require_once "../reg/showNotice.php";
-        $noticeJson=showNotice();
+        $noticeJson=showNotice($questionnaireID);
         echo $noticeJson;
     ?>);
     document.getElementById("question_desc").innerHTML=jsondata;
