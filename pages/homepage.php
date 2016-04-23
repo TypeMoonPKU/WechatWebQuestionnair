@@ -68,23 +68,26 @@
 </h3>
 
 <ul class="list-group">
-    <li class="list-group-item"><strong>我的通知</a></strong><small>&nbsp&nbsp最新通知</small></li>
+    <li class="list-group-item"><strong>我的通知</a></strong><small>&nbsp&nbsp<a href="./notice_create.php">新建通知</a></small></li>
     <li class="list-group-item"><a href="notice_show.php">我是最新的通知</a></li>
     <li class="list-group-item"><a href="notice_show.php">我是第二新的通知</a></li>
     <li class="list-group-item">我是第三新的通知</li>
 </ul>
+
 <ul class="list-group">
-    <li class="list-group-item"><strong>我的新问卷</a></strong><small>&nbsp&nbsp最新问卷</small></li>
-    <li class="list-group-item"><a href="./question_show_results.html">我是最新的问卷的答案</a></li>
-    <li class="list-group-item"><a href="./question_show_results.html">我是第二新的问卷的答案</a></li>
-    <li class="list-group-item">我是第三新的问卷的答案</li>
-</ul>
-<ul class="list-group">
-    <li class="list-group-item"><strong>我的群</a></strong><small>&nbsp&nbsp最新群</small></li>
+    <li class="list-group-item"><strong>我的群</a></strong><small>&nbsp&nbsp<a href="./group_create.html">新建群</a></small></li>
     <li class="list-group-item"><a href="./group_show_results.html">我是最新的活动群</a></li>
     <li class="list-group-item"><a href="./question_show_results.html">我是第二新的活动群</a></li>
     <li class="list-group-item">我是第三新的活动群</li>
 </ul>
+
+<ul class="list-group">
+    <li class="list-group-item"><strong>我的新问卷</a></strong><small>&nbsp&nbsp<a href="./question_create.html">新建问卷</a></small></li>
+    <li class="list-group-item"><a href="./question_show_results.html">我是最新的问卷的答案</a></li>
+    <li class="list-group-item"><a href="./question_show_results.html">我是第二新的问卷的答案</a></li>
+    <li class="list-group-item">我是第三新的问卷的答案</li>
+</ul>
+
 
 </body>
 </html>
