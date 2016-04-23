@@ -1,10 +1,12 @@
 <!-- 调用的时候必须提供家长的code和teacherOpenID update：2016年4月23日01:30:32-->
 <!-- 调用的时候必须以get方法提供teacherOpenID和parentOpenID-->
+<!--
 <?php
 require_once "../util/commonFuns.php";
 $parentOpenID=getOpenId($_REQUEST['code']);
 $teacherOpenID=$_REQUEST['teacherOpenID'];
 ?>
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +50,7 @@ $teacherOpenID=$_REQUEST['teacherOpenID'];
                     通知 <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="./notice_create.html">创建通知</a></li>
+                    <li><a href="notice_create.php">创建通知</a></li>
                     <li><a href="./notice_history.html">历史通知</a></li>
                     <li class="divider"></li>
                     <li><a href="./notice_draft.html">通知草稿</a></li>

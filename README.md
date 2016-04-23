@@ -49,8 +49,11 @@
 
 需要支持update和read
 
-
-
+### backlog
+* 通知阅读情况展示。需要weitong用服务器返回的json数据在浏览器端解析并显示。
+    * json.js  parseJSON
+* 服务器以json形式返回阅读情况数据。
+    * json_encode
 
 ##问题定义
 ##可行性分析

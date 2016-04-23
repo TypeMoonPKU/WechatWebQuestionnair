@@ -1,10 +1,11 @@
+<!--必须提供code
 <?php
 // 测试链接 https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=121.201.14.58%2fpages%2ffirst_time_for_teacher.php&response_type=code&scope=snsapi_base#wechat_redirect
 
 require_once "../util/commonFuns.php";
 $teacherOpenID=getOpenId($_REQUEST['code']);
 ?>
-
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +48,7 @@ $teacherOpenID=getOpenId($_REQUEST['code']);
                     通知 <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="./notice_create.html">创建通知</a></li>
+                    <li><a href="notice_create.php">创建通知</a></li>
                     <li><a href="./notice_history.html">历史通知</a></li>
                     <li class="divider"></li>
                     <li><a href="./notice_draft.html">通知草稿</a></li>
@@ -81,6 +82,7 @@ $teacherOpenID=getOpenId($_REQUEST['code']);
                    placeholder="请输入用户名">
         </div>
     </div>
+    <!-- 用于在页面中保存teacherOpenID-->
     <div class="form-group" style="display: none" >
         <label for="teacherOpenID" class="col-sm-2 control-label">OpenID</label>
         <div class="col-sm-10">
