@@ -95,6 +95,13 @@
     </div>
 
 </form>
+
+$json_string='{"id":1,"name":"jb51","email":"admin@jb51.net","interest":["wordpress","php"]} ';
+$obj=json_decode($json_string);
+echo $obj->name; //prints foo
+echo $obj->interest[1]; //prints php
+
+
 <ul class="list-group">
     <li class="list-group-item"> <strong>未阅读成员列表</strong> </li>
     <li class="list-group-item">成员名1</li>
