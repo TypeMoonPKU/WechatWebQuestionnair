@@ -1,0 +1,57 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: summe_000
+ * Date: 2016/4/23
+ * Time: 15:43
+ */
+function showNotice()
+{
+    require_once "../dataBaseApi/dataBaseApis.php";
+
+    /*foreach ($_REQUEST as $key => $value ){
+        echo "key: " . $key;
+        echo "   value: " . $value;
+    }*/
+
+    $questionnaireID = $_REQUEST["questionnaireID"];
+    $questionnaireR = getQuestionnaire($questionnaireID);
+    if ($questionnaireR == false)
+        echo "Wrong QuestionnaireID";
+    else {
+        $questionnaire = $questionnaireR->fetch_assoc();
+        $questionnaireArr = array('title' => $questionnaire["title"],
+            'questionnaireDescription' => $questionnaire["questionnaireDescription"],
+            'type' => $questionnaire["questionnaireType"],
+            'question' => "");
+        $allQuestionArr = array();
+        $question = getQuestion($questionnaireID);
+        if ($question == false)
+            echo "No question in this questionnaire";
+        else {
+
+            if ($question->num_rows > 0) {
+                while ($row = $question->fetch_assoc()) {
+                    //echo "studentName: {$row["studentName"]}<br>" ;
+                    $questionArr = array('questionDescription' => "",
+                        'option' => '');
+                    $questionArr["questionDescription"] = $row["questionDescription"];
+                    $option = getOption($questionnaireID, $row["questionID"]);
+                    if ($option == false) {
+                    } else {
+                        $optionArr = array();
+                        while ($optionRow = $option->fetch_assoc()) {
+                            array_push($optionArr, array($optionRow["optionDescription"]));
+                        }
+                        $questionArr["option"] = $optionArr;
+                    }
+                    array_push($allQuestionArr, $questionArr);
+                }
+            }
+        }
+        $questionnaireArr["question"] = $allQuestionArr;
+    }
+    $jsonencode = json_encode($questionnaireArr);
+    //echo "$jsonencode";
+    return $jsonencode;
+}

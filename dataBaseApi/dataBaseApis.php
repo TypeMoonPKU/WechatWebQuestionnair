@@ -421,6 +421,77 @@ function getTeacherID($teacherOpenID)
     }
 }
 
+function getQuestionnaire($questionnaireID)
+{
+    $dbname = "typemoon01";
+    $servername = "localhost";
+    $username = "typemoon";
+    $password = "typemoonsql";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $sql = "SELECT * FROM questionnaireTable
+        WHERE questionnaireID=$questionnaireID";
+
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        //echo "true";
+        //$ID = $result->fetch_assoc()["teacherID"];
+        $conn->close();
+        return $result;
+    }
+    else {
+        //echo "false";
+        $conn->close();
+        return false;
+    }
+}
+
+function getQuestion($questionnaireID)
+{
+    $dbname = "typemoon01";
+    $servername = "localhost";
+    $username = "typemoon";
+    $password = "typemoonsql";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $sql = "SELECT * FROM itemTable
+        WHERE questionnaireID=$questionnaireID";
+
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        //echo "true";
+        //$ID = $result->fetch_assoc()["teacherID"];
+        $conn->close();
+        return $result;
+    }
+    else {
+        //echo "false";
+        $conn->close();
+        return false;
+    }
+}
+
+function getOption($questionnaireID,$questionID)
+{
+    $dbname = "typemoon01";
+    $servername = "localhost";
+    $username = "typemoon";
+    $password = "typemoonsql";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $sql = "SELECT * FROM optionTable
+        WHERE questionnaireID=$questionnaireID AND questionID=$questionID";
+
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        //echo "true";
+        //$ID = $result->fetch_assoc()["teacherID"];
+        $conn->close();
+        return $result;
+    }
+    else {
+        //echo "false";
+        $conn->close();
+        return false;
+    }
+}
 //获得
 //createTable();
 //insertTeacher('teacher2', 't2openID','123456','ttttt');
