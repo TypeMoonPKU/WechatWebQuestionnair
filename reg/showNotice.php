@@ -5,7 +5,7 @@
  * Date: 2016/4/23
  * Time: 15:43
  */
-function showNotice()
+function showNotice($questionnaireID)
 {
     require_once "../dataBaseApi/dataBaseApis.php";
 
@@ -14,7 +14,7 @@ function showNotice()
         echo "   value: " . $value;
     }*/
 
-    $questionnaireID = $_REQUEST["questionnaireID"];
+   // $questionnaireID = $_REQUEST["questionnaireID"];
     $questionnaireR = getQuestionnaire($questionnaireID);
     if ($questionnaireR == false)
         echo "Wrong QuestionnaireID";
