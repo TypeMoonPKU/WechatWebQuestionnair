@@ -434,7 +434,6 @@ function getQuestionnaire($questionnaireID)
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         //echo "true";
-        //$ID = $result->fetch_assoc()["teacherID"];
         $conn->close();
         return $result;
     }
@@ -458,7 +457,6 @@ function getQuestion($questionnaireID)
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         //echo "true";
-        //$ID = $result->fetch_assoc()["teacherID"];
         $conn->close();
         return $result;
     }
@@ -482,7 +480,29 @@ function getOption($questionnaireID,$questionID)
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         //echo "true";
-        //$ID = $result->fetch_assoc()["teacherID"];
+        $conn->close();
+        return $result;
+    }
+    else {
+        //echo "false";
+        $conn->close();
+        return false;
+    }
+}
+
+function getQuestionnaireByTeacher($teacherID)
+{
+    $dbname = "typemoon01";
+    $servername = "localhost";
+    $username = "typemoon";
+    $password = "typemoonsql";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $sql = "SELECT title,questionnaireType FROM questionnaireTable
+        WHERE ownerTeacherID=$teacherID";
+
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        //echo "true";
         $conn->close();
         return $result;
     }
