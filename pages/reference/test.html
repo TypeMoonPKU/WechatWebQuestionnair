@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Zero Clipboard Test</title>
+<meta  content="text/html" />
+<script type="text/javascript" src="ZeroClipboard.js"></script>
+<script type="text/javaScript">
+  var clip = null;  
+  function $(id) { return document.getElementById(id); }  
+  function init() {
+  	clip = new ZeroClipboard.Client();
+  	clip.setHandCursor(true);  	
+  	clip.addEventListener('mouseOver', function (client) {
+    // update the text on mouse over
+    clip.setText( $('fe_text').value );
+  	});
+  	
+  	clip.addEventListener('complete', function (client, text) {
+    //debugstr("Copied text to clipboard: " + text );
+    alert("该地址已经复制，你可以使用Ctrl+V 粘贴。");
+  	});
+
+  	clip.glue('clip_button', 'clip_container' );
+  }
+</script>
+</head>
+<body onLoad="init()">
+<input id="fe_text" cols="50" rows="5" value="复制内容文本">
+<span id="clip_container"><span id="clip_button"><strong>复制</strong></span></span>
+</body>
+<!-- 　详细介绍见：　http://www.admin10000.com/Document/35.html -->
+</html>
