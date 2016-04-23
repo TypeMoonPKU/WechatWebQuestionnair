@@ -13,7 +13,7 @@ $redirectURL=genOAuthURL($goalURL);
 
 
 <head>
-    <meta http-equiv="refresh" content="3;url=<?PHP echo $redirectURL?>">
+    <meta http-equiv="refresh" content="1;url=<?PHP echo $redirectURL?>">
 </head>
 
 <?php
