@@ -521,7 +521,7 @@ function getQuestionnaireByTeacher($teacherID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
-    $sql = "SELECT title,questionnaireType FROM questionnaireTable
+    $sql = "SELECT title,questionnaireType,questionnaireID FROM questionnaireTable
         WHERE ownerTeacherID=$teacherID";
 
     $result = $conn->query($sql);
