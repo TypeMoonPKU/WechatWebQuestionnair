@@ -1,3 +1,23 @@
+<!-- 通用提示页面代码 part1 开始-->
+<!DOCTYPE html >
+<html >
+<head>
+    <title>通知确认</title>
+    <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1.0, charset=utf-8">
+    <link href="../pages/reference/bootstrap.min.css" rel="stylesheet">
+    <script src="../pages/reference/jquery.min.js"></script>
+    <script src="../pages/reference/bootstrap.min.js"></script>
+    <script src="../pages/reference/bootstrap-theme.min.css"></script>
+</head>
+<body >
+
+
+<form class="form-horizontal" role="form" method="get" action="../reg/parentRegWithStudent.php">
+    <div class="form-group">
+        <div class="col-sm-12" align="center">
+            <pre><h1>
+                    <!-- 通用提示页面代码 part1 结束-->
+
 <?php
 /**
  * 用于完成家长的注册工作
@@ -36,3 +56,13 @@ else {
         }
     }
 }
+?>
+                <!-- 通用提示页面代码 part2 开始-->
+                </h1>
+                </pre>
+        </div>
+    </div>
+
+</form>
+</body>
+<!-- 通用提示页面代码 part2 结束-->
