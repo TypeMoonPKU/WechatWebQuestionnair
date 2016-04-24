@@ -79,26 +79,27 @@ $teacherOpenID=$_REQUEST['teacherOpenID'];
 </h3>
 <form class="form-horizontal" role="form" method="get" action="../reg/parentRegWithStudent.php">
     <div class="form-group">
-        <label for="parentName" class="col-sm-2 control-label">用户名</label>
+        <label for="parentName" class="col-sm-2 control-label">您的姓名</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="parentName" name="parentName"
                    placeholder="请输入用户名">
         </div>
     </div>
     <div class="form-group">
-        <label for="studentName" class="col-sm-2 control-label">学生名</label>
+        <label for="studentName" class="col-sm-2 control-label">孩子姓名</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="studentName" name="studentName"
                    placeholder="请输入您孩子的姓名">
         </div>
     </div>
     <div class="form-group">
-        <label for="studentID" class="col-sm-2 control-label">学号</label>
+        <label for="studentID" class="col-sm-2 control-label">孩子学号</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="studentID" name="studentID"
-                   placeholder="请输入孩子学号">
+                   placeholder="请输入您孩子的学号">
         </div>
     </div>
+    <!-- 用于在页面中保存teacherOpenID-->
     <div class="form-group" style="display: none" >
         <label for="teacherOpenID" class="col-sm-2 control-label">OpenID</label>
         <div class="col-sm-10">
@@ -134,7 +135,7 @@ $teacherOpenID=$_REQUEST['teacherOpenID'];
         <label for="password_again" class="col-sm-2 control-label">确认密码</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="password_again"
-            placeholder="请再输入密码">
+            placeholder="请再次输入密码">
         </div>
     </div>
 
