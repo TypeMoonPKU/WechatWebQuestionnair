@@ -397,6 +397,29 @@ function checkStudent($studentID)
     }
 }
 
+function checkNoticeAnswer($parentID,$questionnaireID)
+{
+    $dbname = "typemoon01";
+    $servername = "localhost";
+    $username = "typemoon";
+    $password = "typemoonsql";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $sql = "SELECT * FROM answerTable
+        WHERE parentID=$parentID AND questionnaireID=$questionnaireID";
+
+    $result=$conn->query($sql);
+    if ($result->num_rows > 0) {
+        //echo "true";
+        $conn->close();
+        return true;
+    }
+    else {
+        //echo "false";
+        $conn->close();
+        return false;
+    }
+}
+
 function getTeacherID($teacherOpenID)
 {
     $dbname = "typemoon01";
