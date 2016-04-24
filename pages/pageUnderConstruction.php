@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, charset=utf-8">
+    <title>正在开发中</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, charset=UTF-8">
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
     <script src="./reference/bootstrap.min.js"></script>
@@ -14,14 +14,14 @@
         <div class="span12">
             <div class="page-header">
                 <h1 align = "center">
-                    无访问权限<br><small>请使用老师分享的链接访问本系统</small>
+                    此功能正在开发中
                 </h1>
             </div>
         </div>
     </div>
     <div class="row-fluid">
         <div class="span12">
-            <h2 contenteditable="true"><span style="font-size: 14px; line-height: 20px;">更多功能尚在开发中，您可以资助开发者加速开发进程<br><br></span></h2>
+            <h2 contenteditable="true"><span style="font-size: 14px; line-height: 20px;">您可以资助开发者以加速开发进程<br><br></span></h2>
         </div>
         <img src="./pic/sun.jpg" width="33%" height=auto  />
         <img src="./pic/chen.jpg" width="30%" height=auto  />

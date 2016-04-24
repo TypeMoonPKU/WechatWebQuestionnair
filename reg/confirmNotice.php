@@ -1,4 +1,8 @@
+<?PHP
+//测试链接：
 
+?>
+<!-- 通用提示页面代码 part1 开始-->
 <!DOCTYPE html >
 <html >
 <head>
@@ -16,6 +20,7 @@
     <div class="form-group">
         <div class="col-sm-12" align="center">
             <br><pre><h1>
+                    <!-- 通用提示页面代码 part1 结束-->
                     <?php
                     /**
                      * Created by PhpStorm.
@@ -34,6 +39,8 @@
                     $questionnaireID = $_REQUEST["questionnaireID"];
                     $parentOpenID = $_REQUEST["parentOpenID"];
                     $parentID = getParentID($parentOpenID);
+
+
                     if ($parentID == false)
                     {
                         echo "Wrong Parent OpenID<br>";
@@ -42,6 +49,8 @@
                         //$optionID = $_REQUEST["optionID"];
                         //$questionID = $_REQUEST["questionID"];
                         $qList = getQuestion($questionnaireID);
+                        //var_dump($qList);
+                        //var_dump($questionnaireID);
                         //$qList = getQuestion(3);
                         if ($qList == false) {
                             echo "确认失败<br>请重新确认";
@@ -54,8 +63,8 @@
                             //$option = getOption(3, 4);
                             $optionID = $option->fetch_assoc()["optionID"];
                             //echo "<br>$optionID<br>";
-                            //$check = checkNoticeAnswer($parentID,$questionnaireID);
-                            $check = checkNoticeAnswer(17,1);
+                            $check = checkNoticeAnswer($parentID,$questionnaireID);
+                            //$check = checkNoticeAnswer(17,1);
                             if ($check==true)
                                 echo "已经确认<br>";
                             else {
@@ -65,6 +74,7 @@
                                 } else {
                                     echo "确认成功";
                                 }
+
                             }
                         }
                     }
@@ -73,12 +83,11 @@
 
 
 
-
+                    <!-- 通用提示页面代码 part2 开始-->
                 </h1></pre>
-
-
         </div>
     </div>
 
 </form>
 </body>
+<!-- 通用提示页面代码 part2 结束-->

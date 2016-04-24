@@ -78,7 +78,7 @@ $userRegNewUrlOAuth = "https://open.weixin.qq.com/connect/oauth2/authorize?appid
     <div class="form-group">
         <div class="col-sm-12" align="center">
             <br><pre><h1>注册成功</h1></pre>
-            <br><br><h3>劳烦手动复制链接<br>将其分享到目标微信群邀请好友加入</h3>
+            <br><br><h3>劳烦手动复制链接<br>将其分享到班级微信群<br>以邀请家长加入</h3>
 
         </div>
     </div>
@@ -90,8 +90,8 @@ $userRegNewUrlOAuth = "https://open.weixin.qq.com/connect/oauth2/authorize?appid
 
 
     <div class="form-group" align="center">
-        <br>点击"进入"开始您的管理界面<br>
-            <button class="btn btn-large btn-block" type="button" onclick="window.location.href='../pages/homepage.php'">进入应用</button>
+        <!--<br>点击"进入"开始您的管理界面<br> -->
+            <button class="btn btn-large btn-block" type="button" onclick="window.location.href='../pages/homepage.php'">进入管理界面</button>
 
     </div>
 </form>
