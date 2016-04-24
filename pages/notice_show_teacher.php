@@ -11,7 +11,7 @@ $questionnaireID=$_REQUEST['questionnaireID'];
 <html>
 <head>
     <title>显示通知</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, charset=utf-8">
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
     <script src="./reference/bootstrap.min.js"></script>
