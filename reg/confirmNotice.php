@@ -61,8 +61,8 @@
                             //$option = getOption(3, 4);
                             $optionID = $option->fetch_assoc()["optionID"];
                             //echo "<br>$optionID<br>";
-                            //$check = checkNoticeAnswer($parentID,$questionnaireID);
-                            $check = checkNoticeAnswer(17,1);
+                            $check = checkNoticeAnswer($parentID,$questionnaireID);
+                            //$check = checkNoticeAnswer(17,1);
                             if ($check==true)
                                 echo "已经确认<br>";
                             else {
