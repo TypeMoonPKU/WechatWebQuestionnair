@@ -2,6 +2,7 @@
 //测试链接：
 
 ?>
+<!-- 通用提示页面代码 part1 开始-->
 <!DOCTYPE html >
 <html >
 <head>
@@ -19,6 +20,7 @@
     <div class="form-group">
         <div class="col-sm-12" align="center">
             <br><pre><h1>
+                    <!-- 通用提示页面代码 part1 结束-->
                     <?php
                     /**
                      * Created by PhpStorm.
@@ -81,12 +83,11 @@
 
 
 
-
+                    <!-- 通用提示页面代码 part2 开始-->
                 </h1></pre>
-
-
         </div>
     </div>
 
 </form>
 </body>
+<!-- 通用提示页面代码 part2 结束-->
