@@ -1,4 +1,7 @@
+<?PHP
+//测试链接：
 
+?>
 <!DOCTYPE html >
 <html >
 <head>
@@ -33,7 +36,8 @@
 
                     $questionnaireID = $_REQUEST["questionnaireID"];
                     $parentOpenID = $_REQUEST["parentOpenID"];
-                    $parentId = getParentID($parentOpenID);
+                    $parentID = getParentID($parentOpenID);
+                    //var_dump($questionnaireID);
                     if ($parentID == false)
                     {
                         echo "Wrong Parent OpenID<br>";
@@ -42,6 +46,8 @@
                         //$optionID = $_REQUEST["optionID"];
                         //$questionID = $_REQUEST["questionID"];
                         $qList = getQuestion($questionnaireID);
+                        //var_dump($qList);
+                        //var_dump($questionnaireID);
                         //$qList = getQuestion(3);
                         if ($qList == false) {
                             echo "确认失败<br>请重新确认";
@@ -56,7 +62,7 @@
                             //echo "<br>$optionID<br>";
                             $judge = insertAnswer($optionID, $questionID, $questionnaireID, $parentID, true);
                             if ($judge == false) {
-                                echo "确认失败<br>请重新确认";
+                                echo "确认失败：确认信息添加失败<br>请重新确认";
                             } else {
                                 echo "确认成功";
                             }

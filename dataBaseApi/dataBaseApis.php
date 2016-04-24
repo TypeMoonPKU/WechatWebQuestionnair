@@ -434,7 +434,7 @@ function getParentID($parentOpenID)
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         //echo "true";
-        $ID = $result->fetch_assoc()["teacherID"];
+        $ID = $result->fetch_assoc()["parentID"];
         $conn->close();
         return $ID;
     }

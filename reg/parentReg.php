@@ -24,7 +24,8 @@ elseif ($parentOpenID==""){
 }
 else {
     if (checkParent($parentOpenID)==true)
-        echo "注册失败，用户已注册<br>";
+        //echo "注册失败，用户已注册<br>";
+        echo "用户已注册<br>";
     else {
         $rtnVal = insertParent($parentName, $parentOpenID, $studentID, "null", "null");
         //$rtnVal = insertParent('p','p1openID','123456','pppppp','000001');
