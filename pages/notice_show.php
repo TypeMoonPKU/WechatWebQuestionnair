@@ -133,7 +133,7 @@ $parentOpenID=getOpenIDFromREQUEST($_REQUEST);
 
 </body>
 <script >
-
+    //此代码用于在网页中显示通知内容
     var $jsondata=$.parseJSON('<?PHP
         require_once "../reg/showNotice.php";
         $noticeJson=showNotice($questionnaireID);

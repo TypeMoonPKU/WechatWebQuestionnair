@@ -80,6 +80,12 @@
             <p class="form-control-static"id ="question_question_name" name="question_question_name">本学期第二次家长会时间通知</p>
         </div>
     </div>
+    <div class="form-group">
+        <label for="question_desc" class="col-sm-2 control-label">内&nbsp&nbsp&nbsp容</label>
+        <div class="col-sm-10">
+            <p class="form-control-static" id="question_desc" name="question_desc">我们周六晚来开家长会，请携带小本本来</p>
+        </div>
+    </div>
 
 </form>
 <?php
@@ -89,15 +95,19 @@ $Unnoticed_json = questionnairStats($questionnaireID);
 //$Unnoticed_json = '{"s":["wordpress","php"],"ns":["wordpress","php","php1","php2","php3","php4"]} ';
 //echo $Unnoticed_json;
 $student_list =json_decode($Unnoticed_json);
-var_dump($student_list);
+//var_dump($student_list);
 $unnoticed_students = $student_list->ns;
-echo $unnoticed_students[1]."<br>";
+//echo $unnoticed_students[1]."<br>";
 
 echo "<ul class=\"list-group\">";
 echo "<li class=\"list-group-item\"> <strong>未阅读成员列表</strong> </li>";
 $number_of_unnoticed=count($unnoticed_students);
-for ($x=0; $x<$number_of_unnoticed; $x++) {
-    echo "    <li class=\"list-group-item\">".$unnoticed_students[$x]."</li>";
+if ($number_of_unnoticed == 0){
+    echo "    <li class=\"list-group-item\">" . '全部成员都已阅读。' . "</li>";
+}else {
+    for ($x = 0; $x < $number_of_unnoticed; $x++) {
+        echo "    <li class=\"list-group-item\">" . $unnoticed_students[$x] . "</li>";
+    }
 }
 echo "</ul>";
 
@@ -105,4 +115,21 @@ echo "</ul>";
 
 
 </body>
+
+<script >
+    //此代码用于在网页中显示通知内容
+    var $jsondata=$.parseJSON('<?PHP
+        require_once "../reg/showNotice.php";
+        $noticeJson=showNotice($questionnaireID);
+        echo $noticeJson;
+        ?>');
+    document.getElementById("question_desc").innerHTML=$jsondata.question[0].questionDescription;
+    document.getElementById("question_question_name").innerHTML=$jsondata.title;
+    //alert($jsondata.questionnaireDescription);
+    //alert($jsondata.title);
+
+
+
+
+</script>
 </html>
