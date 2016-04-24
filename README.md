@@ -59,6 +59,10 @@
 ## 参赛文档
 https://onedrive.live.com/redir?page=view&resid=B4141473268035C7!4797&authkey=!AIox10OnhsryFLA
 
+## 未来可以增加的功能
+* 在通知和问卷下提供评论功能。
+
+
 ##问题定义
 ##可行性分析
 ##需求分析
