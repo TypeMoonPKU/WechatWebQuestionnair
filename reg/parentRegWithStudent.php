@@ -26,7 +26,7 @@ $teacherOpenID = $_REQUEST["teacherOpenID"];
 
 $teacherID = getTeacherID($teacherOpenID);
 if($teacherID==false) {
-    echo "No such teacher!";
+    echo "No such teacher!<br>";
 }
 else {
     if ($parentName == "") {

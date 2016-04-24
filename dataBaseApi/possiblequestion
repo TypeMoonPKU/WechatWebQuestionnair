@@ -2,8 +2,6 @@
     实际上每个问卷中的questionID可以从1开始，不同问卷中可以相同。
     如果达到一定数据量，questionID和optionID可能超出int值？
 
-2.check的作用需要测试
-
 3.（有时间）加入预处理语句
 
 4. 考勤时不考虑是否select，只看answerTable中是否有某位家长的数据

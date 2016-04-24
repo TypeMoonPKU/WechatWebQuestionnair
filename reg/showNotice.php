@@ -29,7 +29,6 @@ function showNotice($questionnaireID)
         if ($question == false)
             echo "No question in this questionnaire";
         else {
-
             if ($question->num_rows > 0) {
                 while ($row = $question->fetch_assoc()) {
                     //echo "studentName: {$row["studentName"]}<br>" ;

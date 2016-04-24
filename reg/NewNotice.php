@@ -30,7 +30,7 @@ if($description == "")
 else {
     $questionnaireID = insertQuestionnaire($title, "", "N", $teacherID);
     if ($questionnaireID == false) {
-        echo "Unknown Error!";
+        echo "Unknown Error!<br>";
     } else {
         $questionID = insertQuestion($questionnaireID, "S", $description);
         if ($questionID == false) {
