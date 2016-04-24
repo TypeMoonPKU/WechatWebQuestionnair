@@ -1,3 +1,7 @@
+<?php
+//此行代码用于避免iPhone上出现的乱码问题
+header("Content-type: text/html; charset=utf-8");
+?>
 <!--需要由Oauth跳转过来，会自动带上code
 // TODO  需要添加拉取信息的代码
 <?php

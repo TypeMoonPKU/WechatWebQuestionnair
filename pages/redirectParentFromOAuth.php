@@ -1,4 +1,8 @@
 <?php
+//此行代码用于避免iPhone上出现的乱码问题
+header("Content-type: text/html; charset=utf-8");
+?>
+<?php
 /**
  * Created by PhpStorm.
  * User: Archimekai
@@ -14,3 +18,4 @@ $parentOpenID=getOpenId($_REQUEST['code']);
 $parentRegUrl="http://121.201.14.58/pages/first_time_for_students.php?teacherOpenID=" . $_REQUEST['teacherOpenID'] . "&parentOpenID=" . $parentOpenID;
 
 echo "请点击下列链接：" . $parentRegUrl;
+?>

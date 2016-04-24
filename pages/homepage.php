@@ -1,3 +1,7 @@
+<?php
+//此行代码用于避免iPhone上出现的乱码问题
+header("Content-type: text/html; charset=utf-8");
+?>
 <!--必须提供code或teacherOpenID
 <?php
 // 但如果提供了parentOpenID也能通过 TODO 这是一个bug

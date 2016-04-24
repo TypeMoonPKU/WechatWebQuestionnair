@@ -1,3 +1,8 @@
+<?php
+//此行代码用于避免iPhone上出现的乱码问题
+header("Content-type: text/html; charset=utf-8");
+?>
+
 <!-- 调用的时候必须提供家长的code和teacherOpenID update：2016年4月23日01:30:32-->
 <!-- 调用的时候必须以get方法提供teacherOpenID和parentOpenID-->
 <!--

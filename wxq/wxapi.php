@@ -1,3 +1,6 @@
+<?php
+header("Content-type: text/html; charset=utf-8");
+?>
 <!--
 <?php
 /**
@@ -17,6 +20,7 @@ $redirectURL=genOAuthURL($goalURL);
     <meta http-equiv="refresh" content="1;url=<?PHP echo $redirectURL?>">
 </head>
 -->
+
 <!--
 <?php
 

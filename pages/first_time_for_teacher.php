@@ -1,3 +1,8 @@
+<?php
+//此行代码用于避免iPhone上出现的乱码问题
+header("Content-type: text/html; charset=utf-8");
+?>
+
 <!--必须提供code或teacherOpenID  但如果提供了parentOpenID
 <?php
 // 测试链接 https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=121.201.14.58%2fpages%2ffirst_time_for_teacher.php&response_type=code&scope=snsapi_base#wechat_redirect
