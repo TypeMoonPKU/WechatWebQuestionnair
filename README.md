@@ -56,6 +56,9 @@
     * json_encode
 * 确定通知已阅。confirmNotice.php
 
+## 参赛文档
+https://onedrive.live.com/redir?page=view&resid=B4141473268035C7!4797&authkey=!AIox10OnhsryFLA
+
 ##问题定义
 ##可行性分析
 ##需求分析
