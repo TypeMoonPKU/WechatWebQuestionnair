@@ -1,3 +1,8 @@
+<?php
+//此行代码用于避免iPhone上出现的乱码问题
+header("Content-type: text/html; charset=utf-8");
+?>
+
 <!--
 <?php
 /**
@@ -91,7 +96,7 @@ $userRegNewUrlOAuth = "https://open.weixin.qq.com/connect/oauth2/authorize?appid
 
     <div class="form-group" align="center">
         <!--<br>点击"进入"开始您的管理界面<br> -->
-            <button class="btn btn-large btn-block" type="button" onclick="window.location.href='../pages/homepage.php'">进入管理界面</button>
+            <button class="btn btn-large btn-block" type="button" onclick="window.location.href='../pages/homepage.php?teacherOpenID=<?PHP echo $teacherOpenID ?>'">进入管理界面</button>
 
     </div>
 </form>

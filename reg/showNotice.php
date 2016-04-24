@@ -1,4 +1,9 @@
 <?php
+//此行代码用于避免iPhone上出现的乱码问题
+header("Content-type: text/html; charset=utf-8");
+?>
+
+<?php
 /**
  * Created by PhpStorm.
  * User: summe_000
