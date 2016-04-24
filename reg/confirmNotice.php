@@ -33,7 +33,7 @@
 
                     $questionnaireID = $_REQUEST["questionnaireID"];
                     $parentOpenID = $_REQUEST["parentOpenID"];
-                    $parentId = getParentID($parentOpenID);
+                    $parentID = getParentID($parentOpenID);
                     if ($parentID == false)
                     {
                         echo "Wrong Parent OpenID<br>";
@@ -54,11 +54,17 @@
                             //$option = getOption(3, 4);
                             $optionID = $option->fetch_assoc()["optionID"];
                             //echo "<br>$optionID<br>";
-                            $judge = insertAnswer($optionID, $questionID, $questionnaireID, $parentID, true);
-                            if ($judge == false) {
-                                echo "确认失败<br>请重新确认";
-                            } else {
-                                echo "确认成功";
+                            //$check = checkNoticeAnswer($parentID,$questionnaireID);
+                            $check = checkNoticeAnswer(17,1);
+                            if ($check==true)
+                                echo "已经确认<br>";
+                            else {
+                                $judge = insertAnswer($optionID, $questionID, $questionnaireID, $parentID, true);
+                                if ($judge == false) {
+                                    echo "确认失败<br>请重新确认";
+                                } else {
+                                    echo "确认成功";
+                                }
                             }
                         }
                     }
