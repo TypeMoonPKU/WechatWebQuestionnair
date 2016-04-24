@@ -64,8 +64,8 @@ $userRegNewUrlOAuth = "https://open.weixin.qq.com/connect/oauth2/authorize?appid
 <!DOCTYPE html >
 <html >
 <head>
-    <title>创建通知群</title>
-    <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1.0; charset=utf-8">
+    <title>教师注册</title>
+    <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1.0,charset=utf-8">
     <link href="../pages/reference/bootstrap.min.css" rel="stylesheet">
     <script src="../pages/reference/jquery.min.js"></script>
     <script src="../pages/reference/bootstrap.min.js"></script>

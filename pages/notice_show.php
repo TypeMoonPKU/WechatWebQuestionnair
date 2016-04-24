@@ -10,7 +10,7 @@ $parentOpenID=getOpenIDFromREQUEST($_REQUEST);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>创建通知群</title>
+    <title>通知</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, charset=UTF-8">
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>

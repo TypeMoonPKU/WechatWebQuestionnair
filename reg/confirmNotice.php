@@ -2,7 +2,7 @@
 <!DOCTYPE html >
 <html >
 <head>
-    <title>问卷成功</title>
+    <title>通知确认</title>
     <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1.0, charset=utf-8">
     <link href="../pages/reference/bootstrap.min.css" rel="stylesheet">
     <script src="../pages/reference/jquery.min.js"></script>

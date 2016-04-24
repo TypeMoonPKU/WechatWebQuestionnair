@@ -10,7 +10,7 @@ $teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
 <html>
 <head>
     <title>老师注册页</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, charset=UTF-8">
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
     <script src="./reference/bootstrap.min.js"></script>

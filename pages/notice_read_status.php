@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>创建通知群</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0; charset=UTF-8">
+    <title>通知阅读情况</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, charset=UTF-8">
     <script src="./reference/json.js"></script>
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>

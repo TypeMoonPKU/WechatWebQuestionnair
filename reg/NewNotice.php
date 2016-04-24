@@ -69,8 +69,8 @@ echo "<br> 请将此链接： <a href='$userRegNewUrlOAuth' >" . $userRegNewUrlO
 <form class="form-horizontal" role="form" method="get" action="../reg/parentRegWithStudent.php">
     <div class="form-group">
         <div class="col-sm-12" align="center">
-            <br><pre><h1>问卷创建成功</h1></pre>
-            <br><br><h3>劳烦手动复制链接<br>将您的问卷链接分享到班级群</h3>
+            <br><pre><h1>通知创建成功</h1></pre>
+            <br><br><h3>劳烦手动复制链接<br>将您的通知链接分享到班级群</h3>
 
         </div>
     </div>
