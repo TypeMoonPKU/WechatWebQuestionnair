@@ -1,7 +1,7 @@
 <!--需要由Oauth跳转过来，会自动带上code
 // TODO  需要添加拉取信息的代码
 <?php
-
+header("Content-type: text/html; charset=utf-8");
 require_once "../util/commonFuns.php";
 $questionnaireID=$_REQUEST['questionnaireID'];
 $parentOpenID=getOpenIDFromREQUEST($_REQUEST);
