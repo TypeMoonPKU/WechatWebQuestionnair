@@ -11,5 +11,5 @@
 ?>
 
 <head>
-    <meta http-equiv="refresh" content="3;url=http://baidu.com">
+    <meta http-equiv="refresh" content="0, url=http://baidu.com">
 </head>

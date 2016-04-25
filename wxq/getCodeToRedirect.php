@@ -24,7 +24,7 @@ require_once "../util/commonFuns.php";
 require_once "../dataBaseApi/dataBaseApis.php";
 
 $openID=getOpenId($_REQUEST['code']);
-$redirectWaitTime=1;
+$redirectWaitTime=0;
 
 $isRegedTeacher=checkTeacher($openID);
 $regedTeacherRedirectStr= "
@@ -60,16 +60,12 @@ if($isRegedTeacher){
     <script src="../pages/reference/bootstrap.min.js"></script>
     <script src="../pages/reference/bootstrap-theme.min.css"></script>
 </head>
-<body >
-
-
+<body>
 <form class="form-horizontal" role="form" method="get" action="../reg/parentRegWithStudent.php">
     <div class="form-group">
         <div class="col-sm-12" align="center">
-            <br><pre><h1>
+            <br><pre><h1>正在跳转中，请稍候
                     <!-- 通用提示页面代码 part1 结束-->
-                    正在跳转中，请稍候
-
                     <!-- 通用提示页面代码 part2 开始-->
                 </h1></pre>
         </div>

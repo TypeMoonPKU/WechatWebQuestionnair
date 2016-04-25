@@ -89,7 +89,7 @@ function getOpenIdFromUserId($userId){
 
 /**
  * 产生微信OAuth认证所需url，该url会以get形式提供一个参数 code。通过code可以获取微信OpenID
- * @param $url  不带http的主机地址
+ * @param string
  * @return string  可供微信OAuth使用的链接
  */
 function genOAuthURL($url){

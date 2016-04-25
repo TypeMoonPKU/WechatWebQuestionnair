@@ -2,12 +2,21 @@
 //此行代码用于避免iPhone上出现的乱码问题
 header("Content-type: text/html; charset=utf-8");
 ?>
+<?PHP
+// 此段代码用于引导误点如首页的用户
+require_once "../util/commonFuns.php";
+if(empty($_REQUEST['teacherOpenID']) && empty($_REQUEST['code'])){
+    $goalURL=REMOTE_SERVER_IP . "/wxq/getCodeToRedirect.php";
+    $redirectURL=genOAuthURL($goalURL);
+    echo '<head> <meta http-equiv="refresh" content="0;url=' . $redirectURL . '"/></head>'; //重定向
+    exit();
+}
+?>
 <!--必须提供code或teacherOpenID
 <?php
 // 但如果提供了parentOpenID也能通过 TODO 这是一个bug
 // 测试链接：http://121.201.14.58/pages/homepage.php?teacherOpenID=oG_07xPR4JEibyjiSzTjfphx6EWM&nsukey=XJh5yt7ka2L9rlCka2RJa0LxCHtacT4ZHsub%2Ftf31md%2FCUX1lNoTH6VIoiobhmEY2XbPEj%2BMUG5AxiJkvoGSlg%3D%3D
-var_dump($_REQUEST);
-require_once "../util/commonFuns.php";
+//var_dump($_REQUEST);
 $teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
 ?>
 -->
@@ -17,7 +26,7 @@ $teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
 <head>
     <title>首页</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
     <script src="./reference/bootstrap.min.js"></script>
