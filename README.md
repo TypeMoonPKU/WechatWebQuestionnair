@@ -73,6 +73,7 @@ https://onedrive.live.com/redir?page=view&resid=B4141473268035C7!4797&authkey=!A
 * 在通知和问卷下提供评论功能。
 * 支持用户名、密码登陆。
 * 设计一个logo
+* 使用https进行传输。
 
 
 

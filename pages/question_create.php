@@ -1,3 +1,7 @@
+<?php
+//此行代码用于避免iPhone上出现的乱码问题
+header("Content-type: text/html; charset=utf-8");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +34,7 @@
                     问卷 <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="./question_create.html">创建问卷</a></li>
+                    <li><a href="question_create.php">创建问卷</a></li>
                     <li><a href="./question_history.html">历史问卷</a></li>
                     <li class="divider"></li>
                     <li><a href="./question_draft.html">问卷草稿</a></li>
@@ -64,7 +68,7 @@
 </nav>
 
 <br><br><br>
-<form class="form-horizontal" role="form" action="./upload_questions.php" method="post" enctype="multipart/form-data">
+<form class="form-horizontal" role="form" action="../reg/newQuestionnaireOneQues.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="question_group_name" class="col-sm-2 control-label">群名</label>
         <div class="col-sm-10">

@@ -1,8 +1,7 @@
 <?php
 //此行代码用于避免iPhone上出现的乱码问题
-header("Content-type: text/html; charset=utf-8");
+//header("Content-type: text/html; charset=utf-8");  header不能重复设置
 ?>
-
 <?php
 /**
  * Created by PhpStorm.
@@ -12,6 +11,7 @@ header("Content-type: text/html; charset=utf-8");
  */
 function showAllQuestionnaire($teacherOpenID)
 {
+ 
     require_once "../dataBaseApi/dataBaseApis.php";
 
     /*foreach ($_REQUEST as $key => $value ){
@@ -25,7 +25,8 @@ function showAllQuestionnaire($teacherOpenID)
     $arrN = array();
     $arr = array('Questionnaire'=>$arrQ,'Notice'=>$arrN);
     if ($questionnaireList == false)
-        echo "No Questionnaire or Notice.<br>";
+        ;
+        //echo "No Questionnaire or Notice.<br>";
     else {
         if ($questionnaireList->num_rows > 0) {
             while ($row = $questionnaireList->fetch_assoc()) {
@@ -48,5 +49,4 @@ function showAllQuestionnaire($teacherOpenID)
     //echo "$jsonencode";
     return $jsonencode;
 }
-
-//showAllQuestionnaire();
+?>
