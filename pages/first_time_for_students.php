@@ -44,7 +44,7 @@ $teacherOpenID=$_REQUEST['teacherOpenID'];
                     问卷 <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="question_create.php">创建问卷</a></li>
+                    <li><a href="questionnaire_create.php">创建问卷</a></li>
                     <li><a href="./question_history.html">历史问卷</a></li>
                     <li class="divider"></li>
                     <li><a href="./question_draft.html">问卷草稿</a></li>

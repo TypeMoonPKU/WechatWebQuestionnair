@@ -54,7 +54,7 @@ $teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
                     问卷 <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="question_create.php">创建问卷</a></li>
+                    <li><a href="questionnaire_create.php">创建问卷</a></li>
                     <li><a href="./question_history.html">历史问卷</a></li>
                     <li class="divider"></li>
                     <li><a href="./question_draft.html">问卷草稿</a></li>
@@ -107,7 +107,7 @@ $teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
 </ul>
 
 <ul class="list-group" id="listGroup">
-    <li class="list-group-item"><strong>我的问卷</a></strong><small>&nbsp&nbsp<a href="question_create.php">新建问卷</a></small></li>
+    <li class="list-group-item"><strong>我的问卷</a></strong><small>&nbsp&nbsp<a href="questionnaire_create.php">新建问卷</a></small></li>
 
 </ul>
 

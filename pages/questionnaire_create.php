@@ -3,7 +3,7 @@
 require_once "../util/setHeaderToUTF8.php"; // 通过使用这个程序避免乱码的问题
 //一劳永逸地解决teacher登陆的问题
 require_once "../util/commonFuns.php";
-$FULLthisPageURL="http://" . REMOTE_SERVER_IP . "/pages/question_create.php";
+$FULLthisPageURL="http://" . REMOTE_SERVER_IP . "/pages/questionnaire_create.php";
 $teacherOpenID = teacher_sign_in($_REQUEST,$FULLthisPageURL);
 
 ?>
@@ -40,7 +40,7 @@ $teacherOpenID = teacher_sign_in($_REQUEST,$FULLthisPageURL);
                     问卷 <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="question_create.php">创建问卷</a></li>
+                    <li><a href="questionnaire_create.php">创建问卷</a></li>
                     <li><a href="./question_history.html">历史问卷</a></li>
                     <li class="divider"></li>
                     <li><a href="./question_draft.html">问卷草稿</a></li>

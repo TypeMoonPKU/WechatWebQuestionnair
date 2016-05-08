@@ -30,7 +30,7 @@
                     问卷 <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="question_create.php">创建问卷</a></li>
+                    <li><a href="questionnaire_create.php">创建问卷</a></li>
                     <li><a href="./question_history.html">历史问卷</a></li>
                     <li class="divider"></li>
                     <li><a href="./question_draft.html">问卷草稿</a></li>
@@ -68,7 +68,7 @@
     <div class="form-group">
         <label for="question_group_name" class="col-sm-2 control-label">群&nbsp名</label>
         <div class="col-sm-10">
-            <p class="form-control-static"id="question_group_name"name="question_group_name">这是来自您孩子所在班级的家长群</p>
+            <p class="form-control-static" id="question_group_name"name="question_group_name">这是来自您孩子所在班级的家长群</p>
         </div>
     </div>
 
@@ -89,10 +89,10 @@
         <label for="question_desc" class="col-sm-2 control-label">第一题</label>
     <div class="col-sm-10">
         <p class="form-control-static">您可以来参加家长会的时间</p>
-        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxA"value="optionA">A.周一下午<br>
-        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxB"value="optionB">B.周二下午<br>
-        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxC"value="optionC">C.周三下午<br>
-        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxD"value="optionD">D.周四下午<br>
+        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxA" value="optionA">A.周一下午<br>
+        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxB" value="optionB">B.周二下午<br>
+        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxC" value="optionC">C.周三下午<br>
+        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxD" value="optionD">D.周四下午<br>
     </div>
             <button type="submit" class="btn btn-large btn-block">确认提交</button>
 
