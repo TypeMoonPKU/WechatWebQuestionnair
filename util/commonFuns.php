@@ -132,6 +132,10 @@ function teacher_sign_in($request, $FULLGoalURL){
         return null;
     }
 
+    //ONLY for debug
+    if($teacherOpenID==2){
+        return $teacherOpenID;
+    }
     //判定是否是真正的老师
     if(!checkTeacher($teacherOpenID)){ // 不是老师
         http_redirect(0, "http://" . REMOTE_SERVER_IP . "/pages/parent_access_denied.php");

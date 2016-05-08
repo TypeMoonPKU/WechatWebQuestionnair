@@ -132,8 +132,5 @@ echo "</ul>";
     //alert($jsondata.questionnaireDescription);
     //alert($jsondata.title);
 
-
-
-
 </script>
 </html>

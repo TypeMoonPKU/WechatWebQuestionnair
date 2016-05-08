@@ -1,5 +1,6 @@
 <?php
 //需要提供teacherOpenID才能工作
+// 本地测试链接：http://localhost:63342/WechatWebQuestionnair/pages/questionnaire_create.php?teacherOpenID=2
 require_once "../util/setHeaderToUTF8.php"; // 通过使用这个程序避免乱码的问题
 //一劳永逸地解决teacher登陆的问题
 require_once "../util/commonFuns.php";
@@ -74,7 +75,7 @@ $teacherOpenID = teacher_sign_in($_REQUEST,$FULLthisPageURL);
 </nav>
 
 <br><br><br>
-<form class="form-horizontal" role="form" action="../reg/newQuestionnaireOneQues.php" method="post" enctype="multipart/form-data">
+<form class="form-horizontal" role="form" action="../reg/newQuestionnaireOneQues.php" method="get" enctype="multipart/form-data">
     <!-- 群功能尚在开发中-->
     <div class="form-group" style="display: none">
         <label for="question_group_name" class="col-sm-2 control-label">群名</label>
@@ -107,10 +108,10 @@ $teacherOpenID = teacher_sign_in($_REQUEST,$FULLthisPageURL);
         <label for="question_one" class="col-sm-2 control-label">题目</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="question_one" name="question_one" placeholder="请输入题目名">
-            <input type="text" class="form-control" id="question_one_A" name="group_desc_A" placeholder="选项A">
-            <input type="text" class="form-control" id="question_one_B" name="group_desc_B" placeholder="选项B">
-            <input type="text" class="form-control" id="question_one_C" name="group_desc_C" placeholder="选项C">
-            <input type="text" class="form-control" id="question_one_D" name="group_desc_D" placeholder="选项D">
+            <input type="text" class="form-control" id="question_one_A" name="question_one_A" placeholder="选项A">
+            <input type="text" class="form-control" id="question_one_B" name="question_one_B" placeholder="选项B">
+            <input type="text" class="form-control" id="question_one_C" name="question_one_C" placeholder="选项C">
+            <input type="text" class="form-control" id="question_one_D" name="question_one_D" placeholder="选项D">
         </div>
     </div>
     <div class="form-group">
