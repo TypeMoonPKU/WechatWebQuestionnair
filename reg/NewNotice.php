@@ -63,7 +63,7 @@ echo "<br> 请将此链接： <a href='$userRegNewUrlOAuth' >" . $userRegNewUrlO
 //用于将页面重定向
 require_once "../util/httpRedirect.php";
 $goalURL = "../pages/notice_show_redirect.php?questionnaireID=". $questionnaireID . "&teacherOpenID=" . $teacherOpenID;
-http_redirect(1,$goalURL);
+http_redirect(0,$goalURL);
 ?>
 <!DOCTYPE html >
 <html >
@@ -94,7 +94,7 @@ http_redirect(1,$goalURL);
 <!--    </div>-->
 
 
-    <div class="form-group" align="center">
+    <div class="form-group" align="center" style="display: none">
         <br>点击"回首页"回到您的管理界面<br>
         <button class="btn btn-large btn-block" type="button" onclick="window.location.href='../pages/homepage.php'">回首页</button>
 

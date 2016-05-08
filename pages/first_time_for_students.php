@@ -1,10 +1,13 @@
 <?php
+//测试链接：https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=121.201.14.58%2Fpages%2Ffirst_time_for_students.php%3FteacherOpenID%3DoG_07xPR4JEibyjiSzTjfphx6EWM&response_type=code&scope=snsapi_base#wechat_redirect
 //此行代码用于避免iPhone上出现的乱码问题
+//<!-- 调用的时候必须提供家长的code和teacherOpenID update：2016年4月23日01:30:32-->
+//<!-- 调用的时候必须以get方法提供teacherOpenID和parentOpenID-->
+// 测试链接：
+//http://121.201.14.58/pages/first_time_for_students.php?teacherOpenID=oG_07xPR4JEibyjiSzTjfphx6EWM&code=
 header("Content-type: text/html; charset=utf-8");
 ?>
 
-<!-- 调用的时候必须提供家长的code和teacherOpenID update：2016年4月23日01:30:32-->
-<!-- 调用的时候必须以get方法提供teacherOpenID和parentOpenID-->
 <!--
 <?php
 require_once "../util/commonFuns.php";

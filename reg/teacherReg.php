@@ -7,6 +7,7 @@ header("Content-type: text/html; charset=utf-8");
 <?php
 /**
  * 测试链接
+ * http://121.201.14.58/reg/teacherReg.php?teacherName=%E6%B8%A9%E5%87%AF&teacherOpenID=oG_07xPR4JEibyjiSzTjfphx6EWM&nsukey=UblygIRCxyYhSyUb1pYlaauVD1KRVVq38Pt4wjGQ3XLZF%2F6wDQ8x2E5MNfcZefg20JRB0w6h4uzB4PW5VfsxMg%3D%3D
  * 用于完成老师注册的逻辑
  *
  * 在注册界面上，老师点击注册后，将会跳转到这个界面
@@ -66,6 +67,12 @@ $userRegNewUrlOAuth = "https://open.weixin.qq.com/connect/oauth2/authorize?appid
 //echo "<button class=\"btn btn-large btn-block\" type=\"button\">复制链接</button>"."<br>";
 ?>
 -->
+<?php
+//用于引导老师进入分享页
+require_once "../util/httpRedirect.php";
+$goalURL = "./parentRegSharePage.php?teacherOpenID=" . $teacherOpenID;
+http_redirect(0,$goalURL);
+?>
 <!DOCTYPE html >
 <html >
 <head>
@@ -82,16 +89,16 @@ $userRegNewUrlOAuth = "https://open.weixin.qq.com/connect/oauth2/authorize?appid
 <form class="form-horizontal" role="form" method="get" action="../reg/parentRegWithStudent.php">
     <div class="form-group">
         <div class="col-sm-12" align="center">
-            <br><pre><h1>注册成功</h1></pre>
-            <br><br><h3>劳烦手动复制链接<br>将其分享到班级微信群<br>以邀请家长加入</h3>
+            <br><pre><h1>注册成功，正在跳转...</h1></pre>
+<!--            <br><br><h3>劳烦手动复制链接<br>将其分享到班级微信群<br>以邀请家长加入</h3>-->
 
         </div>
     </div>
-    <div class="form-group">
-        <div class="col-sm-12">
-            <?php echo "<pre>";print_r($userRegNewUrlOAuth)  ; ?>
-        </div>
-    </div>
+<!--    <div class="form-group">-->
+<!--        <div class="col-sm-12">-->
+<!--            --><?php //echo "<pre>";print_r($userRegNewUrlOAuth)  ; ?>
+<!--        </div>-->
+<!--    </div>-->
 
 
     <div class="form-group" align="center">

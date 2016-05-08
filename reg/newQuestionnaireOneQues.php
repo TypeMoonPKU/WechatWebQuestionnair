@@ -2,6 +2,7 @@
 //此行代码用于避免iPhone上出现的乱码问题
 header("Content-type: text/html; charset=utf-8");
 ?>
+<!--
 <?php
 /**
  * Created by PhpStorm.
@@ -43,23 +44,48 @@ if ($questionnaireID == false) {
 } else {
     $questionID = insertQuestion($questionnaireID, "S", $description);
     if ($questionID == false) {
-        echo "通知发布失败<br>";
+        echo "问卷发布失败<br>";
     } else {
         $rtnVal1=insertOption($questionID, $questionnaireID, $option1);
         $rtnVal2=insertOption($questionID, $questionnaireID, $option2);
         $rtnVal3=insertOption($questionID, $questionnaireID, $option3);
         $rtnVal4=insertOption($questionID, $questionnaireID, $option4);
         if ($rtnVal1 && $rtnVal2 && $rtnVal3 && $rtnVal4) {
-            echo "通知发布成功<br>";
+            echo "问卷发布成功<br>";
         } else {
-            echo "通知发布失败<br>";
+            echo "问卷发布失败<br>";
         }
     }
 }
 
-echo "<br>";
-$userRegNewUrl="121.201.14.58/pages/questionnaire_show.php?questionnaireID=" . $questionnaireID;
-$userRegNewUrlOAuth = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=" . urlencode($userRegNewUrl) . "&response_type=code&scope=snsapi_base#wechat_redirect";
+//echo "<br> 请将此链接： <a href='$userRegNewUrlOAuth' >" . $userRegNewUrlOAuth . "</a>";
+?>
+-->
+<?php
+//用于完成跳转的逻辑，跳转到分享页面
+require_once "../util/httpRedirect.php";
+$goalURL = "./showQuestionnaireSharePage.php?questionnaireID=". $questionnaireID;
+http_redirect(0,$goalURL);
+?>
+<!DOCTYPE html >
+<html>
+<head>
+    <title>问卷创建成功</title>
+    <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1.0,charset=utf-8">
+    <link href="../pages/reference/bootstrap.min.css" rel="stylesheet">
+    <script src="../pages/reference/jquery.min.js"></script>
+    <script src="../pages/reference/bootstrap.min.js"></script>
+    <script src="../pages/reference/bootstrap-theme.min.css"></script>
+</head>
+<body >
 
 
-echo "<br> 请将此链接： <a href='$userRegNewUrlOAuth' >" . $userRegNewUrlOAuth . "</a>";
+<form class="form-horizontal" role="form" method="get" action="../reg/parentRegWithStudent.php">
+    <div class="form-group">
+        <div class="col-sm-12" align="center">
+            <br><pre><h1>问卷创建成功，正在跳转...</h1></pre>
+            </div>
+
+</form>
+</body>
+</html>

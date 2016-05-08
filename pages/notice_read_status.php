@@ -71,7 +71,7 @@ header("Content-type: text/html; charset=utf-8");
 </h3>
 
 <form class="form-horizontal" role="form" action="./upload_question_answers.php" method="get" enctype="multipart/form-data">
-    <div class="form-group">
+    <div class="form-group" style="display: none">
         <label for="question_group_name" class="col-sm-2 control-label">群&nbsp&nbsp&nbsp名</label>
         <div class="col-sm-10">
             <p class="form-control-static"id="question_group_name"name="question_group_name">这是来自您孩子所在班级的家长群</p>
