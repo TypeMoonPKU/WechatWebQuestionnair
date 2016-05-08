@@ -6,8 +6,9 @@
  * Date: 4/18/2016
  * Time: 14:09
  */
-
+require_once "../util/httpRedirect.php";
 require_once "do_post_request.php";
+require_once "../dataBaseApi/dataBaseApis.php";
 
 define("CORPID_GOLBAL","wx75de8782f8e4f99c");
 define("CORP_SECERT","87t2MTe-rPYpxi5yzR1wb0M-FNp2dYljRirXZmMgyZJrHRr8ZmKR28bJD0IW50K0");
@@ -78,9 +79,11 @@ function getOpenIdFromUserId($userId){
     $arraydata = array(
         "userid"=>$userId
     );
+ //   var_dump($arraydata);
     $jsondata  = json_encode( $arraydata);
 //    echo $jsondata;
     $result = do_post_request($URL, $jsondata);
+//    var_dump($result);
     $obj = json_decode($result);
     $openID = $obj->{"openid"};
     return $openID;
@@ -108,4 +111,31 @@ function getOpenIDFromREQUEST($request){
     }else{
         throw new Exception("No code or openid in request");
     }
+}
+
+/**
+ * 解决老师的登陆问题，
+ * 判断一：request中是否存在 teacherOpenID, code, OpenID
+ *        并统一转换为teacherOpenID
+ * 判断二：判断该teacher是否已经注册，如果没有注册的话则跳转至权限不足页面
+ * @param $request
+ */
+function teacher_sign_in($request, $FULLGoalURL){
+    if(!empty($request['teacherOpenID'])){
+        $teacherOpenID = $request['teacherOpenID'];
+    }elseif(!empty($request['OpenID'])){
+        $teacherOpenID = $request['OpenID'];
+    }elseif(!empty($request['code'])){
+        $teacherOpenID = getOpenId($request['code']);
+    }else{ //链接中不带验证消息，重定向至验证页面
+        http_OAuth_redirect(0,$FULLGoalURL);
+        return null;
+    }
+
+    //判定是否是真正的老师
+    if(!checkTeacher($teacherOpenID)){ // 不是老师
+        http_redirect(0, "http://" . REMOTE_SERVER_IP . "/pages/parent_access_denied.php");
+        return null;
+    }
+    return $teacherOpenID;
 }

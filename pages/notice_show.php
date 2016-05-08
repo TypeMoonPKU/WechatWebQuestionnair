@@ -147,9 +147,5 @@ $parentOpenID=getOpenIDFromREQUEST($_REQUEST);
     document.getElementById("question_question_name").innerHTML=$jsondata.title;
     //alert($jsondata.questionnaireDescription);
     //alert($jsondata.title);
-
-
-
-
 </script>
 </html>

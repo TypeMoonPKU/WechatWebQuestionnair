@@ -2,11 +2,25 @@
 //此行代码用于避免iPhone上出现的乱码问题
 header("Content-type: text/html; charset=utf-8");
 ?>
-
-
-<?PHP
-//测试链接：
-
+<?php
+//根据情况进行跳转
+//如果不含有parentOpenID或者OpenID或者Code，则强制进行跳转
+//最后的状态是获得parentOpenID
+require_once "../util/commonFuns.php";
+require_once "../util/httpRedirect.php";
+if(!empty($_REQUEST['parentOpenID'])){
+    $parentOpenID = $_REQUEST["parentOpenID"];
+}elseif(!empty($_REQUEST['OpenID'])){
+    $parentOpenID = $_REQUEST['OpenID']; //事实上应该判断是不是家长
+}elseif(!empty($_REQUEST['code'])){
+    //var_dump($_REQUEST);
+    //$parentOpenID = getOpenIdFromUserId($_REQUEST['code']);
+    $parentOpenID = getOpenID($_REQUEST['code']);
+}else{
+    $goalURL = "http://" . REMOTE_SERVER_IP ."/reg/confirmNotice.php?questionnaireID=" . $_REQUEST['questionnaireID'];
+    http_OAuth_redirect(0,$goalURL);
+    exit(0);
+}
 ?>
 <!-- 通用提示页面代码 part1 开始-->
 <!DOCTYPE html >
@@ -43,7 +57,7 @@ header("Content-type: text/html; charset=utf-8");
                     }*/
 
                     $questionnaireID = $_REQUEST["questionnaireID"];
-                    $parentOpenID = $_REQUEST["parentOpenID"];
+//                    $parentOpenID = $_REQUEST["parentOpenID"];
                     $parentID = getParentID($parentOpenID);
 
 

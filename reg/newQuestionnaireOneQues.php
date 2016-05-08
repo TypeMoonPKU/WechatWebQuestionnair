@@ -2,7 +2,6 @@
 //此行代码用于避免iPhone上出现的乱码问题
 header("Content-type: text/html; charset=utf-8");
 ?>
-
 <?php
 /**
  * Created by PhpStorm.
@@ -17,17 +16,19 @@ require_once "../dataBaseApi/dataBaseApis.php";
     echo "key: " . $key;
     echo "   value: " . $value;
 }*/
-
-$group = $_REQUEST["group"];
-$title = $_REQUEST["title"];
-$description = $_REQUEST["description"];
+// 这里体现出的很大的问题是接口设计的时候没有约定好名字
+// 应该写出对接口要求的文档
+// 现在group还是没用的。。
+$group = $_REQUEST["question_group_name"];
+$title = $_REQUEST["questionnaire_title"];
+$description = $_REQUEST["questionnaire_desc"];
 $teacherOpenID = $_REQUEST["teacherOpenID"];
 $teacherID = getTeacherID($teacherOpenID);
-$question = $_REQUEST["question"];
-$option1 = $_REQUEST["option1"];
-$option2 = $_REQUEST["option2"];
-$option3 = $_REQUEST["option3"];
-$option4 = $_REQUEST["option4"];
+$question = $_REQUEST["question_one"];
+$option1 = $_REQUEST["question_one_A"];
+$option2 = $_REQUEST["question_one_B"];
+$option3 = $_REQUEST["question_one_C"];
+$option4 = $_REQUEST["question_one_D"];
 if($option1 == "" or $option2 == "" or $option3=="" or $option4=="")
 {
     throw new Exception("Empty Option!");
@@ -57,7 +58,7 @@ if ($questionnaireID == false) {
 }
 
 echo "<br>";
-$userRegNewUrl="121.201.14.58/pages/notice_show.php?questionnaireID=" . $questionnaireID;
+$userRegNewUrl="121.201.14.58/pages/questionnaire_show.php?questionnaireID=" . $questionnaireID;
 $userRegNewUrlOAuth = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=" . urlencode($userRegNewUrl) . "&response_type=code&scope=snsapi_base#wechat_redirect";
 
 

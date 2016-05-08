@@ -1,0 +1,2 @@
+此文件夹下存放各个页面共享的元素，如header，banner，navigation bar等。
+问题：navigationbar的相对链接可能会出错

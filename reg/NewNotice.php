@@ -59,6 +59,12 @@ $userRegNewUrlOAuth = "https://open.weixin.qq.com/connect/oauth2/authorize?appid
 echo "<br> 请将此链接： <a href='$userRegNewUrlOAuth' >" . $userRegNewUrlOAuth . "</a>";
 ?>
 -->
+<?PHP
+//用于将页面重定向
+require_once "../util/httpRedirect.php";
+$goalURL = "../pages/notice_show_redirect.php?questionnaireID=". $questionnaireID . "&teacherOpenID=" . $teacherOpenID;
+http_redirect(1,$goalURL);
+?>
 <!DOCTYPE html >
 <html >
 <head>
@@ -76,16 +82,16 @@ echo "<br> 请将此链接： <a href='$userRegNewUrlOAuth' >" . $userRegNewUrlO
     <div class="form-group">
         <div class="col-sm-12" align="center">
             <br><pre><h1>通知创建成功</h1></pre>
-            <br><br><h3>劳烦手动复制链接<br>将您的通知链接分享到班级群</h3>
+            <!--<br><br><h3>劳烦手动复制链接<br>将您的通知链接分享到班级群</h3>-->
 
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-12">
-
-<?php echo "<pre>";print_r($userRegNewUrlOAuth)  ;?>
-</div>
-    </div>
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <div class="col-sm-12">-->
+<!---->
+<?php //echo "<pre>";print_r($userRegNewUrlOAuth)  ;?>
+<!--</div>-->
+<!--    </div>-->
 
 
     <div class="form-group" align="center">

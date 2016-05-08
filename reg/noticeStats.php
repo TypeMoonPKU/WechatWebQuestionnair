@@ -1,9 +1,4 @@
 <?php
-//此行代码用于避免iPhone上出现的乱码问题
-header("Content-type: text/html; charset=utf-8");
-?>
-
-<?php
 /**
  * 统计与考勤
  * 需要questionnaireID

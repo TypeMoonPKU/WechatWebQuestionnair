@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>问卷</title>
-    <meta http-equiv="refresh" content="1;url=./pageUnderConstruction.php">
+    <!--<meta http-equiv="refresh" content="1;url=./pageUnderConstruction.php">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, charset=utf-8">
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
