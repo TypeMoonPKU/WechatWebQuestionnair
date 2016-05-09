@@ -6,6 +6,7 @@
  * Time: 16:31
  *
  */
+// 注意：必须提供teacherOpenID
 // 问题在于，这个页面必须确保所有的页面都有teacherOpenID
 
 // updated by Archimekai 2016年5月9日22:58:40，删去了很多没有实现的功能，简化了菜单栏
@@ -14,7 +15,6 @@ if(empty($teacherOpenID)){
     $teacherOpenID = '';
 }
 ?>
-
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="navbar-header">
 
