@@ -131,7 +131,7 @@ $teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
         for (x in notices) {
             //var htmlstr='<li class="list-group-item"><a href="notice_show.php">' + x + '</a></li>';
             var newNode = document.createElement("li");
-            newNode.innerHTML = '<a href="notice_show_teacher.php?questionnaireID=' + notices[x].questionnaireID + '">' + notices[x].title + '</a>' + '&nbsp&nbsp' + '<a href="notice_read_status.php?questionnaireID=' + notices[x].questionnaireID + '">' + '统计信息' + '</a>';
+            newNode.innerHTML = '<a href="notice_show_redirect.php?questionnaireID=' + notices[x].questionnaireID + '&teacherOpenID=<?php echo $teacherOpenID?> ">' + notices[x].title + '</a>' + '&nbsp&nbsp' + '<a href="notice_read_status.php?questionnaireID=' + notices[x].questionnaireID + '">' + '统计信息' + '</a>';
             // TODO 将统计信息和问卷合二为一
             // newNode.innerHTML = '<a href="notice_show_teacher.php?questionnaireID=' + notices[x].questionnaireID + '">' + notices[x].title + '</a>';
             newNode.setAttribute("class", "list-group-item");

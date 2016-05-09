@@ -35,7 +35,7 @@ if(!empty($_REQUEST['parentOpenID'])){
 }elseif(!empty($_REQUEST['teacherOpenID'])){
     $parentOpenID = null;
 }else{
-    // 需要引导用户进行跳转:引导的条件是：
+    // 需要引导用户进行跳转:引导的条件是：parentOpenID, OpenID, teacherOpenID都不存在
     // 目前这个链接只是用来测试
     $redirect_url = 'http://' . REMOTE_SERVER_IP . '/pages/notice_show_redirect.php?questionnaireID=' . $_REQUEST['questionnaireID'];
 //    http_OAuth_redirect(0,"http://" . REMOTE_SERVER_IP . "/test/dumpREQUEST.php?questionnaireID=" . $_REQUEST['questionnaireID']);
