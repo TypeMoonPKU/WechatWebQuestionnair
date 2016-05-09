@@ -7,7 +7,8 @@
  */
 
 
-//{questionnaireID, optionNum, {{option1, description, number, {stu1, stu2,...}},{option2,...},...}
+//{questionnaireID, questionnaireTitle, questionnaireDescription, 
+//optionNum, {{option1, description, number, {stu1, stu2,...}},{option2,...},...}
 //{notselectedNum,{stu1, stu2, ...}}}
 function questionnairStats($questionnaireID)
 {
@@ -19,10 +20,12 @@ function questionnairStats($questionnaireID)
     }*/
 
     //$questionnaireID = $_REQUEST["questionnaireID"];
-
+    
+    $questionnaire = getQuestionnaire($questionnaireID)->fetch_assoc();
+    
     $optionArr = array();
-    //$questionID = getQuestion($questionnaireID);
-    $questionID = getQuestion($questionnaireID)->fetch_assoc()["questionID"];
+    $question = getQuestion($questionnaireID)->fetch_assoc();
+    $questionID = $question["questionID"];
     $options = getOption($questionnaireID,$questionID);
     $optionNum = 0;
     if($options->num_rows>0) {
@@ -61,6 +64,10 @@ function questionnairStats($questionnaireID)
     }
 
     $arr = array('questionnaireID' => $questionnaireID, 
+        'questionnaireTitle' => $questionnaire["title"],
+        'questioinnaireDescription' => $questionnaire["questionnaireDescription"],
+        'questionID' => $questionID,
+        'questionDescription' => $question["questionDescription"],
         'optionNum'=>$optionNum, 'optionArr'=>$optionArr,
         'notSelected'=>array("notSelectedNum"=>$notSelectedNum, "students"=>$ns));
     $jsonencode = json_encode($arr);
