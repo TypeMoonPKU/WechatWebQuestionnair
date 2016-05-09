@@ -39,7 +39,6 @@ else {
         echo "通知发布成功<br>";
    }
    else {
-       echo "false";
         $questionnaireID = insertQuestionnaire($title, "", "N", $teacherID);
         if ($questionnaireID == false) {
             echo "Unknown Error!<br>";

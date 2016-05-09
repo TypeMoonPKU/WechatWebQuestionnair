@@ -329,6 +329,37 @@ function getPeopleNotSelected($questionnaireID)
     return $result;
 }
 
+//选择问卷各选项的人数
+function getPeopleSelectedOption($questionnaireID, $optionID)
+{
+    $dbname = "typemoon01";
+    $servername = "localhost";
+    $username = "typemoon";
+    $password = "typemoonsql";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $sql = "SELECT studentName FROM studentTable WHERE studentID IN
+      (SELECT DISTINCT studentID FROM parentStudentTable
+        WHERE parentID IN 
+        (SELECT DISTINCT parentID FROM answerTable
+        WHERE questionnaireID=$questionnaireID AND optionID=$optionID))";
+
+    /*$sql = "SELECT DISTINCT studentID FROM parentStudentTable
+        WHERE parentID IN 
+        (SELECT DISTINCT parentID FROM answerTable
+        WHERE questionnaireID=$questionnaireID)";*/
+    $result=$conn->query($sql);
+    //if ($result->num_rows > 0) {
+    //    while ($row = $result->fetch_assoc()) {
+    //        echo "<br> studentID: " . $row["studentID"];
+    //    }
+    //}
+    //else{
+    //    echo "0 people did this questionnaire.";
+    //}
+    $conn->close();
+    return $result;
+}
+
 function checkTeacher($teacherOpenID)
 {
     $dbname = "typemoon01";
@@ -430,10 +461,10 @@ function checkNotice($title,$description)
 
 
     //$sql = "SELECT * FROM itemTable, questionnaireTable
-    //    WHERE questionnaireTable.title=$title AND questionnaireTable.questionnaireID=itemTable.questionnaireID AND itemTable.questionDescription=$description";
+    //    WHERE (questionnaireTable.title='$title' AND questionnaireTable.questionnaireID=itemTable.questionnaireID AND itemTable.questionDescription='$description')";
 
-    $sql = "SELECT * FROM itemTable                                                                                                                            
-           WHERE questionDescription=$description";
+    $sql = "SELECT * FROM itemTable
+           WHERE questionDescription='$description''";
 
     $result=$conn->query($sql);
 
@@ -543,17 +574,18 @@ function getQuestion($questionnaireID)
     }
 }
 
-function getOption($questionnaireID,$questionID)
+function getOption($questionnaireID)
 {
     $dbname = "typemoon01";
     $servername = "localhost";
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
-    $sql = "SELECT * FROM optionTable
-        WHERE questionnaireID=$questionnaireID AND questionID=$questionID";
+    $sql = "SELECT * FROM optionTable 
+        WHERE questionnaireID=$questionnaireID";
 
     $result = $conn->query($sql);
+
     if ($result->num_rows > 0) {
         //echo "true";
         $conn->close();
