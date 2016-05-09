@@ -420,6 +420,35 @@ function checkNoticeAnswer($parentID,$questionnaireID)
     }
 }
 
+function checkNotice($title,$description)
+{
+    $dbname = "typemoon01";
+    $servername = "localhost";
+    $username = "typemoon";
+    $password = "typemoonsql";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+
+    //$sql = "SELECT * FROM itemTable, questionnaireTable
+    //    WHERE questionnaireTable.title=$title AND questionnaireTable.questionnaireID=itemTable.questionnaireID AND itemTable.questionDescription=$description";
+
+    $sql = "SELECT * FROM itemTable                                                                                                                            
+           WHERE questionDescription=$description";
+
+    $result=$conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        //echo "true";
+        $conn->close();
+        return true;
+    }
+    else {
+        //echo "false";
+        $conn->close();
+        return false;
+    }
+}
+
 function getTeacherID($teacherOpenID)
 {
     $dbname = "typemoon01";
@@ -559,6 +588,9 @@ function getQuestionnaireByTeacher($teacherID)
         return false;
     }
 }
+
+
+
 //获得
 //createTable();
 //insertTeacher('teacher2', 't2openID','123456','ttttt');
