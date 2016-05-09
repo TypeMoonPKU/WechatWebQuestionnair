@@ -22,8 +22,8 @@ function questionnairStats($questionnaireID)
 
     $optionArr = array();
     //$questionID = getQuestion($questionnaireID);
-    //$questionID = $questionID->fetch_assoc()["questionID"];
-    $options = getOption($questionnaireID);
+    $questionID = getQuestion($questionnaireID)->fetch_assoc()["questionID"];
+    $options = getOption($questionnaireID,$questionID);
     $optionNum = 0;
     if($options->num_rows>0) {
         while ($row = $options->fetch_assoc()) {
@@ -64,7 +64,6 @@ function questionnairStats($questionnaireID)
         'optionNum'=>$optionNum, 'optionArr'=>$optionArr,
         'notSelected'=>array("notSelectedNum"=>$notSelectedNum, "students"=>$ns));
     $jsonencode = json_encode($arr);
-echo "$jsonencode";
+//echo "$jsonencode";
     return $jsonencode;
 }
-questionnairStats(5);

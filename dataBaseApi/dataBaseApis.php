@@ -574,7 +574,7 @@ function getQuestion($questionnaireID)
     }
 }
 
-function getOption($questionnaireID)
+function getOption($questionnaireID, $questionID)
 {
     $dbname = "typemoon01";
     $servername = "localhost";
@@ -582,7 +582,7 @@ function getOption($questionnaireID)
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
     $sql = "SELECT * FROM optionTable 
-        WHERE questionnaireID=$questionnaireID";
+        WHERE questionnaireID=$questionnaireID AND questionID=$questionID";
 
     $result = $conn->query($sql);
 
