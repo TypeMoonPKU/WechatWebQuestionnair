@@ -118,7 +118,7 @@ function getOpenIDFromREQUEST($request){
  * 判断一：request中是否存在 teacherOpenID, code, OpenID
  *        并统一转换为teacherOpenID
  * 判断二：判断该teacher是否已经注册，如果没有注册的话则跳转至权限不足页面
- * @param $request
+ * @param $request 
  */
 function teacher_sign_in($request, $FULLGoalURL){
     if(!empty($request['teacherOpenID'])){
