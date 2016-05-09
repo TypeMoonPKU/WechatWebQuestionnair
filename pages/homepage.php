@@ -18,6 +18,12 @@ if(empty($_REQUEST['teacherOpenID']) && empty($_REQUEST['code'])){
 // 测试链接：http://121.201.14.58/pages/homepage.php?teacherOpenID=oG_07xPR4JEibyjiSzTjfphx6EWM&nsukey=XJh5yt7ka2L9rlCka2RJa0LxCHtacT4ZHsub%2Ftf31md%2FCUX1lNoTH6VIoiobhmEY2XbPEj%2BMUG5AxiJkvoGSlg%3D%3D
 //var_dump($_REQUEST);
 $teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
+// 此段代码用于拒绝家长查看页面
+require_once "../dataBaseApi/dataBaseApis.php";
+if(!checkTeacher($teacherOpenID)){
+    require_once "../util/httpRedirect.php";
+    http_redirect(0, 'parent_access_denied.php');
+}
 ?>
 -->
 
@@ -31,7 +37,6 @@ $teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
     <script src="./reference/jquery.min.js"></script>
     <script src="./reference/bootstrap.min.js"></script>
     <script src="./reference/bootstrap-theme.min.css"></script>
-    
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
