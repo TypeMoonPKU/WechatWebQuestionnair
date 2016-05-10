@@ -22,7 +22,6 @@ Me:
 还有一个回答数组questionAnswer，里面存有被家长选中的答案的optionID
 */
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +36,7 @@ Me:
 <body>
 <?php require_once "share/navigation.php"?>
 <br><br><br>
-<form class="form-horizontal" role="form" action="./upload_question_answers.php" method="get" enctype="multipart/form-data">
+<form role="form" action="./upload_question_answers.php" method="get" enctype="multipart/form-data">
     <div class="form-group" style="display: none">
         <label for="question_group_name" class="col-sm-2 control-label">群&nbsp名</label>
         <div class="col-sm-10">
@@ -62,10 +61,10 @@ Me:
         <label for="question_desc" class="col-sm-2 control-label">题目</label>
     <div class="col-sm-10">
         <p class="form-control-static" id="questionDescription">您可以来参加家长会的时间</p>
-        <input type="checkbox"  name="questionAnswer" id="optionsCheckboxA" value="optionA"><label for="optionsCheckboxA" id="optionsCheckboxALabel">A.周一下午</label><br>
-        <input type="checkbox"  name="questionAnswer" id="optionsCheckboxB" value="optionB"><label for="optionsCheckboxB" id="optionsCheckboxBLabel">B.周二下午</label><br>
-        <input type="checkbox"  name="questionAnswer" id="optionsCheckboxC" value="optionC"><label for="optionsCheckboxC" id="optionsCheckboxCLabel">C.周三下午</label><br>
-        <input type="checkbox"  name="questionAnswer" id="optionsCheckboxD" value="optionD"><label for="optionsCheckboxD" id="optionsCheckboxDLabel">D.周四下午</label><br>
+        <input type="checkbox"  name="questionAnswer" id="optionsCheckboxA" value="optionA"><label for="optionsCheckboxA" id="optionsCheckboxALabel">A.正在加载</label><br>
+        <input type="checkbox"  name="questionAnswer" id="optionsCheckboxB" value="optionB"><label for="optionsCheckboxB" id="optionsCheckboxBLabel">B.正在加载</label><br>
+        <input type="checkbox"  name="questionAnswer" id="optionsCheckboxC" value="optionC"><label for="optionsCheckboxC" id="optionsCheckboxCLabel">C.正在加载</label><br>
+        <input type="checkbox"  name="questionAnswer" id="optionsCheckboxD" value="optionD"><label for="optionsCheckboxD" id="optionsCheckboxDLabel">D.正在加载</label><br>
     </div>
             <button type="submit" class="btn btn-large btn-block">确认提交</button>
 

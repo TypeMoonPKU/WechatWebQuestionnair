@@ -50,7 +50,7 @@ TODO 可以把选项和统计放在一起
     <div class="form-group" style="margin-left: 2px">
         <label for="question_desc" class="col-sm-2 control-label">未回答</label>
         <div class="col-sm-10">
-            <p class="form-control-static"id="question_desc" name="question_desc">全部家长都已回答</p>
+            <p class="form-control-static" id="question_desc">全部家长都已回答</p>
         </div>
     </div>
     <div class="form-group">

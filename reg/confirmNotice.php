@@ -3,15 +3,20 @@
 header("Content-type: text/html; charset=utf-8");
 ?>
 <?php
-//根据情况进行跳转
-//如果不含有parentOpenID或者OpenID或者Code，则强制进行跳转
-//最后的状态是获得parentOpenID
+// 根据情况进行跳转
+// 如果不含有parentOpenID或者OpenID或者code，则强制进行跳转
+// 最后的状态是获得parentOpenID
+// 如果parentOpenID非法的话，则提示需要注册
 require_once "../util/commonFuns.php";
 require_once "../util/httpRedirect.php";
 if(!empty($_REQUEST['parentOpenID'])){
     $parentOpenID = $_REQUEST["parentOpenID"];
 }elseif(!empty($_REQUEST['OpenID'])){
     $parentOpenID = $_REQUEST['OpenID']; //事实上应该判断是不是家长
+    require_once "../dataBaseApi/dataBaseApis.php";
+    if(!checkParent($parentOpenID)){
+        
+        }
 }elseif(!empty($_REQUEST['code'])){
     //var_dump($_REQUEST);
     //$parentOpenID = getOpenIdFromUserId($_REQUEST['code']);
