@@ -139,7 +139,7 @@ function teacher_sign_in($request, $FULLGoalURL){
     }elseif(!empty($request['code'])){
         $teacherOpenID = getOpenId($request['code']);
     }else{ //链接中不带验证消息，重定向至验证页面
-        http_OAuth_redirect(0,$FULLGoalURL);
+        http_OAuth_redirect_cf(0,$FULLGoalURL);
         return null;
     }
 
@@ -171,7 +171,7 @@ function parent_sign_in($request, $FULLGoalURL){
     }elseif(!empty($request['code'])){
         $parentOpenID = getOpenId($request['code']);
     }else{ //链接中不带验证消息，重定向至验证页面
-        http_OAuth_redirect(0,$FULLGoalURL);
+        http_OAuth_redirect_cf(0,$FULLGoalURL);
         return null;
     }
 
