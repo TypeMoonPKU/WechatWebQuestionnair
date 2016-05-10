@@ -2,6 +2,14 @@
 测试链接：http://121.201.14.58/pages/questionnaire_statistics.php
 TODO 可以把选项和统计放在一起
 -->
+<?php
+if(empty($_REQUEST['questionnaireID'])){
+    require_once "../util/httpRedirect.php";
+    http_redirect(0,"invalid_url.php");
+}
+$questionnaireID=$_REQUEST['questionnaireID'];
+?>
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
@@ -17,49 +25,51 @@ TODO 可以把选项和统计放在一起
 <body>
 <?php require_once "share/navigation.php"?>
 <br><br><br>
-<form role="form" action="./upload_question_answers.php" method="get" enctype="multipart/form-data" style="margin-left: 5px">
+<form role="form" action="./upload_question_answers.php" method="get" enctype="multipart/form-data">
     <div class="form-group" style="display: none">
         <label for="question_group_name" class="col-sm-2 control-label">群&nbsp名</label>
         <div class="col-sm-10">
-            <p class="form-control-static" id="question_group_name" name="question_group_name">这是来自您孩子所在班级的家长群</p>
+            <p class="form-control-static" id="question_group_name">这是来自您孩子所在班级的家长群</p>
         </div>
     </div>
 
     <div class="form-group">
         <label for="question_question_name" class="col-sm-2 control-label">问卷名</label>
         <div class="col-sm-10">
-            <p class="form-control-static" id ="question_question_name">本学期第二次家长会时间协调调查表</p>
+            <p class="form-control-static" id ="questionnaireTitle">正在加载问卷名</p>
         </div>
     </div>
     <div class="form-group">
         <label for="question_desc" class="col-sm-2 control-label">描&nbsp述</label>
         <div class="col-sm-10">
-            <p class="form-control-static"id="question_desc" name="question_desc">本学期第二次家长会将于下周召开</p>
+            <p class="form-control-static" id="questionnaireDescription">正在加载问卷描述</p>
         </div>
     </div>
 
     <div class="form-group">
         <label for="question_desc" class="col-sm-2 control-label">题目</label>
-    <div class="col-sm-10">
-        <p class="form-control-static" id="questionDescription">您可以来参加家长会的时间</p>
-        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxA" value="optionA">A.周一下午<br>
-        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxB" value="optionB">B.周二下午<br>
-        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxC" value="optionC">C.周三下午<br>
-        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxD" value="optionD">D.周四下午<br>
+        <div class="col-sm-10">
+            <p class="form-control-static" id="questionDescription">您可以来参加家长会的时间</p>
+            <input type="checkbox"  name="questionAnswer" id="optionsCheckboxA" value="optionA"><label for="optionsCheckboxA" id="optionsCheckboxALabel">A.正在加载</label><br>
+            <input type="checkbox"  name="questionAnswer" id="optionsCheckboxB" value="optionB"><label for="optionsCheckboxB" id="optionsCheckboxBLabel">B.正在加载</label><br>
+            <input type="checkbox"  name="questionAnswer" id="optionsCheckboxC" value="optionC"><label for="optionsCheckboxC" id="optionsCheckboxCLabel">C.正在加载</label><br>
+            <input type="checkbox"  name="questionAnswer" id="optionsCheckboxD" value="optionD"><label for="optionsCheckboxD" id="optionsCheckboxDLabel">D.正在加载</label><br>
+        </div>
+        <button type="submit" class="btn btn-large btn-block" style="display: none">确认提交</button>
+
     </div>
     <div class="form-group" style="margin-left: 2px">
-        <label for="question_desc" class="col-sm-2 control-label">未回答</label>
+        <label for="question_desc" class="col-sm-2 control-label">还未回答的家长</label>
         <div class="col-sm-10">
             <p class="form-control-static" id="question_desc">全部家长都已回答</p>
         </div>
     </div>
     <div class="form-group">
-        <label for="question_desc" class="col-sm-2 control-label">&nbsp&nbsp&nbsp统计</label>
+        <label for="question_desc" class="col-sm-2 control-label">回答统计</label>
         <div id="highChartContainer"  class="col-sm-10" style="width:400px;height:300px;margin: 5px">
         </div>
 
     </div>
-</div>
 </form>
 </body>
 <?php require_once "include_js_set_questionnaire.php"?>

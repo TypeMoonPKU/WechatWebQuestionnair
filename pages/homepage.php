@@ -105,7 +105,7 @@ if(!checkTeacher($teacherOpenID)){
             //var htmlstr='<li class="list-group-item"><a href="notice_show.php">' + x + '</a></li>';
             var newNode = document.createElement("li");
             newNode.innerHTML = '<a href="questionnaire_show.php?questionnaireID=' + questionnaires[x].questionnaireID + '&teacherOpenID=<?php echo $teacherOpenID?>">' + questionnaires[x].title + '</a>' + '&nbsp&nbsp' + '<a href="questionnaire_statistics.php?questionnaireID=' + questionnaires[x].questionnaireID + '&teacherOpenID=<?php echo $teacherOpenID?>">' + '统计信息' + '</a>' + 
-            '<a href="questionnaire_statistics.php?questionnaireID=';
+          ' ' + '<a href="../reg/showQuestionnaireSharePage.php?questionnaireID=' + questionnaires[x].questionnaireID + '">' + '分享问卷' + '</a>';
             newNode.setAttribute("class", "list-group-item");
             questionnairesDOM.appendChild(newNode);
         }

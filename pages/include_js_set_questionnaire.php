@@ -1,6 +1,7 @@
 <?php
 /**
  * 用于设置页面中questionnaire的信息
+ * 需要提供的参数：$questionnaireID
  * Created by PhpStorm.
  * User: Archimekai
  * Date: 5/10/2016

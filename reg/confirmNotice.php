@@ -13,10 +13,11 @@ if(!empty($_REQUEST['parentOpenID'])){
     $parentOpenID = $_REQUEST["parentOpenID"];
 }elseif(!empty($_REQUEST['OpenID'])){
     $parentOpenID = $_REQUEST['OpenID']; //事实上应该判断是不是家长
-    require_once "../dataBaseApi/dataBaseApis.php";
     if(!checkParent($parentOpenID)){
-        
-        }
+        //虽然有OpenID，但不是家长
+        require_once "../dataBaseApi/dataBaseApis.php";
+        http_redirect(0,"../pages/parent_not_registered.php");
+    }
 }elseif(!empty($_REQUEST['code'])){
     //var_dump($_REQUEST);
     //$parentOpenID = getOpenIdFromUserId($_REQUEST['code']);
@@ -113,3 +114,4 @@ if(!empty($_REQUEST['parentOpenID'])){
 </form>
 </body>
 <!-- 通用提示页面代码 part2 结束-->
+</html>

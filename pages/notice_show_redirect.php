@@ -5,6 +5,7 @@ require_once "../util/setHeaderToUTF8.php" // 通过使用这个程序避免乱�
 <?php
 // 测试链接：http://localhost:63342/WechatWebQuestionnair/pages/notice_show_redirect.php?questionnaireID=1
 // 测试链接：http://localhost:63342/WechatWebQuestionnair/pages/notice_show_redirect.php?questionnaireID=1&parentOpenID=2
+// 这个页面老师和家长都能看
 /**
  * Created by PhpStorm.
  * User: Archimekai
@@ -69,7 +70,7 @@ if(!empty($parentOpenID)){
     <script src="./reference/bootstrap.min.js"></script>
 </head>
 <body>
-<?php require "./share/navigation.php"?>
+<?php require "./share/navigation_safe.php"?>
 <form role="form" action="../reg/confirmNotice.php" method="get" enctype="multipart/form-data">
     <!-- 用于在页面中保存questionnaireID-->
     <div class="form-group" style="display: none" >

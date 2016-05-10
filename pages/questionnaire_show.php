@@ -3,6 +3,7 @@
 -->
 <?php
 // 引导questionnaireID不存在的情况
+// 这个页面也是老师家长都能看？
 if(empty($_REQUEST['questionnaireID'])){
     require_once "../util/httpRedirect.php";
     http_redirect(0,"./error/invalid_url.php");
@@ -47,13 +48,13 @@ Me:
     <div class="form-group">
         <label for="question_question_name" class="col-sm-2 control-label">问卷名</label>
         <div class="col-sm-10">
-            <p class="form-control-static" id ="questionnaireTitle">本学期第二次家长会时间协调调查表</p>
+            <p class="form-control-static" id ="questionnaireTitle">正在加载问卷名</p>
         </div>
     </div>
     <div class="form-group">
         <label for="question_desc" class="col-sm-2 control-label">描&nbsp述</label>
         <div class="col-sm-10">
-            <p class="form-control-static" id="questionnaireDescription">第二次家长会将于下周召开，请选出您有空的时间：</p>
+            <p class="form-control-static" id="questionnaireDescription">正在加载问卷描述</p>
         </div>
     </div>
 
