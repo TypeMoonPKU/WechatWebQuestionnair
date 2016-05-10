@@ -84,7 +84,7 @@ if(!empty($_REQUEST['parentOpenID'])){
                             //$option = getOption($questionnaireID, $questionID);
                             //$option = getOption(3, 4);
                         $checkSubmit = checkNoticeAnswer($parentID,$questionnaireID);
-                        if ($sheckSubmit == true)
+                        if ($checkSubmit == true)
                         {
                             echo "已经提交过，更新答案";
                         }
@@ -113,11 +113,11 @@ if(!empty($_REQUEST['parentOpenID'])){
                     }
                     ?>
                     <!-- 通用提示页面代码 part2 开始-->
-                </h1>
+               </h1>
             </pre>
         </div>
     </div>
 
 </form>
-</body>
+</body> 
 <!-- 通用提示页面代码 part2 结束-->
