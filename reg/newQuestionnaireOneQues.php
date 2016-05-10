@@ -88,7 +88,7 @@ http_redirect(0,$goalURL);
 <body >
 
 
-<form class="form-horizontal" role="form" method="get" action="../reg/parentRegWithStudent.php">
+<form role="form" method="get" action="../reg/parentRegWithStudent.php">
     <div class="form-group">
         <div class="col-sm-12" align="center">
             <br><pre><h1>问卷创建成功，正在跳转...</h1></pre>

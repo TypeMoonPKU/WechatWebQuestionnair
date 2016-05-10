@@ -59,7 +59,7 @@ echo "<br> 点击下列链接以进入管理页  <a href='$oauthMUrl'>" . $oauth
     <script src="../pages/reference/bootstrap-theme.min.css"></script>
 </head>
 <body>
-<form class="form-horizontal" role="form" method="get" action="../reg/parentRegWithStudent.php">
+<form role="form" method="get" action="../reg/parentRegWithStudent.php">
     <div class="form-group">
         <div class="col-sm-12" align="center">
             <br><pre><h1>正在跳转中，请稍候

@@ -23,7 +23,7 @@ $teacherOpenID = teacher_sign_in($_REQUEST,$FULLthisPageURL);
 <?php require_once "share/navigation.php"?>
 
 <br><br><br>
-<form class="form-horizontal" role="form" action="../reg/newQuestionnaireOneQues.php" method="get" enctype="multipart/form-data">
+<form role="form" action="../reg/newQuestionnaireOneQues.php" method="get" enctype="multipart/form-data">
     <!-- 群功能尚在开发中-->
     <div class="form-group" style="display: none">
         <label for="question_group_name" class="col-sm-2 control-label">群名</label>

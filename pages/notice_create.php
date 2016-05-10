@@ -41,7 +41,7 @@ $teacherOpenID = teacher_sign_in($_REQUEST,$FULLthisPageURL);
 <h3>
     <strong>新通知创建</strong>
 </h3>
-<form class="form-horizontal" role="form" method="get" action="../reg/NewNotice.php">
+<form role="form" method="get" action="../reg/NewNotice.php">
     <div class="form-group" style="display: none">
         <label for="target_group" class="col-sm-2 control-label">群名</label>
         <div class="col-sm-10">

@@ -17,7 +17,7 @@ header("Content-type: text/html; charset=utf-8");
 <body >
 
 
-<form class="form-horizontal" role="form" method="get" action="../reg/parentRegWithStudent.php">
+<form role="form" method="get" action="../reg/parentRegWithStudent.php">
     <div class="form-group">
         <div class="col-sm-12" align="center">
             <pre><h1>

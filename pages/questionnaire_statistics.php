@@ -17,7 +17,7 @@ TODO 可以把选项和统计放在一起
 <body>
 <?php require_once "share/navigation.php"?>
 <br><br><br>
-<form class="form-horizontal" role="form" action="./upload_question_answers.php" method="get" enctype="multipart/form-data" style="margin-left: 5px">
+<form role="form" action="./upload_question_answers.php" method="get" enctype="multipart/form-data" style="margin-left: 5px">
     <div class="form-group" style="display: none">
         <label for="question_group_name" class="col-sm-2 control-label">群&nbsp名</label>
         <div class="col-sm-10">

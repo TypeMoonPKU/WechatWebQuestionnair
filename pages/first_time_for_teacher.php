@@ -31,7 +31,7 @@ $teacherOpenID='empty'
 </h3>
 <!-- TODO 需要美化这个提醒-->
 <p>注意：此页面仅供老师使用，家长只能使用老师的邀请链接注册。</p>
-<form class="form-horizontal" role="form" action="../reg/teacherReg.php" method="get">
+<form role="form" action="../reg/teacherReg.php" method="get">
     <div class="form-group">
         <label for="teacherName" class="col-sm-2 control-label">用户名</label>
         <div class="col-sm-10">

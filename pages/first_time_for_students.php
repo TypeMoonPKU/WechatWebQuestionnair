@@ -85,7 +85,7 @@ $teacherOpenID=$_REQUEST['teacherOpenID'];
 <h3>
     <strong>欢迎家长注册！</strong>
 </h3>
-<form class="form-horizontal" role="form" method="get" action="../reg/parentRegWithStudent.php">
+<form role="form" method="get" action="../reg/parentRegWithStudent.php">
     <div class="form-group">
         <label for="parentName" class="col-sm-2 control-label">您的姓名</label>
         <div class="col-sm-10">

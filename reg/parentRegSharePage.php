@@ -31,7 +31,7 @@ $OAuthURL = genOAuthURL($parentRegFULLurl);
 <body>
 
 
-<form class="form-horizontal" role="form" method="get" action="../reg/parentRegWithStudent.php">
+<form role="form" method="get" action="../reg/parentRegWithStudent.php">
     <div class="form-group">
         <div class="col-sm-12" align="center">
             <br><pre><h1>欢迎家长注册</h1></pre>

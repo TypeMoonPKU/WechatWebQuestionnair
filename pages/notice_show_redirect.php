@@ -70,7 +70,7 @@ if(!empty($parentOpenID)){
 </head>
 <body>
 <?php require "./share/navigation.php"?>
-<form class="form-horizontal" role="form" action="../reg/confirmNotice.php" method="get" enctype="multipart/form-data">
+<form role="form" action="../reg/confirmNotice.php" method="get" enctype="multipart/form-data">
     <!-- 用于在页面中保存questionnaireID-->
     <div class="form-group" style="display: none" >
         <label for="questionnaireID" class="col-sm-2 control-label">OpenID</label>

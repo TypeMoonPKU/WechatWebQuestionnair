@@ -19,7 +19,7 @@ header("Content-type: text/html; charset=utf-8");
     <strong>学生状态展示</strong>
 </h3>
 
-<form class="form-horizontal" role="form" action="./upload_question_answers.php" method="get" enctype="multipart/form-data">
+<form role="form" action="./upload_question_answers.php" method="get" enctype="multipart/form-data">
     <div class="form-group" style="display: none">
         <label for="question_group_name" class="col-sm-2 control-label">群&nbsp&nbsp&nbsp名</label>
         <div class="col-sm-10">
