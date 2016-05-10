@@ -39,7 +39,7 @@ function showQuestionnaire($questionnaireID)
                 while ($row = $question->fetch_assoc()) {
                     //echo "studentName: {$row["studentName"]}<br>" ;
                     $questionArr = array('questionDescription' => "",
-                        'option' => '');
+                        'questionID' => $row["questionID"], 'option' => '');
                     $questionArr["questionDescription"] = $row["questionDescription"];
                     $option = getOption($questionnaireID, $row["questionID"]);
                     if ($option == false) {
