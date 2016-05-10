@@ -25,14 +25,14 @@ $description = $_REQUEST['description'];
     <script src="../pages/reference/jquery.min.js"></script>
     <script src="../pages/reference/bootstrap.min.js"></script>
 </head>
-<body >
+<body>
 
 
 <form role="form" method="get" action="../reg/parentRegWithStudent.php">
     <div class="form-group">
         <div class="col-sm-12" align="center">
             <br><pre><h1><?php echo $title ?></h1></pre>
-            <p><?php echo $description ?>。</p>
+            <p><?php echo $description ?></p>
         </div>
     </div>
 </form>

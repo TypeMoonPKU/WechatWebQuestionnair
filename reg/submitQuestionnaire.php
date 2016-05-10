@@ -47,7 +47,22 @@ $questionnaireID = $_REQUEST['questionnaireID'];
 
                     $questionnaireID = $_REQUEST["questionnaireID"];
                     $questionID = $_REQUEST["questionID"];
-                    $optionArr = $_REQUEST["questionAnswer"];
+//                    $optionArr = $_REQUEST["questionAnswer"];
+                    //下面构建optionArr
+                    $optionArr=array();
+                    if(!empty($_REQUEST['optionsCheckboxA'])){
+                        $optionArr[]=$_REQUEST['optionsCheckboxA'];
+                    }
+                    if(!empty($_REQUEST['optionsCheckboxB'])){
+                        $optionArr[]=$_REQUEST['optionsCheckboxB'];
+                    }
+                    if(!empty($_REQUEST['optionsCheckboxC'])){
+                        $optionArr[]=$_REQUEST['optionsCheckboxC'];
+                    }
+                    if(!empty($_REQUEST['optionsCheckboxD'])){
+                        $optionArr[]=$_REQUEST['optionsCheckboxD'];
+                    }
+                    
                     $parentOpenID = $_REQUEST["parentOpenID"];
                     $parentID = getParentID($parentOpenID);
 
@@ -75,7 +90,7 @@ $questionnaireID = $_REQUEST['questionnaireID'];
                         $checkSubmit = checkNoticeAnswer($parentID,$questionnaireID);
                         if ($checkSubmit == true)
                         {
-                            echo "已经提交过，更新答案";
+                            echo "已经提交过，答案已更新";
                         }
                         else
                         {
