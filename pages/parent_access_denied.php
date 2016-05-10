@@ -17,7 +17,7 @@ header("Content-type: text/html; charset=utf-8");
         <div class="span12">
             <div class="page-header">
                 <h1 align = "center">
-                    无访问权限<br><small>请使用老师分享的链接访问本系统</small>
+                    无访问权限<br><small>请使用老师分享的链接访问本系统。或者您尚未注册。</small>
                 </h1>
             </div>
         </div>

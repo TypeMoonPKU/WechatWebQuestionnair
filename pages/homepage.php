@@ -3,7 +3,7 @@
 header("Content-type: text/html; charset=utf-8");
 ?>
 <?PHP
-// 此段代码用于引导误点如首页的用户
+// 此段代码用于引导误点首页的用户
 require_once "../util/commonFuns.php";
 if(empty($_REQUEST['teacherOpenID']) && empty($_REQUEST['code'])){
     $goalURL=REMOTE_SERVER_IP . "/wxq/getCodeToRedirect.php";
@@ -104,7 +104,8 @@ if(!checkTeacher($teacherOpenID)){
         for (x in questionnaires) {
             //var htmlstr='<li class="list-group-item"><a href="notice_show.php">' + x + '</a></li>';
             var newNode = document.createElement("li");
-            newNode.innerHTML = '<a href="questionnaire_show.php?questionnaireID=' + questionnaires[x].questionnaireID + '&teacherOpenID=<?php echo $teacherOpenID?>">' + questionnaires[x].title + '</a>' + '&nbsp&nbsp' + '<a href="questionnaire_statistics.php?questionnaireID=' + questionnaires[x].questionnaireID + '&teacherOpenID=<?php echo $teacherOpenID?>">' + '统计信息' + '</a>'
+            newNode.innerHTML = '<a href="questionnaire_show.php?questionnaireID=' + questionnaires[x].questionnaireID + '&teacherOpenID=<?php echo $teacherOpenID?>">' + questionnaires[x].title + '</a>' + '&nbsp&nbsp' + '<a href="questionnaire_statistics.php?questionnaireID=' + questionnaires[x].questionnaireID + '&teacherOpenID=<?php echo $teacherOpenID?>">' + '统计信息' + '</a>' + 
+            '<a href="questionnaire_statistics.php?questionnaireID=';
             newNode.setAttribute("class", "list-group-item");
             questionnairesDOM.appendChild(newNode);
         }

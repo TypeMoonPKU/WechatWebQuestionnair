@@ -20,11 +20,13 @@ function showQuestionnaire($questionnaireID)
 
     // $questionnaireID = $_REQUEST["questionnaireID"];
     $questionnaireR = getQuestionnaire($questionnaireID);
-    if ($questionnaireR == false)
+    if ($questionnaireR == false) {
         echo "Wrong QuestionnaireID";
+        return "wrong!";
+    }
     else {
         $questionnaire = $questionnaireR->fetch_assoc();
-        $questionnaireArr = array('title' => $questionnaire["title"],
+        $questionnaireArr = array('questionnaireTitle' => $questionnaire["title"],
             'questionnaireDescription' => $questionnaire["questionnaireDescription"],
             'type' => $questionnaire["questionnaireType"],
             'question' => "");

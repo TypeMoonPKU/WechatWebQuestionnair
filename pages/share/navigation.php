@@ -32,6 +32,7 @@ if(empty($teacherOpenID)){
         <ul class="nav navbar-nav">
             <li><a href="notice_create.php?teacherOpenID=<?PHP echo $teacherOpenID ?>">创建通知</a></li>
             <li><a href="questionnaire_create.php?teacherOpenID=<?PHP echo $teacherOpenID ?>">创建问卷</a></li>
+            <li><a href="../reg/parentRegSharePage.php?teacherOpenID=<?PHP echo $teacherOpenID ?>">邀请家长</a></li>
         </ul>
     </div>
 </nav>

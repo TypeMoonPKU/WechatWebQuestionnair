@@ -1,6 +1,28 @@
 <!--
-测试链接： http://121.201.14.58/pages/questionnaire_show.php
+测试链接： http://121.201.14.58/pages/questionnaire_show.php?questionnaireID=1
 -->
+<?php
+// 引导questionnaireID不存在的情况
+if(empty($_REQUEST['questionnaireID'])){
+    require_once "../util/httpRedirect.php";
+    http_redirect(0,"./error/invalid_url.php");
+    exit(0);
+}
+$questionnaireID = $_REQUEST['questionnaireID'];
+
+// 提交给服务器用于回答问题的数据：
+/*
+Me:
+parentOpenID: 该问卷的回答者  questionnaireID问卷号
+Me:
+questionID
+Me:
+问题号
+Me:
+还有一个回答数组questionAnswer，里面存有被家长选中的答案的optionID
+*/
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +41,7 @@
     <div class="form-group" style="display: none">
         <label for="question_group_name" class="col-sm-2 control-label">群&nbsp名</label>
         <div class="col-sm-10">
-            <p class="form-control-static" id="question_group_name"name="question_group_name">这是来自您孩子所在班级的家长群</p>
+            <p class="form-control-static" id="question_group_name">这是来自您孩子所在班级的家长群</p>
         </div>
     </div>
 
@@ -39,33 +61,17 @@
     <div class="form-group">
         <label for="question_desc" class="col-sm-2 control-label">题目</label>
     <div class="col-sm-10">
-        <p class="form-control-static"3>您可以来参加家长会的时间</p>
-        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxA" value="optionA"><label for="optionsCheckboxA" id="optionsCheckboxALabel">A.周一下午</label><br>
-        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxB" value="optionB"><label for="optionsCheckboxB" id="optionsCheckboxBLabel">B.周二下午</label><br>
-        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxC" value="optionC"><label for="optionsCheckboxC" id="optionsCheckboxCLabel">C.周三下午</label><br>
-        <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxD" value="optionD"><label for="optionsCheckboxD" id="optionsCheckboxDLabel">D.周四下午</label><br>
+        <p class="form-control-static" id="questionDescription">您可以来参加家长会的时间</p>
+        <input type="checkbox"  name="questionAnswer" id="optionsCheckboxA" value="optionA"><label for="optionsCheckboxA" id="optionsCheckboxALabel">A.周一下午</label><br>
+        <input type="checkbox"  name="questionAnswer" id="optionsCheckboxB" value="optionB"><label for="optionsCheckboxB" id="optionsCheckboxBLabel">B.周二下午</label><br>
+        <input type="checkbox"  name="questionAnswer" id="optionsCheckboxC" value="optionC"><label for="optionsCheckboxC" id="optionsCheckboxCLabel">C.周三下午</label><br>
+        <input type="checkbox"  name="questionAnswer" id="optionsCheckboxD" value="optionD"><label for="optionsCheckboxD" id="optionsCheckboxDLabel">D.周四下午</label><br>
     </div>
             <button type="submit" class="btn btn-large btn-block">确认提交</button>
 
 </div>
 </form>
 </body>
-<script>
-    //此代码用于在网页中显示通知内容
-    // TODO 确认jsondata里面是否有questionDescription
-    // TODO 确认选项的排序是ABCD
-//    var $jsondata=$.parseJSON('<?PHP
-//        require_once "../reg/showNotice.php";
-//        $noticeJson=showNotice($questionnaireID);
-//        echo $noticeJson;
-//        ?>//');
-    var jsondata = $.parseJSON('{"questionnaireID":5,"optionNum":4,"questionnaireTitle":"时间统计","questionnaireDescription":"请大家选出有空的时间","optionArr":[{"optionID":"4","optionDescription":"o1","selectedPeopleNum":0,"selectedPeople":[]},{"optionID":"5","optionDescription":"o2","selectedPeopleNum":0,"selectedPeople":[]},{"optionID":"6","optionDescription":"o3","selectedPeopleNum":0,"selectedPeople":[]},{"optionID":"7","optionDescription":"o4","selectedPeopleNum":0,"selectedPeople":[]}],"notSelected":{"notSelectedNum":1,"students":["cyy"]}}');
-    document.getElementById("questionnaireTitle").innerHTML=jsondata.questionnaireTitle;
-    document.getElementById("questionnaireDescription").innerHTML=jsondata.questionnaireDescription;
-    document.getElementById("optionsCheckboxALabel").innerHTML=jsondata.optionArr[0].optionDescription;
-    document.getElementById("optionsCheckboxBLabel").innerHTML=jsondata.optionArr[1].optionDescription;
-    document.getElementById("optionsCheckboxCLabel").innerHTML=jsondata.optionArr[2].optionDescription;
-    document.getElementById("optionsCheckboxDLabel").innerHTML=jsondata.optionArr[3].optionDescription;
-</script>
-
+<!-- 动态修改页面内容的代码-->
+<?php require_once "include_js_set_questionnaire.php"?>
 </html>

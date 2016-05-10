@@ -46,9 +46,9 @@ $teacherOpenID = teacher_sign_in($_REQUEST,$FULLthisPageURL);
         </div>
     </div>
     <div class="form-group">
-        <label for="questionnaire_desc" class="col-sm-2 control-label">描述</label>
+        <label for="questionnaire_description" class="col-sm-2 control-label">描述</label>
         <div class="col-sm-10">
-            <textarea class="form-control" rows="3" id="questionnaire_desc" name="questionnaire_desc" placeholder="请输入对问卷的描述（可选）"></textarea>
+            <textarea class="form-control" rows="3" id="questionnaire_description" name="questionnaire_description" placeholder="请输入对问卷的描述（可选）"></textarea>
         </div>
     </div>
 

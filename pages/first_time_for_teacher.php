@@ -8,7 +8,8 @@ header("Content-type: text/html; charset=utf-8");
 // 测试链接 https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=121.201.14.58%2fpages%2ffirst_time_for_teacher.php&response_type=code&scope=snsapi_base#wechat_redirect
 
 require_once "../util/commonFuns.php";
-$teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
+//$teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
+$teacherOpenID='empty'
 ?>
 -->
 <!DOCTYPE html>
@@ -19,66 +20,16 @@ $teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
     <script src="./reference/bootstrap.min.js"></script>
-    <script src="./reference/bootstrap-theme.min.css"></script>
+    <!-- <script src="./reference/bootstrap-theme.min.css"></script> -->
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-
-        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                data-target="#example-navbar-collapse">
-            <span class="sr-only">切换导航</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="homepage.php">首页</a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="example-navbar-collapse">
-        <ul class="nav navbar-nav">
-            <li class="dropdown">
-                <a href="./question_home.html" class="dropdown-toggle" data-toggle="dropdown">
-                    问卷 <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="questionnaire_create.php">创建问卷</a></li>
-                    <li><a href="./question_history.html">历史问卷</a></li>
-                    <li class="divider"></li>
-                    <li><a href="./question_draft.html">问卷草稿</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="./notice_home.html" class="dropdown-toggle" data-toggle="dropdown">
-                    通知 <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="notice_create.php">创建通知</a></li>
-                    <li><a href="./notice_history.html">历史通知</a></li>
-                    <li class="divider"></li>
-                    <li><a href="./notice_draft.html">通知草稿</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="./group_home.html" class="dropdown-toggle" data-toggle="dropdown">
-                    群 <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="./group_create.html">创建群</a></li>
-                    <li><a href="./group_manage.html">管理群</a></li>
-                    <li><a href="./group_join.html">加入群</a></li>
-                    <li class="divider"></li>
-                    <li><a href="./group_search.html">查找群</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</nav>
+<?php require_once "share/navigation.php"?>
 <br>
 <br>
 <h3>
     <strong>请老师完成注册</strong>
 </h3>
+<!-- TODO 需要美化这个提醒-->
 <p>注意：此页面仅供老师使用，家长只能使用老师的邀请链接注册。</p>
 <form class="form-horizontal" role="form" action="../reg/teacherReg.php" method="get">
     <div class="form-group">
@@ -107,7 +58,7 @@ $teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
     <div class="form-group">
         <label for="password" class="col-sm-2 control-label">设置密码</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="password"
+            <input type="password" class="form-control" id="password"
             placeholder="请设置密码">
             <span class="help-block">请包括至少字母和数字</span>
         </div>
@@ -115,7 +66,7 @@ $teacherOpenID=getOpenIDFromREQUEST($_REQUEST);
     <div class="form-group">
         <label for="password_again" class="col-sm-2 control-label">确认密码</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="password_again"
+            <input type="password" class="form-control" id="password_again"
             placeholder="请再输入密码">
         </div>
     </div>

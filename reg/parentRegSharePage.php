@@ -10,12 +10,10 @@
  * Time: 02:03
  */
 require_once "../util/httpRedirect.php";
+//一劳永逸地解决teacher登陆的问题
 require_once "../util/commonFuns.php";
-if(empty($_REQUEST['teacherOpenID'])){
-    http_redirect(0,"../pages/error/invalid_url.php");
-    exit(0);
-}
-$teacherOpenID=$_REQUEST['teacherOpenID'];
+$FULLthisPageURL="http://" . REMOTE_SERVER_IP . "/reg/parentRegSharePage.php";
+$teacherOpenID = teacher_sign_in($_REQUEST,$FULLthisPageURL);
 //$teacherOpenID="";
 $parentRegFULLurl="http://121.201.14.58/pages/first_time_for_students.php?teacherOpenID=" . $teacherOpenID;
 $OAuthURL = genOAuthURL($parentRegFULLurl);
@@ -29,9 +27,8 @@ $OAuthURL = genOAuthURL($parentRegFULLurl);
     <link href="../pages/reference/bootstrap.min.css" rel="stylesheet">
     <script src="../pages/reference/jquery.min.js"></script>
     <script src="../pages/reference/bootstrap.min.js"></script>
-    <script src="../pages/reference/bootstrap-theme.min.css"></script>
 </head>
-<body >
+<body>
 
 
 <form class="form-horizontal" role="form" method="get" action="../reg/parentRegWithStudent.php">

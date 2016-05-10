@@ -34,6 +34,7 @@ if(!empty($_REQUEST['parentOpenID'])){
     $parentOpenID = $_REQUEST['OpenID'];
 }elseif(!empty($_REQUEST['teacherOpenID'])){
     $parentOpenID = null;
+    $teacherOpenID = $_REQUEST['teacherOpenID'];
 }else{
     // 需要引导用户进行跳转:引导的条件是：parentOpenID, OpenID, teacherOpenID都不存在
     // 目前这个链接只是用来测试

@@ -115,8 +115,8 @@ function getOpenIDFromREQUEST($request){
 
 /**
  * 解决老师的登陆问题，
- * 判断一：request中是否存在 teacherOpenID, code, OpenID
- *        并统一转换为teacherOpenID
+ * 判断一：request中是否存在 teacherOpenID, code, OpenID, 如果不存在将带到微信授权界面，微信授权界面跳转回来后将
+ *        统一转换为teacherOpenID
  * 判断二：判断该teacher是否已经注册，如果没有注册的话则跳转至权限不足页面
  * @param $request 
  */

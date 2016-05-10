@@ -41,7 +41,7 @@ TODO 可以把选项和统计放在一起
     <div class="form-group">
         <label for="question_desc" class="col-sm-2 control-label">题目</label>
     <div class="col-sm-10">
-        <p class="form-control-static">您可以来参加家长会的时间</p>
+        <p class="form-control-static" id="questionDescription">您可以来参加家长会的时间</p>
         <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxA" value="optionA">A.周一下午<br>
         <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxB" value="optionB">B.周二下午<br>
         <input type="checkbox"  name="ANSWER[]" id="optionsCheckboxC" value="optionC">C.周三下午<br>
@@ -62,6 +62,7 @@ TODO 可以把选项和统计放在一起
 </div>
 </form>
 </body>
+<?php require_once "include_js_set_questionnaire.php"?>
 <script>
     // 用于画图的JavaScript
     $(document).ready(function () {
