@@ -49,7 +49,7 @@ else {
     if ($questionnaireID == false) {
         echo "Unknown Error!<br>";
     } else {
-        $questionID = insertQuestion($questionnaireID, "S", $description);
+        $questionID = insertQuestion($questionnaireID, "M", $description);
         if ($questionID == false) {
             echo "问卷发布失败<br>";
         } else {

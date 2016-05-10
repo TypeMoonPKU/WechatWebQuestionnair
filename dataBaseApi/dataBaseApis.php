@@ -468,6 +468,31 @@ function checkNoticeAnswer($parentID,$questionnaireID)
     }
 }
 
+function checkQuestionnaireAnswer($parentID,$questionnaireID,$questionID,$optionID)
+{
+    $dbname = "typemoon01";
+    $servername = "localhost";
+    $username = "typemoon";
+    $password = "typemoonsql";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
+    $sql = "SELECT * FROM answerTable
+        WHERE parentID=$parentID AND questionnaireID=$questionnaireID
+        AND questionID=$questionID AND optioniD=$optionID";
+
+    $result=$conn->query($sql);
+    if ($result->num_rows > 0) {
+        //echo "true";
+        $conn->close();
+        return true;
+    }
+    else {
+        //echo "false";
+        $conn->close();
+        return false;
+    }
+}
+
 function checkNotice($title,$description)
 {
     $dbname = "typemoon01";
