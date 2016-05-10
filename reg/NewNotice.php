@@ -36,7 +36,9 @@ if($description == "")
 else {
     $check = checkNotice($title, $description);
    if($check == true) {
-        echo "通知发布成功<br>";
+       $questionnaireID = getQuestionnaireID($title,"",$description)->fetch_assoc()["questionnaireID"];
+       echo $questionnaireID;
+       echo "通知发布成功<br>";
    }
    else {
         $questionnaireID = insertQuestionnaire($title, "", "N", $teacherID);

@@ -547,6 +547,33 @@ function getParentID($parentOpenID)
     }
 }
 
+function getQuestionnaireID($title, $description, $questionDescription)
+{
+    $dbname = "typemoon01";
+    $servername = "localhost";
+    $username = "typemoon";
+    $password = "typemoonsql";
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
+    $sql = "SELECT * FROM questionnaireTable, itemTable
+        WHERE questionnaireTable.title='$title' 
+        AND questionnaireDescription='$description'
+        AND questionnaireTable.questionnaireID=itemTable.questionnaireID
+        AND itemTable.questionDescription='$questionDescription'";
+
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        //echo "true";
+        $conn->close();
+        return $result;
+    }
+    else {
+        //echo "false";
+        $conn->close();
+        return false;
+    }
+}
+
 function getQuestionnaire($questionnaireID)
 {
     $dbname = "typemoon01";

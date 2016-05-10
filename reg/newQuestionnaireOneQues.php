@@ -38,22 +38,30 @@ if($teacherID==false)
 {
     throw new Exception("Teacher OpenID Error!");
 }
-$questionnaireID = insertQuestionnaire($title, "", "Q", $teacherID);
-if ($questionnaireID == false) {
-    echo "Unknown Error!<br>";
-} else {
-    $questionID = insertQuestion($questionnaireID, "S", $description);
-    if ($questionID == false) {
-        echo "问卷发布失败<br>";
+$check = checkNotice($title,$description);
+if($check == true)
+{
+    $questionnaireID = getQuestionnaireID($title,$description,$question)->fetch_assoc()["questionnaireID"];
+    echo "问卷发布成功<br>";
+}
+else {
+    $questionnaireID = insertQuestionnaire($title, "", "Q", $teacherID);
+    if ($questionnaireID == false) {
+        echo "Unknown Error!<br>";
     } else {
-        $rtnVal1=insertOption($questionID, $questionnaireID, $option1);
-        $rtnVal2=insertOption($questionID, $questionnaireID, $option2);
-        $rtnVal3=insertOption($questionID, $questionnaireID, $option3);
-        $rtnVal4=insertOption($questionID, $questionnaireID, $option4);
-        if ($rtnVal1 && $rtnVal2 && $rtnVal3 && $rtnVal4) {
-            echo "问卷发布成功<br>";
-        } else {
+        $questionID = insertQuestion($questionnaireID, "S", $description);
+        if ($questionID == false) {
             echo "问卷发布失败<br>";
+        } else {
+            $rtnVal1 = insertOption($questionID, $questionnaireID, $option1);
+            $rtnVal2 = insertOption($questionID, $questionnaireID, $option2);
+            $rtnVal3 = insertOption($questionID, $questionnaireID, $option3);
+            $rtnVal4 = insertOption($questionID, $questionnaireID, $option4);
+            if ($rtnVal1 && $rtnVal2 && $rtnVal3 && $rtnVal4) {
+                echo "问卷发布成功<br>";
+            } else {
+                echo "问卷发布失败<br>";
+            }
         }
     }
 }
