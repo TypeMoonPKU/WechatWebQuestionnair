@@ -15,6 +15,7 @@ function createTable()
     $password = "typemoonsql";
 
     $conn = new mysqli($servername, $username, $password);
+    $conn->set_charset("utf8");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -47,6 +48,7 @@ function insertTeacher($name, $openID, $tpassword, $nickname)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "INSERT INTO teacherTable (teacherName, teacherOpenID, teacherID, teacherPassword, teacherNickName) 
       VALUES ('$name', '$openID', 0, '$tpassword', '$nickname')";
 
@@ -69,6 +71,7 @@ function insertStudent($name, $ID, $group, $teacherID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "INSERT INTO studentTable (studentName, studentID, groupID, ownerteacherID)
     VALUES ('$name', '$ID', '$group', '$teacherID')";
 
@@ -91,6 +94,7 @@ function insertParent($name, $openID, $studentID, $tpassword, $nickname)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql1 = "INSERT INTO parentTable (parentName, parentOpenID, parentID, parentPassword, parentNickName)
     VALUES ('$name', '$openID', 0, '$tpassword', '$nickname')";
 
@@ -123,6 +127,7 @@ function insertQuestionnaire($title, $description, $type, $teacherID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "INSERT INTO questionnaireTable (questionnaireID, title, questionnaireDescription, questionnaireType, ownerTeacherID)
     VALUES (0, '$title','$description','$type','$teacherID')";
 
@@ -149,6 +154,7 @@ function insertQuestion($questionnaireID, $type, $description)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "INSERT INTO itemTable (questionID, questionnaireID, questionType, questionDescription)
     VALUES (0,'$questionnaireID','$type','$description')";
 
@@ -175,6 +181,7 @@ function insertOption($questionID, $questionnaireID, $description)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "INSERT INTO optionTable (optionID, questionID, questionnaireID, optionDescription)
     VALUES (0,'$questionID','$questionnaireID','$description')";
 
@@ -197,6 +204,7 @@ function insertAnswer($optionID, $questionID, $questionnaireID, $parentID, $sele
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "INSERT INTO answerTable (optionID, questionID, questionnaireID, parentID, selected)
     VALUES ('$optionID','$questionID','$questionnaireID','$parentID','$select')";
 
@@ -220,6 +228,7 @@ function updateAccess($token, $time)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "UPDATE accessTable SET accessToken=$token, time=$time";
 
     if ($conn->query($sql) === TRUE) {
@@ -242,6 +251,7 @@ function getNumber($optionID, $questionID, $questionnaireID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "SELECT COUNT(*) FROM answerTable
         WHERE optionID=$optionID AND questionID=$questionID
          AND questionnaireID=$questionnaireID AND selected=true";
@@ -261,6 +271,7 @@ function getPeopleSelected($questionnaireID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "SELECT studentName FROM studentTable WHERE studentID IN
       (SELECT DISTINCT studentID FROM parentStudentTable
         WHERE parentID IN 
@@ -292,6 +303,7 @@ function getPeopleNotSelected($questionnaireID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "SELECT studentName FROM studentTable WHERE studentID IN
       (SELECT DISTINCT PS.studentID FROM parentStudentTable PS, studentTable S
        WHERE PS.studentID = S.studentID AND S.ownerTeacherID =
@@ -337,6 +349,7 @@ function getPeopleSelectedOption($questionnaireID, $optionID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "SELECT studentName FROM studentTable WHERE studentID IN
       (SELECT DISTINCT studentID FROM parentStudentTable
         WHERE parentID IN 
@@ -367,6 +380,7 @@ function checkTeacher($teacherOpenID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "SELECT teacherOpenID FROM teacherTable
         WHERE teacherOpenID='$teacherOpenID'";
 
@@ -389,6 +403,7 @@ function checkParent($parentOpenID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "SELECT parentOpenID FROM parentTable
         WHERE parentOpenID='$parentOpenID'";
 
@@ -412,6 +427,7 @@ function checkStudent($studentID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "SELECT studentID FROM studentTable
         WHERE studentID='$studentID'";
 
@@ -435,6 +451,7 @@ function checkNoticeAnswer($parentID,$questionnaireID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "SELECT * FROM answerTable
         WHERE parentID=$parentID AND questionnaireID=$questionnaireID";
 
@@ -458,13 +475,13 @@ function checkNotice($title,$description)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
 
+    $sql = "SELECT * FROM itemTable, questionnaireTable
+        WHERE (questionnaireTable.title='$title' AND questionnaireTable.questionnaireID=itemTable.questionnaireID AND itemTable.questionDescription='$description')";
 
-    //$sql = "SELECT * FROM itemTable, questionnaireTable
-    //    WHERE (questionnaireTable.title='$title' AND questionnaireTable.questionnaireID=itemTable.questionnaireID AND itemTable.questionDescription='$description')";
-
-    $sql = "SELECT * FROM itemTable
-           WHERE questionDescription='$description''";
+    //$sql = "SELECT * FROM itemTable
+    //       WHERE questionDescription='$description''";
 
     $result=$conn->query($sql);
 
@@ -487,6 +504,7 @@ function getTeacherID($teacherOpenID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "SELECT teacherID FROM teacherTable
         WHERE teacherOpenID='$teacherOpenID'";
 
@@ -511,6 +529,7 @@ function getParentID($parentOpenID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "SELECT parentID FROM parentTable
         WHERE parentOpenID='$parentOpenID'";
 
@@ -535,6 +554,7 @@ function getQuestionnaire($questionnaireID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "SELECT * FROM questionnaireTable
         WHERE questionnaireID=$questionnaireID";
 
@@ -558,6 +578,7 @@ function getQuestion($questionnaireID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "SELECT * FROM itemTable
         WHERE questionnaireID=$questionnaireID";
 
@@ -581,6 +602,7 @@ function getOption($questionnaireID, $questionID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "SELECT * FROM optionTable 
         WHERE questionnaireID=$questionnaireID AND questionID=$questionID";
 
@@ -605,6 +627,7 @@ function getQuestionnaireByTeacher($teacherID)
     $username = "typemoon";
     $password = "typemoonsql";
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8");
     $sql = "SELECT title,questionnaireType,questionnaireID FROM questionnaireTable
         WHERE ownerTeacherID=$teacherID";
 

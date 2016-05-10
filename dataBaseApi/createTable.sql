@@ -1,3 +1,4 @@
+CREATE DATABASE `typemoon01` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 use typemoon01;     # 还需要在数据库中给这个用户分配权限，还是因为对mysql的权限管理没有系统的了解
 CREATE TABLE teacherTable
 (
