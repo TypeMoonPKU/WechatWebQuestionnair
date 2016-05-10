@@ -95,9 +95,10 @@ questionID:问题号
             <input type="checkbox"  name="optionsCheckboxC" id="optionsCheckboxC" value="optionC"><label for="optionsCheckboxC" id="optionsCheckboxCLabel">C.正在加载</label><br>
             <input type="checkbox"  name="optionsCheckboxD" id="optionsCheckboxD" value="optionD"><label for="optionsCheckboxD" id="optionsCheckboxDLabel">D.正在加载</label><br>
         </div>
+    </div>
+    <div class="form-group">
             <button type="submit" class="btn btn-large btn-block">确认提交</button>
-
-</div>
+    </div>
 </form>
 </body>
 <!-- 动态修改页面内容的代码-->
