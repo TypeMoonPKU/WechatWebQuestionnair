@@ -11,7 +11,7 @@ header("Content-type: text/html; charset=utf-8");
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
     <script src="./reference/bootstrap.min.js"></script>
-    <script src="./reference/bootstrap-theme.min.css"></script>
+    
 </head>
 <body>
 <?php require_once "share/navigation.php"?>

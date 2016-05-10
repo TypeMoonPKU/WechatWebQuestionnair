@@ -17,7 +17,7 @@ $teacherOpenID = teacher_sign_in($_REQUEST,$FULLthisPageURL);
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
     <script src="./reference/bootstrap.min.js"></script>
-    <script src="./reference/bootstrap-theme.min.css"></script>
+    
 </head>
 <body>
 <?php require_once "share/navigation.php"?>

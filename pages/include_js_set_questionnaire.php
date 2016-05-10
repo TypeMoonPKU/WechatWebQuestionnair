@@ -25,4 +25,8 @@ document.getElementById("optionsCheckboxALabel").innerHTML=jsondata.question[0].
 document.getElementById("optionsCheckboxBLabel").innerHTML=jsondata.question[0].option[1].description;
 document.getElementById("optionsCheckboxCLabel").innerHTML=jsondata.question[0].option[2].description;
 document.getElementById("optionsCheckboxDLabel").innerHTML=jsondata.question[0].option[3].description;
+document.getElementById('optionsCheckboxA').value = jsondata.question[0].option[0].optionID;
+document.getElementById('optionsCheckboxB').value = jsondata.question[0].option[1].optionID;
+document.getElementById('optionsCheckboxC').value = jsondata.question[0].option[2].optionID;
+document.getElementById('optionsCheckboxD').value = jsondata.question[0].option[3].optionID;
 </script>

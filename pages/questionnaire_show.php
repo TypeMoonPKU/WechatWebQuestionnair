@@ -32,14 +32,14 @@ Me:
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
     <script src="./reference/bootstrap.min.js"></script>
-    <script src="./reference/bootstrap-theme.min.css"></script>
+    
 </head>
 <body>
-<?php require_once "share/navigation.php"?>
+<?php require_once "share/navigation_safe.php"?>
 <br><br><br>
 <form role="form" action="./upload_question_answers.php" method="get" enctype="multipart/form-data">
     <div class="form-group" style="display: none">
-        <label for="question_group_name" class="col-sm-2 control-label">群&nbsp名</label>
+        <label for="question_group_name" class="col-sm-2 control-label">群名</label>
         <div class="col-sm-10">
             <p class="form-control-static" id="question_group_name">这是来自您孩子所在班级的家长群</p>
         </div>
@@ -52,7 +52,7 @@ Me:
         </div>
     </div>
     <div class="form-group">
-        <label for="question_desc" class="col-sm-2 control-label">描&nbsp述</label>
+        <label for="question_desc" class="col-sm-2 control-label">描述</label>
         <div class="col-sm-10">
             <p class="form-control-static" id="questionnaireDescription">正在加载问卷描述</p>
         </div>
@@ -60,13 +60,13 @@ Me:
 
     <div class="form-group">
         <label for="question_desc" class="col-sm-2 control-label">题目</label>
-    <div class="col-sm-10">
-        <p class="form-control-static" id="questionDescription">您可以来参加家长会的时间</p>
-        <input type="checkbox"  name="questionAnswer" id="optionsCheckboxA" value="optionA"><label for="optionsCheckboxA" id="optionsCheckboxALabel">A.正在加载</label><br>
-        <input type="checkbox"  name="questionAnswer" id="optionsCheckboxB" value="optionB"><label for="optionsCheckboxB" id="optionsCheckboxBLabel">B.正在加载</label><br>
-        <input type="checkbox"  name="questionAnswer" id="optionsCheckboxC" value="optionC"><label for="optionsCheckboxC" id="optionsCheckboxCLabel">C.正在加载</label><br>
-        <input type="checkbox"  name="questionAnswer" id="optionsCheckboxD" value="optionD"><label for="optionsCheckboxD" id="optionsCheckboxDLabel">D.正在加载</label><br>
-    </div>
+        <div class="col-sm-10">
+            <p class="form-control-static" id="questionDescription">您可以来参加家长会的时间</p>
+            <input type="checkbox"  name="optionsCheckboxA" id="optionsCheckboxA" value="optionA"><label for="optionsCheckboxA" id="optionsCheckboxALabel">A.正在加载</label><br>
+            <input type="checkbox"  name="optionsCheckboxB" id="optionsCheckboxB" value="optionB"><label for="optionsCheckboxB" id="optionsCheckboxBLabel">B.正在加载</label><br>
+            <input type="checkbox"  name="optionsCheckboxC" id="optionsCheckboxC" value="optionC"><label for="optionsCheckboxC" id="optionsCheckboxCLabel">C.正在加载</label><br>
+            <input type="checkbox"  name="optionsCheckboxD" id="optionsCheckboxD" value="optionD"><label for="optionsCheckboxD" id="optionsCheckboxDLabel">D.正在加载</label><br>
+        </div>
             <button type="submit" class="btn btn-large btn-block">确认提交</button>
 
 </div>

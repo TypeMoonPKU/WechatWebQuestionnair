@@ -19,7 +19,7 @@ $questionnaireID=$_REQUEST['questionnaireID'];
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
     <script src="./reference/bootstrap.min.js"></script>
-    <script src="./reference/bootstrap-theme.min.css"></script>
+    
     <script src="./reference/highcharts.js"></script>
 </head>
 <body>
@@ -50,10 +50,10 @@ $questionnaireID=$_REQUEST['questionnaireID'];
         <label for="question_desc" class="col-sm-2 control-label">题目</label>
         <div class="col-sm-10">
             <p class="form-control-static" id="questionDescription">您可以来参加家长会的时间</p>
-            <input type="checkbox"  name="questionAnswer" id="optionsCheckboxA" value="optionA"><label for="optionsCheckboxA" id="optionsCheckboxALabel">A.正在加载</label><br>
-            <input type="checkbox"  name="questionAnswer" id="optionsCheckboxB" value="optionB"><label for="optionsCheckboxB" id="optionsCheckboxBLabel">B.正在加载</label><br>
-            <input type="checkbox"  name="questionAnswer" id="optionsCheckboxC" value="optionC"><label for="optionsCheckboxC" id="optionsCheckboxCLabel">C.正在加载</label><br>
-            <input type="checkbox"  name="questionAnswer" id="optionsCheckboxD" value="optionD"><label for="optionsCheckboxD" id="optionsCheckboxDLabel">D.正在加载</label><br>
+            <input type="checkbox"  name="optionsCheckboxA" id="optionsCheckboxA" value="optionA"><label for="optionsCheckboxA" id="optionsCheckboxALabel">A.正在加载</label><br>
+            <input type="checkbox"  name="optionsCheckboxB" id="optionsCheckboxB" value="optionB"><label for="optionsCheckboxB" id="optionsCheckboxBLabel">B.正在加载</label><br>
+            <input type="checkbox"  name="optionsCheckboxC" id="optionsCheckboxC" value="optionC"><label for="optionsCheckboxC" id="optionsCheckboxCLabel">C.正在加载</label><br>
+            <input type="checkbox"  name="optionsCheckboxD" id="optionsCheckboxD" value="optionD"><label for="optionsCheckboxD" id="optionsCheckboxDLabel">D.正在加载</label><br>
         </div>
         <button type="submit" class="btn btn-large btn-block" style="display: none">确认提交</button>
 

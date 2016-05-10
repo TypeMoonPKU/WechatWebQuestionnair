@@ -1,8 +1,10 @@
 <?php
+
 //此行代码用于避免iPhone上出现的乱码问题
 header("Content-type: text/html; charset=utf-8");
 ?>
 <?php
+//此页面用于提交问卷
 //根据情况进行跳转
 //如果不含有parentOpenID或者OpenID或者Code，则强制进行跳转
 //最后的状态是获得parentOpenID
