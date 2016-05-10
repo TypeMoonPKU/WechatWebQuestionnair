@@ -29,4 +29,6 @@ document.getElementById('optionsCheckboxA').value = jsondata.question[0].option[
 document.getElementById('optionsCheckboxB').value = jsondata.question[0].option[1].optionID;
 document.getElementById('optionsCheckboxC').value = jsondata.question[0].option[2].optionID;
 document.getElementById('optionsCheckboxD').value = jsondata.question[0].option[3].optionID;
+document.getElementById('questionID').value = jsondata.question[0].questionID;
+
 </script>

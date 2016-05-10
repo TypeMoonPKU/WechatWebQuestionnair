@@ -19,7 +19,7 @@ if(empty($_REQUEST['questionnaireID'])){
 }
 $questionnaireID=$_REQUEST['questionnaireID'];
 //$questionnaireID=1;
-$questionnaireShowURL="http://121.201.14.58/pages/questionnaire_show.php?questionnaireID=" . $questionnaireID;
+$questionnaireShowURL="http://121.201.14.58/pages/questionnaire_show_parents.php?questionnaireID=" . $questionnaireID;
 $OAuthURL = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx75de8782f8e4f99c&redirect_uri=" . urlencode($questionnaireShowURL) . "&response_type=code&scope=snsapi_base#wechat_redirect";
 ?>
 

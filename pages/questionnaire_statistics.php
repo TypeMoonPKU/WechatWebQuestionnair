@@ -32,6 +32,14 @@ $questionnaireID=$_REQUEST['questionnaireID'];
             <p class="form-control-static" id="question_group_name">这是来自您孩子所在班级的家长群</p>
         </div>
     </div>
+    <!-- 用于在页面中保存questionID-->
+    <div class="form-group" style="display: none" >
+        <label for="questionID" class="col-sm-2 control-label">questionID</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="questionID" name="questionID"
+                   value='待设定'>
+        </div>
+    </div>
 
     <div class="form-group">
         <label for="question_question_name" class="col-sm-2 control-label">问卷名</label>

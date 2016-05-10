@@ -6,14 +6,18 @@ header("Content-type: text/html; charset=utf-8");
 测试链接： http://121.201.14.58/pages/questionnaire_show.php?questionnaireID=1
 -->
 <?php
-// 这个页面也是老师家长都能看？
+// 提供给家长回答问题：必须提供parentOpenID或者code
 // 引导questionnaireID不存在的情况
+require_once "../util/commonFuns.php";
 if(empty($_REQUEST['questionnaireID'])){
-    require_once "../util/httpRedirect.php";
-    http_redirect(0,"./error/invalid_url.php");
+    http_redirect_cf(0,"./error/invalid_url.php");
     exit(0);
 }
 $questionnaireID = $_REQUEST['questionnaireID'];
+
+// 解决家长登陆问题
+$FULLThisURL = 'http://' . REMOTE_SERVER_IP . '/pages/questionnaire_show_parents.php?questionnaireID=' . $questionnaireID;
+$parentOpenID = parent_sign_in($_REQUEST,$FULLThisURL);
 
 // 提交给服务器用于回答问题的数据：
 /*
@@ -45,12 +49,28 @@ questionID:问题号
             <p class="form-control-static" id="question_group_name">这是来自您孩子所在班级的家长群</p>
         </div>
     </div>
+    <!-- 用于在页面中保存parentOpenID-->
+    <div class="form-group" style="display: none" >
+        <label for="parentOpenID" class="col-sm-2 control-label">parentOpenID</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="parentOpenID" name="parentOpenID"
+                   value=<?php echo $parentOpenID?>>
+        </div>
+    </div>
     <!-- 用于在页面中保存questionnaireID-->
     <div class="form-group" style="display: none" >
         <label for="questionnaireID" class="col-sm-2 control-label">questionnaireID</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="questionnaireID" name="questionnaireID"
                    value=<?php echo $questionnaireID?>>
+        </div>
+    </div>
+    <!-- 用于在页面中保存questionID-->
+    <div class="form-group" style="display: none" >
+        <label for="questionID" class="col-sm-2 control-label">questionID</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="questionID" name="questionID"
+                   value='待设定'>
         </div>
     </div>
     <div class="form-group">
@@ -69,7 +89,7 @@ questionID:问题号
     <div class="form-group">
         <label for="question_desc" class="col-sm-2 control-label">题目</label>
         <div class="col-sm-10">
-            <p class="form-control-static" id="questionDescription">您可以来参加家长会的时间</p>
+            <p class="form-control-static" id="questionDescription">正在加载题目描述</p>
             <input type="checkbox"  name="optionsCheckboxA" id="optionsCheckboxA" value="optionA"><label for="optionsCheckboxA" id="optionsCheckboxALabel">A.正在加载</label><br>
             <input type="checkbox"  name="optionsCheckboxB" id="optionsCheckboxB" value="optionB"><label for="optionsCheckboxB" id="optionsCheckboxBLabel">B.正在加载</label><br>
             <input type="checkbox"  name="optionsCheckboxC" id="optionsCheckboxC" value="optionC"><label for="optionsCheckboxC" id="optionsCheckboxCLabel">C.正在加载</label><br>

@@ -6,7 +6,7 @@
  * Date: 4/18/2016
  * Time: 14:09
  */
-require_once "../util/httpRedirect.php";
+//require_once "../util/httpRedirect.php";
 require_once "do_post_request.php";
 require_once "../dataBaseApi/dataBaseApis.php";
 
@@ -113,12 +113,23 @@ function getOpenIDFromREQUEST($request){
     }
 }
 
+// 为了方便使用，将这两个函数拷贝过来了，以后只要引入commonfuns就好了 2016年5月10日23:18:00
+function http_redirect_cf($time, $goalURL){
+    echo '<head> <meta http-equiv="refresh" content="' . $time . ';url=' . $goalURL . '"/></head>'; //重定向
+}
+
+function http_OAuth_redirect_cf($time, $FULLGoalURL){
+    $goalURL = genOAuthURL($FULLGoalURL);
+    http_redirect_cf($time, $goalURL);
+}
+
 /**
  * 解决老师的登陆问题，
  * 判断一：request中是否存在 teacherOpenID, code, OpenID, 如果不存在将带到微信授权界面，微信授权界面跳转回来后将
  *        统一转换为teacherOpenID
  * 判断二：判断该teacher是否已经注册，如果没有注册的话则跳转至权限不足页面
- * @param $request 
+ * @param $request
+ * @return string
  */
 function teacher_sign_in($request, $FULLGoalURL){
     if(!empty($request['teacherOpenID'])){
@@ -133,13 +144,46 @@ function teacher_sign_in($request, $FULLGoalURL){
     }
 
     //ONLY for debug
-    if($teacherOpenID==2){
-        return $teacherOpenID;
-    }
+//    if($teacherOpenID==2){
+//        return $teacherOpenID;
+//    }
     //判定是否是真正的老师
     if(!checkTeacher($teacherOpenID)){ // 不是老师
-        http_redirect(0, "http://" . REMOTE_SERVER_IP . "/pages/parent_access_denied.php");
+        http_redirect_cf(0, "http://" . REMOTE_SERVER_IP . "/pages/parent_access_denied.php");
         return null;
     }
     return $teacherOpenID;
 }
+
+/**
+ * 解决家长的登陆问题，
+ * 判断一：request中是否存在 parentOpenID, code, OpenID, 如果不存在将带到微信授权界面，微信授权界面跳转回来后将
+ *        统一转换为parentOpenID
+ * 判断二：判断该parentOpenID是否已经注册，如果没有注册的话则跳转至引导注册界面
+ * @param $request
+ * @return string
+ */
+function parent_sign_in($request, $FULLGoalURL){
+    if(!empty($request['parentOpenID'])){
+        $parentOpenID = $request['parentOpenID'];
+    }elseif(!empty($request['OpenID'])){
+        $parentOpenID = $request['OpenID'];
+    }elseif(!empty($request['code'])){
+        $parentOpenID = getOpenId($request['code']);
+    }else{ //链接中不带验证消息，重定向至验证页面
+        http_OAuth_redirect(0,$FULLGoalURL);
+        return null;
+    }
+
+//    //ONLY for debug
+//    if($parentOpenID==2){
+//        return $parentOpenID;
+//    }
+    //判定是否是真正的家长
+    if(!checkParent($parentOpenID)){ // 不是家长
+        http_redirect_cf(0, "http://" . REMOTE_SERVER_IP . "/pages/parent_not_registered.php");
+        return null;
+    }
+    return $parentOpenID;
+}
+
