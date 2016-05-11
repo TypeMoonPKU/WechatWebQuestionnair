@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 //此行代码用于避免iPhone上出现的乱码问题
 header("Content-type: text/html; charset=utf-8");
 ?>
@@ -77,9 +77,9 @@ else {
 require_once "../util/commonFuns.php";
 if($parentRegStatus){
     $url = '../util/generate_hint_page.php?title=注册成功&description=注册成功，欢迎使用微通！';
-    http_OAuth_redirect_cf(0,$url);
+    http_redirect_cf(0,$url);
 }else{
     $url = '../util/generate_hint_page.php?title=注册失败&description=注册失败，请联系管理员！';
-    http_OAuth_redirect_cf(0,$url);
+    http_redirect_cf(0,$url);
 }
 ?>

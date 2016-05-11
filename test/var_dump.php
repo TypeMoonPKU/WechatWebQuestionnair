@@ -6,6 +6,5 @@
  * Time: 22:54
  */
 var_dump($_REQUEST);
-val = array();
-val()
+
 var_dump(array());
