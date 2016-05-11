@@ -10,7 +10,7 @@
 //{questionnaireID, questionnaireTitle, questionnaireDescription, 
 //optionNum, {{option1, description, number, {stu1, stu2,...}},{option2,...},...}
 //{notselectedNum,{stu1, stu2, ...}}}
-function questionnairStats($questionnaireID)
+function questionnaireNotNoticeStats($questionnaireID)
 {
     require_once "../dataBaseApi/dataBaseApis.php";
 

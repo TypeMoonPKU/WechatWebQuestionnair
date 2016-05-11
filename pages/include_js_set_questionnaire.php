@@ -1,6 +1,7 @@
 <?php
 /**
  * 用于设置页面中questionnaire的信息
+ * 会设置的信息包括：问卷的详情以及页面的标题
  * 需要提供的参数：$questionnaireID
  * Created by PhpStorm.
  * User: Archimekai
@@ -30,5 +31,5 @@ document.getElementById('optionsCheckboxB').value = jsondata.question[0].option[
 document.getElementById('optionsCheckboxC').value = jsondata.question[0].option[2].optionID;
 document.getElementById('optionsCheckboxD').value = jsondata.question[0].option[3].optionID;
 document.getElementById('questionID').value = jsondata.question[0].questionID;
-
+document.title = "问卷：" + jsondata.questionnaireTitle;
 </script>

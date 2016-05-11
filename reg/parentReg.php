@@ -4,8 +4,8 @@ header("Content-type: text/html; charset=utf-8");
 ?>
 
 <!-- 通用提示页面代码 part1 开始-->
-<!DOCTYPE html >
-<html >
+<!DOCTYPE html>
+<html>
 <head>
     <title>通知确认</title>
     <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1.0, charset=utf-8">

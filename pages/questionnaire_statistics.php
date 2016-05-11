@@ -9,17 +9,16 @@ if(empty($_REQUEST['questionnaireID'])){
 }
 $questionnaireID=$_REQUEST['questionnaireID'];
 ?>
-?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>问卷统计</title>
     <!--<meta http-equiv="refresh" content="1;url=./pageUnderConstruction.php">-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, charset=utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./reference/bootstrap.min.css" rel="stylesheet">
     <script src="./reference/jquery.min.js"></script>
     <script src="./reference/bootstrap.min.js"></script>
-    
     <script src="./reference/highcharts.js"></script>
 </head>
 <body>
@@ -59,17 +58,21 @@ $questionnaireID=$_REQUEST['questionnaireID'];
         <div class="col-sm-10">
             <p class="form-control-static" id="questionDescription">您可以来参加家长会的时间</p>
             <input type="checkbox"  name="optionsCheckboxA" id="optionsCheckboxA" value="optionA"><label for="optionsCheckboxA" id="optionsCheckboxALabel">A.正在加载</label><br>
+            <p id="optionsCheckboxASelectedParents">正在加载</p>
             <input type="checkbox"  name="optionsCheckboxB" id="optionsCheckboxB" value="optionB"><label for="optionsCheckboxB" id="optionsCheckboxBLabel">B.正在加载</label><br>
+            <p id="optionsCheckboxBSelectedParents">正在加载</p>
             <input type="checkbox"  name="optionsCheckboxC" id="optionsCheckboxC" value="optionC"><label for="optionsCheckboxC" id="optionsCheckboxCLabel">C.正在加载</label><br>
+            <p id="optionsCheckboxCSelectedParents">正在加载</p>
             <input type="checkbox"  name="optionsCheckboxD" id="optionsCheckboxD" value="optionD"><label for="optionsCheckboxD" id="optionsCheckboxDLabel">D.正在加载</label><br>
+            <p id="optionsCheckboxDSelectedParents">正在加载</p>
         </div>
         <button type="submit" class="btn btn-large btn-block" style="display: none">确认提交</button>
 
     </div>
     <div class="form-group" style="margin-left: 2px">
-        <label for="question_desc" class="col-sm-2 control-label">还未回答的家长</label>
+        <label for="students_not_answered" class="col-sm-2 control-label">还未回答的学生</label>
         <div class="col-sm-10">
-            <p class="form-control-static" id="question_desc">全部家长都已回答</p>
+            <p class="form-control-static" id="students_not_answered">正在加载</p>
         </div>
     </div>
     <div class="form-group">
@@ -80,7 +83,60 @@ $questionnaireID=$_REQUEST['questionnaireID'];
     </div>
 </form>
 </body>
-<?php require_once "include_js_set_questionnaire.php"?>
+<?php require "include_js_set_questionnaire.php"?>
+<!-- TODO 为了保持数据一致性，这个页面中应该全部使用下面的JavaScript来设置-->
+<script>
+    // 用于修改未回答家长的信息
+    jsonStatsData = '<?php
+        require_once "../reg/questionnaireStats.php";
+        $jsonStatsData = questionnaireNotNoticeStats($questionnaireID);
+        echo $jsonStatsData;
+    ?>';
+    jsonStatsDataParsed = $.parseJSON(jsonStatsData);
+    // TODO 最好能同时显示学生和家长
+    //设置未回答的家长
+    if(jsonStatsDataParsed.notSelected.students.length == 0){
+        document.getElementById('students_not_answered').innerHTML = '所有学生都已回答';
+    }else{
+        var notSelectedStudentNamesString = '';
+        for(x in jsonStatsDataParsed.notSelected.students){
+            notSelectedStudentNamesString += (jsonStatsDataParsed.notSelected.students[x] + ' ');
+        }
+        document.getElementById('students_not_answered').innerHTML = notSelectedStudentNamesString;
+    }
+
+    // 用于设置页面中显示的回答家长项
+    function setDocumentAnsweredParents(optionSelectedParentFieldDOMid, optionSelectedParentsArray){
+        var DOMElement = document.getElementById(optionSelectedParentFieldDOMid);
+        if(optionSelectedParentsArray.length == 0){
+            DOMElement.innerHTML = '没有家长选择此选项';
+        }else{
+            var SelectedParentNamesString = '选择家长：';
+            for(x in optionSelectedParentsArray){
+                SelectedParentNamesString += (optionSelectedParentsArray[x] + ' ');
+            }
+            DOMElement.innerHTML = SelectedParentNamesString;
+        }
+    }
+
+    setDocumentAnsweredParents('optionsCheckboxASelectedParents',jsonStatsDataParsed.optionArr[0].selectedPeople);
+    setDocumentAnsweredParents('optionsCheckboxBSelectedParents',jsonStatsDataParsed.optionArr[1].selectedPeople);
+    setDocumentAnsweredParents('optionsCheckboxCSelectedParents',jsonStatsDataParsed.optionArr[2].selectedPeople);
+    setDocumentAnsweredParents('optionsCheckboxDSelectedParents',jsonStatsDataParsed.optionArr[3].selectedPeople);
+
+    // 用于修改图表信息
+    var chartCategories = [jsonStatsDataParsed.optionArr[0].optionDescription,
+        jsonStatsDataParsed.optionArr[1].optionDescription,
+        jsonStatsDataParsed.optionArr[2].optionDescription,
+        jsonStatsDataParsed.optionArr[3].optionDescription
+    ];
+    var chartSelectedPeopleCount = [jsonStatsDataParsed.optionArr[0].selectedPeople.length,
+        jsonStatsDataParsed.optionArr[1].selectedPeople.length,
+        jsonStatsDataParsed.optionArr[2].selectedPeople.length,
+        jsonStatsDataParsed.optionArr[3].selectedPeople.length
+    ]
+
+</script>
 <script>
     // 用于画图的JavaScript
     $(document).ready(function () {
@@ -99,6 +155,7 @@ $questionnaireID=$_REQUEST['questionnaireID'];
                 text: null
             }
         };
+        xAxis.categories = chartCategories;
         var yAxis = {
             min: 0,
             title: {
@@ -142,6 +199,7 @@ $questionnaireID=$_REQUEST['questionnaireID'];
             data: [45, 31, 23, 35]
         }
         ];
+        series[0].data = chartSelectedPeopleCount;
 
         var json = {};
         json.chart = chart;

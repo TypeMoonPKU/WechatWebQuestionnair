@@ -6,6 +6,7 @@ header("Content-type: text/html; charset=utf-8");
 测试链接： http://121.201.14.58/pages/questionnaire_show.php?questionnaireID=1
 -->
 <?php
+// TODO 如果一个回答也没有提供，必须禁止其提交
 // 提供给家长回答问题：必须提供parentOpenID或者code
 // 引导questionnaireID不存在的情况
 require_once "../util/commonFuns.php";
